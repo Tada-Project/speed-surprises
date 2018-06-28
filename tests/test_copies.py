@@ -8,6 +8,7 @@ from hypothesis import Verbosity
 from hypothesis.strategies import integers
 from speedsurprises.text import copies
 
+
 @pytest.mark.benchmark
 def test_count_benchmark(benchmark):
     """Benchmark the mcopies_ofc function"""
