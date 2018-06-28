@@ -3,12 +3,12 @@
 import pytest
 from speedsurprises.text import copies
 
-BENCHMARK = pytest.mark.skipif(
-    not pytest.config.getoption("--runbenchmark"),
-    reason="needs the --runbenchmark option to run")
+# BENCHMARK = pytest.mark.skipif(
+#     not pytest.config.getoption("--runbenchmark"),
+#     reason="needs the --runbenchmark option to run")
 
 
-@BENCHMARK
+@pytest.mark.benchmark
 def test_count_benchmark(benchmark):
     """Benchmark the mcopies_ofc function"""
     copied_character_string = benchmark(copies.mcopies_ofc, input_string="10")
