@@ -10,6 +10,7 @@ pylint = "*"
 neovim = "*"
 black = "*"
 pytest = "*"
+pytest-benchmark = "*"
 
 [requires]
 python_version = "3.6"
