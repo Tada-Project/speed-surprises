@@ -1,7 +1,24 @@
 """Tests for the gatorgrader module"""
 
 import pytest
+
+from hypothesis import given
+from hypothesis import settings
+from hypothesis import Verbosity
+from hypothesis.strategies import integers
 from speedsurprises.text import copies
+
+
+@given(copies_as_int=integers(min_value=1))
+@settings(verbosity=Verbosity.verbose, deadline=None)
+@pytest.mark.hypothesisworks
+def test_letter_count_hypothesis(copies_as_int):
+    """Returns output with correct number of copies"""
+    copy_count = copies_as_int
+    copies_as_string = str(copies_as_int)
+    copied_character_string = copies.mcopies_ofc(copies_as_string)
+    assert len(copied_character_string) == copy_count
+    assert copied_character_string.count("C") == copy_count
 
 
 @pytest.mark.benchmark
