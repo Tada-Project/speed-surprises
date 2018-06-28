@@ -1,7 +1,5 @@
 """Tests for the gatorgrader module"""
 
-import pytest
-
 from speedsurprises.text import copies
 
 
