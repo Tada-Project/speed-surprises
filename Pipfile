@@ -5,10 +5,14 @@ name = "pypi"
 
 [packages]
 
-[dev - packages]
+[dev-packages]
+pylint = "*"
 neovim = "*"
-pytest = "*"
 black = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true
