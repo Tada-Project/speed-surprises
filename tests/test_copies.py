@@ -13,6 +13,7 @@ def test_letter_count_single():
 
 
 @pytest.mark.parametrize("letter_count,expected_count", [
+    ("1", 1),
     ("10", 10),
     ("100", 100),
     ("1000", 1000),
