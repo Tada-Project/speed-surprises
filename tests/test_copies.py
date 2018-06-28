@@ -7,9 +7,9 @@ from speedsurprises.text import copies
 @pytest.mark.benchmark
 def test_count_benchmark(benchmark):
     """Benchmark the mcopies_ofc function"""
-    copied_character_string = benchmark(copies.mcopies_ofc, input_string="10")
-    assert len(copied_character_string) == 10
-    assert copied_character_string.count("C") == 10
+    copied_character_string = benchmark(copies.mcopies_ofc, input_string="100")
+    assert len(copied_character_string) == 100
+    assert copied_character_string.count("C") == 100
 
 
 def test_letter_count_single():
