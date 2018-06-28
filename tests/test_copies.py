@@ -3,10 +3,6 @@
 import pytest
 from speedsurprises.text import copies
 
-# BENCHMARK = pytest.mark.skipif(
-#     not pytest.config.getoption("--runbenchmark"),
-#     reason="needs the --runbenchmark option to run")
-
 
 @pytest.mark.benchmark
 def test_count_benchmark(benchmark):
