@@ -29,12 +29,9 @@ def test_letter_count_hypothesis(copies_as_int):
     assert copied_character_string.count("C") == copy_count
 
 
-@pytest.mark.parametrize("letter_count,expected_count", [
-    ("1", 1),
-    ("10", 10),
-    ("100", 100),
-    ("1000", 1000),
-])
+@pytest.mark.parametrize(
+    "letter_count,expected_count", [("1", 1), ("10", 10), ("100", 100), ("1000", 1000)]
+)
 def test_letter_count_multiple(letter_count, expected_count):
     """Returns output with correct number of copies"""
     copied_character_string = copies.mcopies_ofc(letter_count)
