@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1f17ba8ba7f5f7b577c6b576af245c0da69692d29edd9d8001b0bb1e052ff014"
+            "sha256": "2d2f03ef29325a1043e3e4e36d5f2a9c23085f99641e0030199f09220667e263"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -85,7 +85,6 @@
                 "sha256:c9fa8fbda281b1ddf25b8fa7ccf0564198a86c9da8a413111fcadd510a98a232",
                 "sha256:ccdf1bd8fd848690fb3d5153d0c54c41169e59804acb9652664f5f669fe25c11"
             ],
-            "markers": "python_version != '3.1.*' and python_version != '3.0.*' and python_version != '3.2.*' and python_version >= '2.7' and python_version < '4' and python_version != '3.3.*'",
             "version": "==5.0a1"
         },
         "greenlet": {
@@ -113,12 +112,12 @@
         },
         "hypothesis": {
             "hashes": [
-                "sha256:3bc3d597c6778f46f666f8c2049c5d2d027c74f9ec06c2becae7ddc461545cae",
-                "sha256:e5ce0805f66545ba98fac69ab65ebbdcc484e19949802fba4780781bf1c57cdf",
-                "sha256:f23c02a6b7ea74df997caccda6966b6bbac6953ad6ed6d01e164ca5b79ec3ff8"
+                "sha256:beedcdd8335dfc40f0a58b228c17a4832371743423a09bde41a066789003896d",
+                "sha256:df05ed44b37900f4ee878e8a2f2d844d0f4d3d670ce15e55a8b85fc53c1a442e",
+                "sha256:f5ec9b72c94bf57bd94047440d3731415e8d50585b44d7cc5d2820af0a3b3673"
             ],
             "index": "pypi",
-            "version": "==3.64.2"
+            "version": "==3.65.0"
         },
         "isort": {
             "hashes": [
@@ -126,7 +125,6 @@
                 "sha256:b9c40e9750f3d77e6e4d441d8b0266cf555e7cdabdcff33c4fd06366ca761ef8",
                 "sha256:ec9ef8f4a9bc6f71eec99e1806bfa2de401650d996c59330782b89a5555c1497"
             ],
-            "markers": "python_version != '3.0.*' and python_version != '3.2.*' and python_version != '3.3.*' and python_version != '3.1.*' and python_version >= '2.7'",
             "version": "==4.3.4"
         },
         "lazy-object-proxy": {
@@ -204,6 +202,14 @@
             ],
             "index": "pypi",
             "version": "==0.2.6"
+        },
+        "perf": {
+            "hashes": [
+                "sha256:5aae76e58bd3edd0c50adcc7c16926ebb9ed8c0e5058b435a30d58c6bb0394a8",
+                "sha256:fa25ee23f7d9f07733e318c2491c8ca2209de2bd5a11607cdf29e79bf88c669e"
+            ],
+            "index": "pypi",
+            "version": "==1.5.1"
         },
         "pluggy": {
             "hashes": [
