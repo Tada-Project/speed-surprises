@@ -1,11 +1,7 @@
 """Benchmarks with perf for the mcopies_ofc function in the copies module"""
 
-import os
-import sys
-
 import perf
 
-import speedsurprises
 from speedsurprises.text import copies
 
 
