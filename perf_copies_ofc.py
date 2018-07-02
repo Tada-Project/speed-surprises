@@ -19,5 +19,7 @@ if __name__ == "__main__":
     runner.metadata["description"] = "Benchmark for the mcopies_ofc function"
     # Example of calling the function:
     # copied_character_string = copies.mcopies_ofc(copies_as_string)
+    # idea: imagine calling this iteratively multiple times with larger
+    # inputs (size by doubling experiment and data by hypothesis)
     benchmark = runner.bench_func("mcopies", bench_copies, copies.mcopies_ofc, "1000")
     benchmark.dump("mcopies_ofc.json", compact=False, replace=True)
