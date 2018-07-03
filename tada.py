@@ -33,6 +33,6 @@ if __name__ == "__main__":
         current_output, current_error = run_command("python3 perf_copies_ofc.py")
         print(current_output.decode(UTF8))
         print(current_error.decode(UTF8))
-        print("... Done running experiment for size " + str(size))
+        print("... Done running experiment for size " + str(size) + "\n")
         size = size * 2
         save_configuration(CONFIGURATION, size)
