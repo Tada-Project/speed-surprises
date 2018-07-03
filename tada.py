@@ -22,7 +22,7 @@ def save_configuration(configurationfile, size):
 
 
 if __name__ == "__main__":
-    # setup parameters of simple doubling experiment
+    # setup parameters of a simple doubling experiment
     size = 100
     factor = 2
     size_stop = 400
