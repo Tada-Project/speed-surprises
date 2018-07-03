@@ -23,7 +23,7 @@ if __name__ == "__main__":
     # Read the chosen_size
     filepath = "configuration.txt"
     with open(filepath) as fp:
-        chosen_size = fp.readline()
+        chosen_size = fp.readline().replace('\n', '')
     # configure perf
     runner = perf.Runner()
     # perform the small doubling experiment
