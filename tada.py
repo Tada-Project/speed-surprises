@@ -57,7 +57,7 @@ if __name__ == "__main__":
         display_output(current_error.decode(UTF8))
         # read the JSON file containing the results
         current_benchmark = perf.Benchmark.load(
-            RESULTS + SEPARATOR + PERF_EXPERIMENT_NAME + size + JSON_EXT
+            RESULTS + SEPARATOR + PERF_EXPERIMENT_NAME + str(size) + JSON_EXT
         )
         print("→ Done running experiment for size " + str(size) + "\n")
         # go to the next size for the doubling experiment
