@@ -8,6 +8,11 @@ import perf
 UTF8 = "utf-8"
 CONFIGURATION = ".configuration.txt"
 PERF_EXPERIMENT_NAME = "perf_mcopies_ofc"
+JSON_EXT = ".json"
+PYTHON_EXT = ".py"
+RESULTS = "results"
+SEPARATOR = "/"
+
 
 def run_command(command):
     """Run a command and return the output and error code"""
@@ -44,12 +49,16 @@ if __name__ == "__main__":
     while size <= size_stop:
         # run the benchmark by using it through python
         print("Start running experiment for size " + str(size) + " →\n")
-        current_output, current_error = run_command("python3 " + PERF_EXPERIMENT_NAME + ".py")
+        current_output, current_error = run_command(
+            "python3 " + PERF_EXPERIMENT_NAME + PYTHON_EXT
+        )
         # display the standard output and error
         display_output(current_output.decode(UTF8))
         display_output(current_error.decode(UTF8))
         # read the JSON file containing the results
-        # current_benchmark = perf.Benchmark.load()
+        current_benchmark = perf.Benchmark.load(
+            RESULTS + SEPARATOR + PERF_EXPERIMENT_NAME + size + JSON_EXT
+        )
         print("→ Done running experiment for size " + str(size) + "\n")
         # go to the next size for the doubling experiment
         size = size * 2
