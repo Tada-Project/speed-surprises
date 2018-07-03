@@ -1,4 +1,4 @@
-"""Run doubling experiments and 'Tada'! get the time complexity"""
+"""Run doubling experiments and 'Tada!' you get the time complexity"""
 
 import subprocess
 
