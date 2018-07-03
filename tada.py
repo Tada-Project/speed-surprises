@@ -24,6 +24,12 @@ def save_configuration(configurationfile, size):
         fp.write(str(size))
 
 
+def display_output(timingoutput):
+    """Display the timing output as long as it is not empty"""
+    if timingoutput != "":
+        print(timingoutput)
+
+
 def read_benchmark_results(resultsfile):
     """Read the results from a JSON file and return a benchmark"""
 
@@ -32,17 +38,17 @@ if __name__ == "__main__":
     # setup parameters of a simple doubling experiment
     size = 100
     factor = 2
-    size_stop = 400
+    size_stop = 200
     save_configuration(CONFIGURATION, size)
     # perform the small doubling experiment
     while size <= size_stop:
         # run the benchmark by using it through python
-        print("Start running experiment for size " + str(size) + "...")
-        current_output, current_error = run_command("python3 perf_copies_ofc.py")
+        print("Start running experiment for size " + str(size) + " →\n")
+        current_output, current_error = run_command("python3 perf_mcopies_ofc.py")
         # display the standard output and error
-        print(current_output.decode(UTF8))
-        print(current_error.decode(UTF8))
-        print("... Done running experiment for size " + str(size) + "\n")
+        display_output(current_output.decode(UTF8))
+        display_output(current_error.decode(UTF8))
+        print("→ Done running experiment for size " + str(size) + "\n")
         # go to the next size for the doubling experiment
         size = size * 2
         # write the next doubling experiment size to the file
