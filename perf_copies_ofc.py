@@ -23,14 +23,13 @@ if __name__ == "__main__":
     # Read the chosen_size
     filepath = "configuration.txt"
     with open(filepath) as fp:
-        chosen_size = fp.readline().replace('\n', '')
+        chosen_size = fp.readline().replace("\n", "")
     # configure perf
     runner = perf.Runner()
-    # perform the small doubling experiment
+    # run the function
     experiment_name = "mcopies_ofc" + str(chosen_size)
     runner.metadata["description"] = experiment_name
     benchmark = runner.bench_func(
         "mcopies", bench_copy_function, copies.mcopies_ofc, chosen_size
     )
     benchmark.dump("results/" + experiment_name + ".json", compact=False, replace=True)
-    chosen_size = chosen_size * 2
