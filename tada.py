@@ -2,6 +2,9 @@
 
 import subprocess
 
+import perf
+
+
 UTF8 = "utf-8"
 CONFIGURATION = ".configuration.txt"
 
@@ -19,6 +22,10 @@ def save_configuration(configurationfile, size):
     """Save the current size for the doubling experiment to a file"""
     with open(configurationfile, "w") as fp:
         fp.write(str(size))
+
+
+def read_benchmark_results(resultsfile):
+    """Read the results from a JSON file and return a benchmark"""
 
 
 if __name__ == "__main__":
