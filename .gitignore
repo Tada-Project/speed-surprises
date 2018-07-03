@@ -230,6 +230,7 @@ tags.tmp
 *.sync
 *.jekyll-metadata
 
-# Data files #
+# Results director and data files #
 ######################
 .json
+results/
