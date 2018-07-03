@@ -3,6 +3,7 @@
 import subprocess
 
 UTF8 = "utf-8"
+CONFIGURATION = ".configuration.txt"
 
 
 def run_command(command):
@@ -25,7 +26,7 @@ if __name__ == "__main__":
     size = 100
     factor = 2
     size_stop = 400
-    save_configuration("configuration.txt", size)
+    save_configuration(CONFIGURATION, size)
     # perform the small doubling experiment
     while size <= size_stop:
         print("Start running experiment for size " + str(size) + "...")
@@ -34,4 +35,4 @@ if __name__ == "__main__":
         print(current_error.decode(UTF8))
         print("... Done running experiment for size " + str(size))
         size = size * 2
-        save_configuration("configuration.txt", size)
+        save_configuration(CONFIGURATION, size)
