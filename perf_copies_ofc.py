@@ -15,10 +15,6 @@ def bench_copy_function(copy_function, chosen_size):
 # Example of calling the function:
 # copied_character_string = copies.mcopies_ofc(copies_as_string)
 
-# Idea: imagine calling this iteratively multiple times with larger
-# inputs (chosen_size by doubling experiment and data by hypothesis)
-
-
 if __name__ == "__main__":
     # Read the chosen_size
     filepath = "configuration.txt"
