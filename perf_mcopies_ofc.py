@@ -32,4 +32,6 @@ if __name__ == "__main__":
         "mcopies", bench_copy_function, copies.mcopies_ofc, chosen_size
     )
     # save the perf results from running the benchmark
-    benchmark.dump("results/" + current_experiment_name + ".json", compact=False, replace=True)
+    benchmark.dump(
+        "results/" + current_experiment_name + ".json", compact=False, replace=True
+    )
