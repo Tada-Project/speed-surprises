@@ -15,10 +15,12 @@ if __name__ == "__main__":
     # setup parameters of simple doubling experiment
     size = 100
     factor = 2
-    size_stop = 1600
+    size_stop = 400
     # perform the small doubling experiment
     while size <= size_stop:
         print("Start running experiment for size " + str(size) + "...")
-        run_command("python3 perf_copies_ofc.py")
+        current_output, current_error = run_command("python3 perf_copies_ofc.py")
+        print(current_output)
+        print(current_error)
         print("... Done running experiment for size " + str(size))
         size = size * 2
