@@ -20,12 +20,13 @@ def bench_copy_function(copy_function, chosen_size):
 
 
 if __name__ == "__main__":
-    # Read the command-line argument chosen_size
-    chosen_size = sys.argv[1:]
+    # Read the chosen_size
+    filepath = "configuration.txt"
+    with open(filepath) as fp:
+        chosen_size = fp.readline()
     # configure perf
     runner = perf.Runner()
     # perform the small doubling experiment
-    print("Start running experiment for chosen_size " + str(chosen_size) + "...")
     experiment_name = "mcopies_ofc" + str(chosen_size)
     runner.metadata["description"] = experiment_name
     benchmark = runner.bench_func(
@@ -33,4 +34,3 @@ if __name__ == "__main__":
     )
     benchmark.dump("results/" + experiment_name + ".json", compact=False, replace=True)
     chosen_size = chosen_size * 2
-    print("... Done running experiment for chosen_size " + str(chosen_size))
