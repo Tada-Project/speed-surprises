@@ -29,10 +29,14 @@ if __name__ == "__main__":
     save_configuration(CONFIGURATION, size)
     # perform the small doubling experiment
     while size <= size_stop:
+        # run the benchmark by using it through python
         print("Start running experiment for size " + str(size) + "...")
         current_output, current_error = run_command("python3 perf_copies_ofc.py")
+        # display the standard output and error
         print(current_output.decode(UTF8))
         print(current_error.decode(UTF8))
         print("... Done running experiment for size " + str(size) + "\n")
+        # go to the next size for the doubling experiment
         size = size * 2
+        # write the next doubling experiment size to the file
         save_configuration(CONFIGURATION, size)
