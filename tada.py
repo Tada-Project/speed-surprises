@@ -2,6 +2,8 @@
 
 import subprocess
 
+UTF8 = "utf-8"
+
 
 def run_command(command):
     """Run a command and return the output and error code"""
@@ -28,8 +30,8 @@ if __name__ == "__main__":
     while size <= size_stop:
         print("Start running experiment for size " + str(size) + "...")
         current_output, current_error = run_command("python3 perf_copies_ofc.py")
-        print(current_output)
-        print(current_error)
+        print(current_output.decode(UTF8))
+        print(current_error.decode(UTF8))
         print("... Done running experiment for size " + str(size))
         size = size * 2
         save_configuration("configuration.txt", size)
