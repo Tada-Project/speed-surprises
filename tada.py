@@ -59,6 +59,9 @@ if __name__ == "__main__":
         current_benchmark = perf.Benchmark.load(
             RESULTS + SEPARATOR + PERF_EXPERIMENT_NAME + str(size) + JSON_EXT
         )
+        # print('Values {0}'.format(current_benchmark.get_values()))
+        print('Mean {0}'.format(current_benchmark.mean()))
+        print('Median {0}'.format(current_benchmark.median()))
         print("→ Done running experiment for size " + str(size) + "\n")
         # go to the next size for the doubling experiment
         size = size * 2
