@@ -230,7 +230,6 @@ tags.tmp
 *.sync
 *.jekyll-metadata
 
-# GatorGrader files #
+# Data files #
 ######################
-.gatorgrader_log
-nltk_data
+.json
