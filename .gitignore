@@ -234,3 +234,7 @@ tags.tmp
 ######################
 .json
 results/
+
+# Configuration file #
+######################
+configuration.txt
