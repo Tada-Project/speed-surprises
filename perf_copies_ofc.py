@@ -6,10 +6,12 @@ import perf
 
 from speedsurprises.text import copies
 
+CONFIGURATION = ".configuration.txt"
 
-def bench_copy_function(copy_function, chosen_size):
+
+def bench_copy_function(copy_function, current_chosen_size):
     """Run a copy benchmark for a copy_function and a chosen_size"""
-    copy_function(chosen_size)
+    copy_function(current_chosen_size)
 
 
 # Example of calling the function:
@@ -17,7 +19,7 @@ def bench_copy_function(copy_function, chosen_size):
 
 if __name__ == "__main__":
     # read the chosen_size
-    filepath = "configuration.txt"
+    filepath = CONFIGURATION
     with open(filepath) as fp:
         chosen_size = fp.readline().replace("\n", "")
     # configure perf
