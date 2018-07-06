@@ -19,7 +19,7 @@ before_script:
 
 # perform testing:
 # --> run the internal test suite with pytest
-# --> Markdown: mdl
+# --> lint the README documentation with mdl
 script:
   - pytest -s -v
   - mdl README.md
