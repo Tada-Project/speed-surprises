@@ -36,3 +36,9 @@ def test_factorial_multple(factorial_input, expected_answer):
     """Check the compute_factorial function with multiple inputs"""
     computed_value = factorial.compute_factorial(factorial_input)
     assert computed_value == expected_answer
+
+
+def test_factorial_single():
+    """Check the compute_factorial function with a single input"""
+    computed_value = factorial.compute_factorial(10)
+    assert computed_value == 3628800
