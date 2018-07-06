@@ -25,3 +25,4 @@ def test_factorial_hypothesis(factorial_input):
     previous_computed_value = factorial.compute_factorial(factorial_input - 1)
     assert computed_value > 0
     assert previous_computed_value > 0
+    assert computed_value == factorial_input * previous_computed_value
