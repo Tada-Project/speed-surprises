@@ -42,9 +42,16 @@ function for the word `functionname`.
 - `git push -u origin new-function-functioname`
 
 Finally, you should open a pull request on the GitHub repository for the new
-branch that you have created. If you are not a collaborator on this project,
-then you will need to fork the repository, add your new function, and then
-create a pull request.
+branch that you have created. This pull request should describe the new function
+that you are adding and, if possible, what you think is its worst-case time
+complexity. Following the examples for the existing functions (e.g.,
+`compute_factorial` in `speedsurpries.numbers` and `mcopies_of` in
+`speedsurpisese.text`), your function should be accompanied by a test suite
+written in the Pytest testing. In the case that you are not the original creator
+of the submitted function, please ensure that you have permission to include it
+in this repository and cite its source. Finally, if you are not a collaborator
+on this project, then you will need to fork the repository, add your new
+function, document and test it as required, and then create a pull request.
 
 ## Problems or Praise
 
