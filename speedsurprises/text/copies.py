@@ -11,6 +11,7 @@ def mcopies_ofc(input_string):
     copy_count = int(input_string)
     list_of_letter_c = []
     # iterate copy_count times, appending a 'C' character at each iteration
+    # pylint: disable=unused-variable
     for i in range(copy_count):
         list_of_letter_c.append(LETTER_C)
     # join all the C's together into a single string, with no separator
@@ -22,6 +23,7 @@ def mcopies_of(input_string, character):
     copy_count = int(input_string)
     list_of_letter = []
     # iterate copy_count times, appending a character at each iteration
+    # pylint: disable=unused-variable
     for i in range(copy_count):
         list_of_letter.append(character)
     # join all the letters together into a single string, with no separator
