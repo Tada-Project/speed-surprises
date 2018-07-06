@@ -3,6 +3,12 @@ language: python
 python:
   - "3.6"
 
+# ignore the virtualenv travis creates
+env:
+  global:
+    - PIPENV_VENV_IN_PROJECT=1
+    - PIPENV_IGNORE_VIRTUALENVS=1
+
 # install mdl for checking Markdown
 before_install:
   - gem install mdl
@@ -10,8 +16,11 @@ before_install:
 # command to install dependencies
 install:
   - pip install --upgrade pip
-  - pip install pipenv
+  - pip install pipenv --upgrade
   - pipenv install --dev --three
+
+# use a cache to improve performance
+cache: pip
 
 # perform testing:
 # --> run the internal test suite with pytest
