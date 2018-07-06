@@ -19,7 +19,7 @@ def test_count_benchmark(benchmark):
 @given(factorial_input=integers(min_value=1, max_value=10))
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
-def test_letter_count_hypothesis(factorial_input):
+def test_factorial_hypothesis(factorial_input):
     """Returns output with correct factorial number"""
     computed_value = factorial.compute_factorial(factorial_input)
     previous_computed_value = factorial.compute_factorial(factorial_input - 1)
