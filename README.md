@@ -37,3 +37,5 @@ values using Hypothesis. First, you should type the following command,
 substituting the name of your function for the word `functionname`.
 
 - `git checkout -b new-function-functioname`
+- `git checkout master`
+- `git push origin new-function-functioname`
