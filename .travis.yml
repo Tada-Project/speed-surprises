@@ -13,13 +13,9 @@ install:
   - pip install pipenv
   - pipenv install --dev --three
 
-# run all commands inside of the pipenv shell
-before_script:
-  - pipenv shell
-
 # perform testing:
 # --> run the internal test suite with pytest
 # --> lint the README documentation with mdl
 script:
-  - pytest -s -v
+  - pipenv run pytest -s -v
   - mdl README.md
