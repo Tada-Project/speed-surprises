@@ -1,5 +1,7 @@
 # Speed-Surprises
 
+[![Build Status](https://api.travis-ci.org/gkapfham/speed-surprises.svg?branch=master)](https://travis-ci.org/gkapfham/speed-surprises)
+
 This repository contains a package of Python 3 modules with functions for
 further study in experiments with the "Tada!: auTomAtic orDer-of-growth
 Analysis" tool. This documentation provides a brief overview about how to run
