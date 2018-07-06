@@ -1,0 +1,25 @@
+# use the Python 3.6 language
+language: python
+python:
+  - "3.6"
+
+# install mdl for checking Markdown
+before_install:
+  - gem install mdl
+
+# command to install dependencies
+install:
+  - pip install --upgrade pip
+  - pip install pipenv
+  - pipenv install --dev --three
+
+# run all commands inside of the pipenv shell
+before_script:
+  - pipenv shell
+
+# perform testing:
+# --> run the internal test suite with pytest
+# --> Markdown: mdl
+script:
+  - pytest
+  - mdl README.md
