@@ -1,4 +1,4 @@
-""" Functions that create copies of characters and strings """
+"""Functions that create copies of characters and strings"""
 
 # Source and/or inspiration for function(s):
 # http://whatcanbecomputed.com/
