@@ -39,7 +39,7 @@ function for the word `functionname`.
 
 - `git checkout -b new-function-functioname`
 - `git checkout master`
-- `git push origin new-function-functioname`
+- `git push -u origin new-function-functioname`
 
 Finally, you should open a pull request on the GitHub repository for the new
 branch that you have created. If you are not a collaborator on this project,
