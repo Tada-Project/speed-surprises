@@ -1,6 +1,6 @@
 # Speed-Surprises
 
-[![Build Status](https://api.travis-ci.org/gkapfham/speed-surprises.svg?branch=master)](https://travis-ci.org/gkapfham/speed-surprises) [![codecov.io](http://codecov.io/github/gkapfham/speed-surprises/coverage.svg?branch=master)](http://codecov.io/github/gkapfham/speed-surprises?branch=master)
+[![Build Status](https://api.travis-ci.org/gkapfham/speed-surprises.svg?branch=master)](https://travis-ci.org/gkapfham/speed-surprises) [![codecov.io](http://codecov.io/github/gkapfham/speed-surprises/coverage.svg?branch=master)](http://codecov.io/github/gkapfham/speed-surprises?branch=master) [![made-with-python](https://img.shields.io/badge/Made%20with-Python-orange.svg)](https://www.python.org/)
 
 This repository contains a package of Python 3 modules with functions for
 further study in experiments with the "Tada!: auTomAtic orDer-of-growth
@@ -15,7 +15,7 @@ modules and functions by typing the following in your terminal window:
 
 - `pipenv install`
 - `pipenv shell`
-- `pytest`
+- `pipenv run pytest`
 
 Note that the provided tests suites automatically generate test data using
 [Hypothesis](https://hypothesis.works/). Also, the provided test suites run
@@ -24,11 +24,11 @@ benchmarks using
 
 If you want to exclude the test cases that run a pytest-benchmark you can type:
 
-- `pytest -m "not benchmark"`
+- `pipenv run pytest -m "not benchmark"`
 
 If you want to exclude the test cases that use Hypothesis you can type:
 
-- `pytest -m "not hypothesisworks"`
+- `pipenv run pytest -m "not hypothesisworks"`
 
 ## Adding New Functions to the Speed-Surprises
 
@@ -51,7 +51,7 @@ complexity. Following the examples for the existing functions (e.g.,
 `speedsurpisese.text`), your function should be accompanied by a test suite
 written in the Pytest testing. In the case that you are not the original creator
 of the submitted function, please ensure that you have permission to include it
-in this repository and cite its source. Finally, if you are not a collaborator
+in this repository and cite its source. Of course, if you are not a collaborator
 on this project, then you will need to fork the repository, add your new
 function, document and test it as required, and then create a pull request.
 
