@@ -29,6 +29,6 @@ cache: pip
 # --> lint the README documentation with mdl
 script:
   - pipenv run pytest -s -v
-  - flake8 speedsurprises
-  - flake8 tests
+  - pipenv run flake8 speedsurprises
+  - pipenv run flake8 tests
   - mdl README.md
