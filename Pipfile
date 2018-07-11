@@ -15,6 +15,7 @@ hypothesis = "*"
 perf = "*"
 "flake8" = "*"
 pytest-cov = "*"
+codecov = "*"
 
 [requires]
 python_version = "3.6"
