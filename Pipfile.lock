@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "75f56a259821cd9af4acf8160dc23c62a6f37d01def4ba84a5fec70271924d11"
+            "sha256": "2b1681b77553868021ca05ff2fd5d1966640c361ac622de1557977a88236e6b0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -226,6 +226,7 @@
                 "sha256:d345c8fe681115900d6da8d048ba67c25df42973bda370783cd58826442dcd7c",
                 "sha256:e160a7fcf25762bb60efc7e171d4497ff1d8d2d75a3d0df7a21b76821ecbf5c5"
             ],
+            "markers": "python_version != '3.0.*' and python_version != '3.2.*' and python_version != '3.3.*' and python_version != '3.1.*' and python_version >= '2.7'",
             "version": "==0.6.0"
         },
         "py": {
@@ -233,7 +234,6 @@
                 "sha256:3fd59af7435864e1a243790d322d763925431213b6b8529c6ca71081ace3bbf7",
                 "sha256:e31fb2767eb657cbde86c454f02e99cb846d3cd9d61b318525140214fdc0e98e"
             ],
-            "markers": "python_version != '3.0.*' and python_version != '3.2.*' and python_version != '3.3.*' and python_version != '3.1.*' and python_version >= '2.7'",
             "version": "==1.5.4"
         },
         "py-cpuinfo": {
@@ -279,6 +279,14 @@
             ],
             "index": "pypi",
             "version": "==3.1.1"
+        },
+        "pytest-cov": {
+            "hashes": [
+                "sha256:03aa752cf11db41d281ea1d807d954c4eda35cfa1b21d6971966cc041bbf6e2d",
+                "sha256:890fe5565400902b0c78b5357004aab1c814115894f4f21370e2433256a3eeec"
+            ],
+            "index": "pypi",
+            "version": "==2.5.1"
         },
         "six": {
             "hashes": [
