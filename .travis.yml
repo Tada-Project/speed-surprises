@@ -23,8 +23,12 @@ install:
 cache: pip
 
 # perform testing:
-# --> run the internal test suite with pytest
+# --> run the test suite with pytest
+# --> lint the functions with flake8
+# --> lint the test suites with flake8
 # --> lint the README documentation with mdl
 script:
   - pipenv run pytest -s -v
+  - flake8 speedsurprises
+  - flake8 tests
   - mdl README.md
