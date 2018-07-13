@@ -1,4 +1,4 @@
-"""Tests for the compute_factorial function in the numbers module"""
+"""Tests for the compute_factorial function in the factorial module of the numbers package"""
 
 import pytest
 
@@ -6,6 +6,7 @@ from hypothesis import given
 from hypothesis import settings
 from hypothesis import Verbosity
 from hypothesis.strategies import integers
+
 from speedsurprises.numbers import factorial
 
 

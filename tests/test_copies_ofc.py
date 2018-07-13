@@ -1,4 +1,4 @@
-"""Tests for the mcopies_ofc function in the copies module"""
+"""Tests for the mcopies_ofc function in the copies module of the text package"""
 
 import pytest
 
@@ -6,6 +6,7 @@ from hypothesis import given
 from hypothesis import settings
 from hypothesis import Verbosity
 from hypothesis.strategies import integers
+
 from speedsurprises.text import copies
 
 

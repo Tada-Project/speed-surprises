@@ -1,4 +1,4 @@
-"""Tests for the mcopies_of function in the copies module"""
+"""Tests for the mcopies_of function in the copies module of the text package"""
 
 import pytest
 
@@ -7,6 +7,7 @@ from hypothesis import settings
 from hypothesis import Verbosity
 from hypothesis.strategies import integers
 from hypothesis.strategies import text
+
 from speedsurprises.text import copies
 
 CHOSEN_LETTER = "X"
