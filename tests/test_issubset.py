@@ -51,3 +51,19 @@ def test_issubset_hypothesis_integer_lists_no(first_list, second_list):
     else:
         assert determined_is_subset_first is False
     assert determined_is_subset_second is False
+
+
+@pytest.mark.parametrize(
+    "first_list, second_list, expected_answer",
+    [([1, 2, 3], [1, 2, 3, 4], True), ([], [], True), ([], [1, 2, 3], True)],
+)
+def test_issubset_multiple(first_list, second_list, expected_answer):
+    """Check the is_subset function with multiple inputs"""
+    computed_answer = sets.is_subset(first_list, second_list)
+    assert computed_answer is expected_answer
+
+
+def test_issubset_single():
+    """Check the is_subset function with a single input"""
+    should_be_valid = sets.is_subset([], [1, 2, 3, 4])
+    assert should_be_valid is True
