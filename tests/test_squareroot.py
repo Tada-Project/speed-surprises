@@ -25,3 +25,20 @@ def test_squareroot_benchmark_exhaustive(benchmark):
         squareroot.square_root_bisection, value=100, epsilon=0.001
     )
     assert computed_value_exhaustive == pytest.approx(10.0, 0.001)
+
+
+@given(
+    squareroot_input=floats(min_value=10.0, max_value=100.0),
+    epsilon=floats(min_value=0.001, max_value=0.9999),
+)
+@settings(verbosity=Verbosity.verbose, deadline=None)
+@pytest.mark.hypothesisworks
+def test_squareroot_bisection_hypothesis(squareroot_input, epsilon):
+    """Returns output with correct squareroot value"""
+    computed_value_bisection = squareroot.square_root_bisection(
+        squareroot_input, epsilon
+    )
+    assert (
+        pytest.approx(computed_value_bisection * computed_value_bisection, epsilon)
+        == squareroot_input
+    )
