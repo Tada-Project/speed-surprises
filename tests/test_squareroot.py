@@ -70,3 +70,11 @@ def test_squareroot_exchaustive_single():
         == squareroot_input
     )
     assert pytest.approx(computed_value_exhaustive, epsilon) == 10.0
+
+
+def test_exhaustive_raises_valuerror():
+    """Check that the square_root_exhaustive fails"""
+    with pytest.raises(ValueError):
+        squareroot_input = 20.925836323288614
+        epsilon = 0.11134161667029244
+        squareroot.square_root_exhaustive(squareroot_input, epsilon)
