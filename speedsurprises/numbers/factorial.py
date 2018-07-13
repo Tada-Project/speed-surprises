@@ -3,6 +3,8 @@
 # Source and/or inspiration for the function(s):
 # https://is.gd/GIibZB
 
+# Worst-case time complexity: O(n) -- Linear
+
 
 def compute_factorial(value):
     """Assumes value is a natural number
