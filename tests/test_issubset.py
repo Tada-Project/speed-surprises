@@ -7,6 +7,7 @@ from hypothesis import settings
 from hypothesis import Verbosity
 from hypothesis.strategies import integers
 from hypothesis.strategies import lists
+
 from speedsurprises.lists import sets
 
 

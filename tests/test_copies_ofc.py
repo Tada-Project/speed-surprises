@@ -6,6 +6,7 @@ from hypothesis import given
 from hypothesis import settings
 from hypothesis import Verbosity
 from hypothesis.strategies import integers
+
 from speedsurprises.text import copies
 
 
