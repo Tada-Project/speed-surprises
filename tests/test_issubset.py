@@ -1,4 +1,4 @@
-"""Tests for the is_subset function in the sets module"""
+"""Tests for the is_subset function in the sets module of the lists package"""
 
 import pytest
 
