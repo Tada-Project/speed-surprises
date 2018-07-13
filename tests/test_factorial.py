@@ -10,7 +10,7 @@ from speedsurprises.numbers import factorial
 
 
 @pytest.mark.benchmark
-def test_count_benchmark(benchmark):
+def test_factorial_benchmark(benchmark):
     """Benchmark the compute_factorial function"""
     computed_value = benchmark(factorial.compute_factorial, value=10)
     assert computed_value == 3628800
@@ -32,7 +32,7 @@ def test_factorial_hypothesis(factorial_input):
     "factorial_input,expected_answer",
     [(1, 1), (2, 2 * 1), (3, 3 * 2 * 1), (4, 4 * 3 * 2 * 1)],
 )
-def test_factorial_multple(factorial_input, expected_answer):
+def test_factorial_multiple(factorial_input, expected_answer):
     """Check the compute_factorial function with multiple inputs"""
     computed_value = factorial.compute_factorial(factorial_input)
     assert computed_value == expected_answer
