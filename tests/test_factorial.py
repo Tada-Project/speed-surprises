@@ -1,4 +1,4 @@
-"""Tests for the compute_factorial function in the numbers module"""
+"""Tests for the compute_factorial function in the factorial module of the numbers package"""
 
 import pytest
 
