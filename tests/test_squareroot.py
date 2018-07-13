@@ -42,3 +42,31 @@ def test_squareroot_bisection_hypothesis(squareroot_input, epsilon):
         pytest.approx(computed_value_bisection * computed_value_bisection, epsilon)
         == squareroot_input
     )
+
+
+def test_squareroot_bisection_single():
+    """Check the square_root_bisection function with a single input"""
+    squareroot_input = 100.0
+    epsilon = 0.001
+    computed_value_bisection = squareroot.square_root_bisection(
+        squareroot_input, epsilon
+    )
+    assert (
+        pytest.approx(computed_value_bisection * computed_value_bisection, epsilon)
+        == squareroot_input
+    )
+    assert pytest.approx(computed_value_bisection, epsilon) == 10.0
+
+
+def test_squareroot_exchaustive_single():
+    """Check the square_root_exhaustive function with a single input"""
+    squareroot_input = 100.0
+    epsilon = 0.001
+    computed_value_exhaustive = squareroot.square_root_exhaustive(
+        squareroot_input, epsilon
+    )
+    assert (
+        pytest.approx(computed_value_exhaustive * computed_value_exhaustive, epsilon)
+        == squareroot_input
+    )
+    assert pytest.approx(computed_value_exhaustive, epsilon) == 10.0
