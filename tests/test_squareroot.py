@@ -73,7 +73,7 @@ def test_squareroot_exchaustive_single():
 
 
 def test_exhaustive_raises_valuerror():
-    """Check that the square_root_exhaustive fails"""
+    """Check that the square_root_exhaustive fails with a ValueError"""
     with pytest.raises(ValueError):
         squareroot_input = 20.925836323288614
         epsilon = 0.11134161667029244
