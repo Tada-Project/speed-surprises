@@ -1,4 +1,4 @@
-"""Tests for the mcopies_of function in the copies module"""
+"""Tests for the mcopies_of function in the copies module of the text package"""
 
 import pytest
 
