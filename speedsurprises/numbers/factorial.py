@@ -14,3 +14,8 @@ def compute_factorial(value):
         answer *= value
         value = value - 1
     return answer
+
+def recursive_fibonacci(value):
+    while value < 2:
+        return value
+    return recursive_fibonacci(n-2) + recursive_fibonacci(n-1)
