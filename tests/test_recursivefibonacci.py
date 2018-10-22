@@ -34,6 +34,8 @@ def test_fibonacci_hypothesis(fibonacci_input):
     "fibonacci_input,expected_answer",
     [(1, 1), (2, 1), (3, 2), (4, 3) (5, 5)],
 )
+
+
 def test_fibonacci_multiple(fibonacci_input, expected_answer):
     """Check the compute_recursive_fibonacci function with multiple inputs"""
     computed_value = recursivefibonacci.compute_recursive_fibonacci(fibonacci_input)
