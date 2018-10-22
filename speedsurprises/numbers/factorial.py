@@ -16,6 +16,21 @@ def compute_factorial(value):
     return answer
 
 def recursive_fibonacci(value):
-    while value < 2:
-        return value
-    return recursive_fibonacci(n-2) + recursive_fibonacci(n-1)
+    if value == 0:
+        return 0
+    elif value == 1:
+        return 1
+    else:
+        return recursive_fibonacci(value-1) + recursive_fibonacci(value-2)
+
+def iterative_fibonacci(value):
+    if (value == 0):
+        return 0
+    else:
+        x = 0
+        y = 1
+        for i in range(1, value):
+            z = (x + y)
+            x = y
+            y = z
+        return y
