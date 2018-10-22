@@ -6,7 +6,7 @@
 # Worst-case time complexity: O(n) -- Linear
 
 
-def compute_factorial(value):
+def compute_iterative_factorial(value):
     """Assumes value is a natural number
     Returns value!"""
     answer = 1
@@ -15,17 +15,17 @@ def compute_factorial(value):
         value = value - 1
     return answer
 
-def recursive_fibonacci(value):
-    if value == 0:
-        return 0
-    elif value == 1:
+def compute_recursive_factorial(value):
+    if value < 1:
         return 1
     else:
-        return recursive_fibonacci(value-1) + recursive_fibonacci(value-2)
+        return value * compute_recursive_factorial(value - 1)
 
-def iterative_fibonacci(value):
+def compute_iterative_fibonacci(value):
     if (value == 0):
-        return 0
+        return value
+    elif (value <= 2):
+        return 1
     else:
         x = 0
         y = 1
