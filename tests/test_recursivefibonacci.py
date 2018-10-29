@@ -1,4 +1,4 @@
-"""Tests for the compute_recursive_fibonacci function in the recursivefibonacci module of the numbers package"""
+"""Tests for the compute_recursive_fibonacci function in the fibonacci module of the numbers package"""
 
 import pytest
 
@@ -7,13 +7,13 @@ from hypothesis import settings
 from hypothesis import Verbosity
 from hypothesis.strategies import integers
 
-from speedsurprises.numbers import recursivefibonacci
+from speedsurprises.numbers import fibonacci
 
 
 @pytest.mark.benchmark
 def test_recursive_fibonacci_benchmark(benchmark):
     """Benchmark the compute_recursive_fibonacci function"""
-    computed_value = benchmark(recursivefibonacci.compute_recursive_fibonacci, value=19)
+    computed_value = benchmark(fibonacci.compute_recursive_fibonacci, value=19)
     assert computed_value == 4181
 
 
@@ -22,8 +22,8 @@ def test_recursive_fibonacci_benchmark(benchmark):
 @pytest.mark.hypothesisworks
 def test_fibonacci_hypothesis(fibonacci_input):
     """Returns output with correct fibonacci value"""
-    computed_value = recursivefibonacci.compute_recursive_fibonacci(fibonacci_input)
-    previous_computed_value = recursivefibonacci.compute_recursive_fibonacci(fibonacci_input - 1)
+    computed_value = fibonacci.compute_recursive_fibonacci(fibonacci_input)
+    previous_computed_value = fibonacci.compute_recursive_fibonacci(fibonacci_input - 1)
     goldenratio = 1.61803398875 # The golden ratio can be used to compute fibonacci values. Multiply the previous fibonacci value by the ratio to get the next value.
     assert computed_value > 0
     assert previous_computed_value > 0
@@ -38,11 +38,11 @@ def test_fibonacci_hypothesis(fibonacci_input):
 
 def test_fibonacci_multiple(fibonacci_input, expected_answer):
     """Check the compute_recursive_fibonacci function with multiple inputs"""
-    computed_value = recursivefibonacci.compute_recursive_fibonacci(fibonacci_input)
+    computed_value = fibonacci.compute_recursive_fibonacci(fibonacci_input)
     assert computed_value == expected_answer
 
 
 def test_fibonacci_single():
     """Check the compute_recursive_fibonacci function with a single input"""
-    computed_value = recursivefibonacci.compute_recursive_fibonacci(18)
+    computed_value = fibonacci.compute_recursive_fibonacci(18)
     assert computed_value == 2584
