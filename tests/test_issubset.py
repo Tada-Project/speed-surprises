@@ -21,8 +21,7 @@ def test_issubset_benchmark(benchmark):
 
 
 @given(
-    first_list=lists(elements=integers(min_value=1, max_value=5), min_size=0),
-    second_list=lists(elements=integers(min_value=1, max_value=5), min_size=1),
+    list=lists(elements=integers(min_value=1, max_value=10), min_size=2),
 )
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
