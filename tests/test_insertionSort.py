@@ -1,4 +1,4 @@
-"""Tests for the bubble_sort function in the sorting module of the lists package"""
+"""Tests for the bubble_sort function in the insertionSort module of the lists package"""
 
 import pytest
 
@@ -8,13 +8,13 @@ from hypothesis import Verbosity
 from hypothesis.strategies import integers
 from hypothesis.strategies import lists
 
-from speedsurprises.lists import insertionSorting
+from speedsurprises.lists import insertionSort
 
 
 @pytest.mark.benchmark
 def test_insertionSort_benchmark(benchmark):
     """Benchmark the insertionSort function"""
-    sorted_list = benchmark(sorting.insertionSort, list=[4, 2, 3, 1])
+    sorted_list = benchmark(insertionSort.insertionSort, list=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
@@ -22,10 +22,10 @@ def test_insertionSort_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_insertionSort_hypothesis(list):
-    """Sees if sorted list from hypothesis-generated data is the same as Python's sort function"""
-    insertionSort_list = sorting.insertionSort(list)
+    """Sees if list of hypothesis-generated data sorted is the same Python's sort function"""
+    insertionSort_list = insertionSort.insertionSort(list)
     python_sort_list = sort.list()
-    assert inerstionSort_list == python_sort_list
+    assert insertionSort_list == python_sort_list
 
 
 @pytest.mark.parametrize(
@@ -35,11 +35,10 @@ def test_insertionSort_hypothesis(list):
 
 def test_insertionSort_multiple(list, expected_answer):
     """Check the insertionSort function with multiple lists"""
-    sorted_list = sorting.insertionSort(list)
+    sorted_list = insertionSort.insertionSort(list)
     assert sorted_list == expected_answer
 
 def test_insertionSort_single():
     """Check the insertionSort function with a single list"""
-    sorted_list = sorting.insertionSort([4, 3, 1, 5, 6])
+    sorted_list = insertionSort.insertionSort([4, 3, 1, 5, 6])
     assert sorted_list == [1, 3, 4, 5, 6]
-
