@@ -15,6 +15,7 @@ def compute_iterative_factorial(value):
         value = value - 1
     return answer
 
+
 def compute_recursive_factorial(value):
     if value < 1:
         return 1
