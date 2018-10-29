@@ -5,10 +5,10 @@
 
 # Worst-case time complexity: O(n^2)
 
-def bubbleSort(list):
+def bubble_sort(list):
     """Sorts a list using BubbleSort function."""
-    for passnum in range(len(list)-1,0,-1):
-        for i in range(passnum):
+    for num in range(len(list)-1,0,-1):
+        for i in range(num):
             if list[i]>list[i+1]:
                 temp = list[i]
                 list[i] = list[i+1]
