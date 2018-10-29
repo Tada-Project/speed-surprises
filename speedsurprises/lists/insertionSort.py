@@ -5,6 +5,7 @@
 
 # Worst-case time complexity: O(n^2)
 
+
 def insertionSort(list):
     for i in range(1, len(list)):
         currentValue = list[i]
