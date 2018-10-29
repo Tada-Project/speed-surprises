@@ -16,14 +16,14 @@ def test_iterative_factorial_benchmark(benchmark):
     computed_value = benchmark(factorial.compute_iterative_factorial, value=10)
     assert computed_value == 3628800
 
-    
+
 @pytest.mark.benchmark
 def test_recursive_factorial_benchmark(benchmark):
     """Benchmark the compute_factorial function"""
     computed_value = benchmark(factorial.compute_recursive_factorial, value=10)
     assert computed_value == 3628800
 
-    
+
 @given(factorial_input=integers(min_value=1, max_value=10))
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
