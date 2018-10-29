@@ -1,7 +1,8 @@
-"""Tests for the compute_iterative_fibonacci function in the recursivefibonacci module of the numbers package"""
+"""Tests for the compute_iterative_fibonacci function in the
+fibonacci module of the numbers package"""
 
-import pytest
 import math
+import pytest
 
 from hypothesis import given
 from hypothesis import settings
@@ -24,11 +25,13 @@ def test_iterative_fibonacci_benchmark(benchmark):
 def test_fibonacci_hypothesis(fibonacci_input):
     """Returns output with correct fibonacci value"""
     computed_value = fibonacci.compute_iterative_fibonacci(fibonacci_input)
-    previous_computed_value = fibonacci.compute_iterative_fibonacci(fibonacci_input - 1)
+    previous_computed_value =
+        fibonacci.compute_iterative_fibonacci(fibonacci_input - 1)
     goldenratio = 1.61803398875  # The golden ratio can be used to compute fibonacci values. Multiply the previous fibonacci value by the ratio to get the next value.
     assert computed_value > 0
     assert previous_computed_value > 0
-    assert computed_value == math.ceil(goldenratio * previous_computed_value)  # used math.ceil to correct possible rounding errors
+    assert computed_value ==
+        math.ceil(goldenratio * previous_computed_value)  # used math.ceil to correct possible rounding errors
 
 
 @pytest.mark.parametrize(
