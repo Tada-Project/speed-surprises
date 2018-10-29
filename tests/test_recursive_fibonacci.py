@@ -25,13 +25,13 @@ def test_recursive_fibonacci_benchmark(benchmark):
 def test_fibonacci_hypothesis(fibonacci_input):
     """Returns output with correct fibonacci value"""
     computed_value = fibonacci.compute_recursive_fibonacci(fibonacci_input)
-    previous_computed_value =
-        fibonacci.compute_recursive_fibonacci(fibonacci_input - 1)
+    previous_computed_value = (
+        fibonacci.compute_recursive_fibonacci(fibonacci_input - 1))
     goldenratio = 1.61803398875  # The golden ratio can be used to compute fibonacci values. Multiply the previous fibonacci value by the ratio to get the next value.
     assert computed_value > 0
     assert previous_computed_value > 0
-    assert computed_value ==
-        math.ceil(goldenratio * previous_computed_value)  # used math.ceil to correct possible rounding errors
+    assert computed_value == (
+        math.ceil(goldenratio * previous_computed_value))  # used math.ceil to correct possible rounding errors
 
 
 @pytest.mark.parametrize(
