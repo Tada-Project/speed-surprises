@@ -1,6 +1,7 @@
 """Tests for the compute_recursive_fibonacci function in the fibonacci module of the numbers package"""
 
 import pytest
+import math
 
 from hypothesis import given
 from hypothesis import settings
