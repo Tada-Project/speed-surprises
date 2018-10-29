@@ -25,18 +25,16 @@ def test_fibonacci_hypothesis(fibonacci_input):
     """Returns output with correct fibonacci value"""
     computed_value = fibonacci.compute_iterative_fibonacci(fibonacci_input)
     previous_computed_value = fibonacci.compute_iterative_fibonacci(fibonacci_input - 1)
-    goldenratio = 1.61803398875 # The golden ratio can be used to compute fibonacci values. Multiply the previous fibonacci value by the ratio to get the next value.
+    goldenratio = 1.61803398875  # The golden ratio can be used to compute fibonacci values. Multiply the previous fibonacci value by the ratio to get the next value.
     assert computed_value > 0
     assert previous_computed_value > 0
-    assert computed_value == math.ceil(goldenratio * previous_computed_value) # used math.ceil to correct possible rounding errors
+    assert computed_value == math.ceil(goldenratio * previous_computed_value)  # used math.ceil to correct possible rounding errors
 
 
 @pytest.mark.parametrize(
     "fibonacci_input,expected_answer",
-    [(1, 1), (2, 1), (3, 2), (4, 3) (5, 5)],
+    [(1, 1), (2, 1), (3, 2), (4, 3), (5, 5)],
 )
-
-
 def test_fibonacci_multiple(fibonacci_input, expected_answer):
     """Check the compute_iterative_fibonacci function with multiple inputs"""
     computed_value = fibonacci.compute_iterative_fibonacci(fibonacci_input)
