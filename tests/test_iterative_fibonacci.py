@@ -1,5 +1,4 @@
-"""Tests for the compute_iterative_fibonacci function in the
-fibonacci module of the numbers package"""
+"""Tests for the compute_iterative_fibonacci function"""
 
 import math
 import pytest
