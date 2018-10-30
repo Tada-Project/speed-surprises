@@ -32,8 +32,7 @@ def test_fibonacci_hypothesis(fibonacci_input):
     assert computed_value > 0
     assert previous_computed_value > 0
     assert computed_value == (
-        math.ceil(goldenratio * previous_computed_value)
-        # used math.ceil to correct possible rounding errors
+        math.ceil(goldenratio * previous_computed_value) # used math.ceil to correct possible rounding errors
     )
 
 
