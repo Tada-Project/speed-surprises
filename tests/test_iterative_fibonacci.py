@@ -19,7 +19,7 @@ def test_iterative_fibonacci_benchmark(benchmark):
     assert computed_value == 4181
 
 
-@given(fibonacci_input=integers(min_value=1, max_value=10))
+@given(fibonacci_input=integers(min_value=2, max_value=10))
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_fibonacci_hypothesis(fibonacci_input):
