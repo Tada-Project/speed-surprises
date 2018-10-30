@@ -30,7 +30,6 @@ def test_fibonacci_hypothesis(fibonacci_input):
     )
     goldenratio = 1.61803398875  # The golden ratio for fibonacci values.
     assert computed_value > 0
-    assert previous_computed_value > 0
     assert computed_value == (
         math.ceil(goldenratio * previous_computed_value)
     )
