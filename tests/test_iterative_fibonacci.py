@@ -36,7 +36,7 @@ def test_fibonacci_hypothesis(fibonacci_input):
         assert computed_value == 1
     else:
         assert computed_value == (
-            (goldenratio * previous_computed_value)
+            int(goldenratio * previous_computed_value)
         )
 
 
