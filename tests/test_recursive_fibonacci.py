@@ -19,7 +19,7 @@ def test_recursive_fibonacci_benchmark(benchmark):
     assert computed_value == 4181
 
 
-@given(fibonacci_input=integers(min_value=2, max_value=10))
+@given(fibonacci_input=integers(min_value=1, max_value=10))
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_fibonacci_hypothesis(fibonacci_input):
@@ -30,9 +30,14 @@ def test_fibonacci_hypothesis(fibonacci_input):
     )
     goldenratio = 1.61803398875  # The golden ratio for fibonacci values.
     assert computed_value > 0
-    assert computed_value == (
-        math.ceil(goldenratio * previous_computed_value)
-    )
+    if fibonacci_input == 1:
+        assert computed_value == 1
+    elif fibonacci_input == 2:
+        assert computed_value == 1
+    else:
+        assert computed_value == (
+            math.ceil(goldenratio * previous_computed_value)
+        )
 
 
 @pytest.mark.parametrize(
