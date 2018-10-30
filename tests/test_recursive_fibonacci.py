@@ -1,5 +1,5 @@
 """Tests for the compute_recursive_fibonacci function in the
-fibonacci module of the numbers package"""
+fibonacci module of the numbers package""" # pylint: disable=R0801
 
 import pytest
 
@@ -24,6 +24,7 @@ def test_recursive_fibonacci_benchmark(benchmark):
 def test_fibonacci_hypothesis(fibonacci_input):
     """Returns output with correct fibonacci value"""
     computed_value = fibonacci.compute_recursive_fibonacci(fibonacci_input)
+    # pylint: disable=R0801
     previous_computed_value = (
         fibonacci.compute_recursive_fibonacci(fibonacci_input - 1)
     )
@@ -33,6 +34,7 @@ def test_fibonacci_hypothesis(fibonacci_input):
         assert computed_value == 1
     else:
         assert computed_value == (
+            # pylint: disable=round-builitin
             round(goldenratio * previous_computed_value)
         )
 
