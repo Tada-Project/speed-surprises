@@ -21,3 +21,9 @@ def compute_recursive_factorial(value):
         return 1
     else:
         return value * compute_recursive_factorial(value - 1)
+
+def compute_hashmap_recursive_factorial(value):
+    dict = {0: 1}
+    if value not in dict:
+        dict[value] = value * compute_hashmap_recursive_factorial(value - 1)
+    return dict[value]
