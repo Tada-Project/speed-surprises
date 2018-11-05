@@ -44,7 +44,7 @@ def test_factorial_hypothesis(factorial_input):
     previous_hashmap_value = factorial.compute_hashmap_recursive_factorial(factorial_input - 1)
     assert computed_iterative_value > 0
     assert computed_recursive_value > 0
-    assert computed_hashmap_recursive_value > 0
+    assert computed_hashmap_value > 0
     assert previous_computed_iterative_value > 0
     assert previous_computed_recursive_value > 0
     assert previous_hashmap_value > 0
@@ -71,7 +71,7 @@ def test_factorial_single():
     """Check the compute_factorial function with a single input"""
     computed_iterative_value = factorial.compute_iterative_factorial(10)
     computed_recursive_value = factorial.compute_recursive_factorial(10)
-    computed_hashmap_recursive_value = factorial.compute_hashmap_recursive_factorial(10)
+    computed_hashmap_value = factorial.compute_hashmap_recursive_factorial(10)
     assert computed_iterative_value == 3628800
     assert computed_recursive_value == 3628800
-    assert computed_hashmap_recursive_value == 3628800
+    assert computed_hashmap_value == 3628800
