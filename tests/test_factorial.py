@@ -38,19 +38,19 @@ def test_factorial_hypothesis(factorial_input):
     """Returns output with correct factorial number"""
     computed_iterative_value = factorial.compute_iterative_factorial(factorial_input)
     computed_recursive_value = factorial.compute_recursive_factorial(factorial_input)
-    computed_hashmap_recursive_value = factorial.compute_hashmap_recursive_factorial(factorial_input)
+    computed_hashmap_value = factorial.compute_hashmap_recursive_factorial(factorial_input)
     previous_computed_iterative_value = factorial.compute_iterative_factorial(factorial_input - 1)
     previous_computed_recursive_value = factorial.compute_recursive_factorial(factorial_input - 1)
-    previous_computed_hashmap_recursive_value = factorial.compute_hashmap_recursive_factorial(factorial_input - 1)
+    previous_hashmap_value = factorial.compute_hashmap_recursive_factorial(factorial_input - 1)
     assert computed_iterative_value > 0
     assert computed_recursive_value > 0
     assert computed_hashmap_recursive_value > 0
     assert previous_computed_iterative_value > 0
     assert previous_computed_recursive_value > 0
-    assert previous_computed_hashmap_recursive_value > 0
+    assert previous_hashmap_value > 0
     assert computed_iterative_value == factorial_input * previous_computed_iterative_value
     assert computed_recursive_value == factorial_input * previous_computed_recursive_value
-    assert computed_hashmap_recursive_value == factorial_input * previous_computed_hashmap_recursive_value
+    assert computed_hashmap_value == factorial_input * previous_hashmap_value
 
 
 @pytest.mark.parametrize(
@@ -61,10 +61,10 @@ def test_factorial_multiple(factorial_input, expected_answer):
     """Check the compute_factorial function with multiple inputs"""
     computed_iterative_value = factorial.compute_iterative_factorial(factorial_input)
     computed_recursive_value = factorial.compute_recursive_factorial(factorial_input)
-    computed_hashmap_recursive_value = factorial.compute_hashmap_recursive_factorial(factorial_input)
+    computed_hashmap_value = factorial.compute_hashmap_recursive_factorial(factorial_input)
     assert computed_iterative_value == expected_answer
     assert computed_recursive_value == expected_answer
-    assert computed_hashmap_recursive_value == expected_answer
+    assert computed_hashmap_value == expected_answer
 
 
 def test_factorial_single():
