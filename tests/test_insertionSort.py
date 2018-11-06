@@ -18,25 +18,15 @@ def test_insertionSort_benchmark(benchmark):
     assert sorted_list == [1, 2, 3, 4]
 
 
-@given(list=lists(elements=integers(min_value=1, max_value=10), min_size=2))
-@settings(verbosity=Verbosity.verbose, deadline=None)
-@pytest.mark.hypothesisworks
-def test_insertionSort_hypothesis(list):
-    """Sees if list of hypothesis-generated data sorted is the same Python's sort function"""
-    insertionSort_list = insertionSort.insertionSort(list)
-    python_sort_list = sort.list()
-    assert insertionSort_list == python_sort_list
-
-
 @pytest.mark.parametrize(
     "list_input, expected_answer",
     [([6, 4, 8, 3, 2]), ([2, 3, 4, 6, 8])],
 )
-
 def test_insertionSort_multiple(list, expected_answer):
     """Check the insertionSort function with multiple lists"""
     sorted_list = insertionSort.insertionSort(list)
     assert sorted_list == expected_answer
+
 
 def test_insertionSort_single():
     """Check the insertionSort function with a single list"""
