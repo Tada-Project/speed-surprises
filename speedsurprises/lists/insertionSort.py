@@ -14,3 +14,4 @@ def insertionSort(list):
             list[position] = list[position - 1]
             position -= 1
         list[position] = currentValue
+    return list
