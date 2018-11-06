@@ -18,7 +18,7 @@ def test_insertionSort_benchmark(benchmark):
 )
 def test_insertionSort_multiple(list_input, expected_answer):
     """Check the insertionSort function with multiple lists"""
-    sorted_list = insertionSort.insertionSort(list)
+    sorted_list = insertionSort.insertionSort(list_input)
     assert sorted_list == expected_answer
 
 
