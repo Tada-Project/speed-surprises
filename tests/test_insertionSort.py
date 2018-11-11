@@ -22,7 +22,6 @@ def test_insertionSort_benchmark(benchmark):
 
 
 @settings(verbosity=Verbosity.verbose, deadline=None)
-    """Establishes the verbosity"""
 
 
 @pytest.mark.hypothesisworks
@@ -30,7 +29,7 @@ def test_insertionSort_hypothesis(listInput):
     insertionSort_list = insertionSort.insertionSort(listInput)
     python_sort_list = sort.listInput()
     assert insertionSort_list == python_sort_list
-      
+
 
 @pytest.mark.parametrize(
     "list_input, expected_answer",
