@@ -22,6 +22,7 @@ def test_insertionSort_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_insertionSort_hypothesis(listInput):
+    """Uses hypothesis to test"""
     insertionSort_list = insertionSort.insertionSort(listInput)
     python_sort_list = listInput.sort()
     assert insertionSort_list == python_sort_list
