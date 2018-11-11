@@ -1,7 +1,4 @@
-"""Functions that create copies of boolean and booleanlist"""
-
-# Source and/or inspiration for function(s):
-# http://whatcanbecomputed.com/
+"""Functions that create copies of boolean and booleanlists"""
 
 Boolean_T = True
 
@@ -22,7 +19,7 @@ def bcopies_of(booleanlist, boolean):
     list_of_boolean_true = []
     # iterate length of booleanlist times, appending a boolean true at each iteration
     # pylint: disable=unused-variable
-    for i in range(len(booleanlist):
+    for i in range(len(booleanlist)):
         list_of_boolean_true.append(boolean)
     # return copied list
     return list_of_boolean_true
