@@ -1,4 +1,4 @@
-"""Tests for the compute_iterative_fibonacci and 
+"""Tests for the compute_iterative_fibonacci and
 compute_recursive_fibonacci functions in the
 fibonacci module of the numbers package"""
 
