@@ -1,4 +1,5 @@
-"""Tests for the compute_iterative_fibonacci function in the
+"""Tests for the compute_iterative_fibonacci and 
+compute_recursive_fibonacci functions in the
 fibonacci module of the numbers package"""
 
 import pytest
@@ -20,7 +21,7 @@ def test_iterative_fibonacci_benchmark(benchmark):
 
 @pytest.mark.benchmark
 def test_recursive_fibonacci_benchmark(benchmark):
-    """Benchmark the compute_iterative_fibonacci function"""
+    """Benchmark the compute_recusrive_fibonacci function"""
     computed_recursive_value = benchmark(fibonacci.compute_recursive_fibonacci, value=19)
     assert computed_recursive_value == 4181
 
@@ -62,7 +63,7 @@ def test_fibonacci_hypothesis(fibonacci_input):
     [(1, 1), (2, 1), (3, 2), (4, 3), (5, 5)],
 )
 def test_fibonacci_multiple(fibonacci_input, expected_answer):
-    """Checks the compute_iterative_fibonacci function with multiple inputs"""
+    """Checks the iterative and recursive fibonacci functions with multiple inputs"""
     computed_iterative_value = fibonacci.compute_iterative_fibonacci(fibonacci_input)
     computed_recursive_value = fibonacci.compute_recursive_fibonacci(fibonacci_input)
     assert computed_iterative_value == expected_answer
@@ -70,7 +71,7 @@ def test_fibonacci_multiple(fibonacci_input, expected_answer):
 
 
 def test_fibonacci_single():
-    """Check the compute_iterative_fibonacci function with a single input"""
+    """Check the iterative and recursive fibonacci functions with a single input"""
     computed_iterative_value = fibonacci.compute_iterative_fibonacci(18)
     computed_recursive_value = fibonacci.compute_recursive_fibonacci(18)
     assert computed_iterative_value == 2584
