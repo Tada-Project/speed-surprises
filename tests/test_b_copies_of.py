@@ -11,7 +11,7 @@ CHOSEN_BOOLEAN = True
 def test_count_benchmark(benchmark):
     """Benchmark the bcopies_of function"""
     copied_boolean_list = benchmark(
-        booleancopies.bcopies_of, booleanlist="100", boolean=CHOSEN_BOOLEAN
+        booleancopies.bcopies_of, inputlength="100", boolean=CHOSEN_BOOLEAN
     )
     assert len(copied_boolean_list) == 100
     assert copied_boolean_list.count(CHOSEN_BOOLEAN) == 100
