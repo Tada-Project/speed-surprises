@@ -27,7 +27,7 @@ def test_bubble_sort_hypothesis_integer_lists_yes(list):
     """Sees if list of hypothesis-generated data sorted using bubble_sort is
     equal to same data sorted using Python's sort function"""
     bubble_sort_list = sorting.bubble_sort(list)
-    python_sort_list = list.sort()
+    python_sort_list = sorted(list)
     assert bubble_sort_list == python_sort_list
 
 
