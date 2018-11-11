@@ -2,11 +2,6 @@
 
 import pytest
 
-from hypothesis import given
-from hypothesis import settings
-from hypothesis import Verbosity
-from hypothesis.strategies import integers
-
 from speedsurprises.text import string_reverser
 
 
@@ -18,16 +13,6 @@ def test_string_reverser_benchmark(benchmark):
     )
     assert len(reversed_bnch_string) == 5
     assert reversed_bnch_string == "olleh"
-
-
-@given(input_string=string(elements=integers(min_value=1, max_value=5), min_size=3))
-@settings(verbosity=Verbosity.verbose, deadline=None)
-@pytest.mark.hypothesisworks
-def test_issubset_hypothesis_integer_lists_yes(input_string):
-    """Returns output with reversed string number"""
-    function_reversed_string = string_reverser.reverse(input_string)
-    python_reversed_string = input_string[::-1]
-    assert function_reversed_string == python_reversed_string
 
 
 @pytest.mark.parametrize(
