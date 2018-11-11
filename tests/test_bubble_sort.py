@@ -19,15 +19,15 @@ def test_bubble_sort_benchmark(benchmark):
 
 
 @given(
-    list=lists(elements=integers(min_value=1, max_value=10), min_size=2),
+    list_inputs=lists(elements=integers(min_value=1, max_value=10), min_size=2),
 )
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
-def test_bubble_sort_hypothesis_integer_lists_yes(list):
+def test_bubble_sort_hypothesis_integer_lists_yes(list_inputs):
     """Sees if list of hypothesis-generated data sorted using bubble_sort is
     equal to same data sorted using Python's sort function"""
-    bubble_sort_list = sorting.bubble_sort(list)
-    python_sort_list = sorted(list)
+    bubble_sort_list = sorting.bubble_sort(list_inputs)
+    python_sort_list = sorted(list_inputs)
     assert bubble_sort_list == python_sort_list
 
 
