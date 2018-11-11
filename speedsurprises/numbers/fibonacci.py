@@ -15,7 +15,7 @@ def compute_recursive_fibonacci(value):
 
 def compute_iterative_fibonacci(value):
     if (value == 0):
-        return value
+        return 0
     elif (value <= 2):
         return 1
     else:
