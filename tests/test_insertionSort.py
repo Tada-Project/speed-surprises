@@ -1,4 +1,4 @@
-"""Tests for the bubble_sort function in the insertionSort module of the lists package"""
+"""Tests for the insertionSort function in the insertionSort module of the lists package"""
 
 import pytest
 
@@ -22,7 +22,7 @@ def test_insertionSort_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_insertionSort_hypothesis(listInput):
-    """Uses hypothesis to test"""
+    """Using hypothesis"""
     insertionSort_list = insertionSort.insertionSort(listInput)
     python_sort_list = listInput.sort()
     assert insertionSort_list == python_sort_list
@@ -30,7 +30,7 @@ def test_insertionSort_hypothesis(listInput):
 
 @pytest.mark.parametrize(
     "list_input, expected_answer",
-    [([6, 4, 8, 3, 2]), ([2, 3, 4, 6, 8])],
+    [([6, 4, 8, 3, 2], [2, 3, 4, 6, 8]), ([3, 2, 1, 4], [1, 2, 3, 4])],
 )
 def test_insertionSort_multiple(list_input, expected_answer):
     """Check the insertionSort function with multiple lists"""
