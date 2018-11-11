@@ -41,7 +41,7 @@ def test_bubble_sort_multiple(list_inputs, expected_answer):
 
 @pytest.mark.parametrize(
     "list_inputs, expected_answer",
-    [([10, 3, 1], [1, 3, 10)],
+    [([10, 3, 1], [1, 3, 10])],
 )
 def test_bubble_sort_single(list_inputs, expected_answer):
     """Check the bubble_sort function with one input"""
