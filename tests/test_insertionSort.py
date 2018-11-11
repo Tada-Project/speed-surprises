@@ -18,7 +18,7 @@ def test_insertionSort_benchmark(benchmark):
     assert sorted_list == [1, 2, 3, 4]
 
 
-@given(listInput=lists(elements=integers(min_value=1, max_value=10), min_size=2))
+@given(listInput=lists(elements=integers(min_value=1, max_value=10), min_size=3))
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_insertionSort_hypothesis(listInput):
