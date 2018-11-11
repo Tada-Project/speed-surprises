@@ -23,8 +23,10 @@ def test_insertionSort_benchmark(benchmark):
 @pytest.mark.hypothesisworks
 def test_insertionSort_hypothesis(listInput):
     insertionSort_list = insertionSort.insertionSort(listInput)
-    python_sort_list = sort.listInput()
+    python_sort_list = listInput.sort()
     assert insertionSort_list == python_sort_list
+
+
 @pytest.mark.parametrize(
     "list_input, expected_answer",
     [([6, 4, 8, 3, 2]), ([2, 3, 4, 6, 8])],
