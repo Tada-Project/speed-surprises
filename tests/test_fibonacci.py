@@ -16,8 +16,14 @@ def test_iterative_fibonacci_benchmark(benchmark):
     """Benchmark the compute_iterative_fibonacci function"""
     computed_iterative_value = benchmark(fibonacci.compute_iterative_fibonacci, value=19)
     assert computed_iterative_value == 4181
+
+
+@pytest.mark.benchmark
+def test_recursive_fibonacci_benchmark(benchmark):
+    """Benchmark the compute_iterative_fibonacci function"""
     computed_recursive_value = benchmark(fibonacci.compute_recursive_fibonacci, value=19)
     assert computed_recursive_value == 4181
+
 
 @given(fibonacci_input=integers(min_value=2, max_value=10))
 @settings(verbosity=Verbosity.verbose, deadline=None)
