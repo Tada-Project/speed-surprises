@@ -14,7 +14,7 @@ from speedsurprises.lists import sorting
 @pytest.mark.benchmark
 def test_bubble_sort_benchmark(benchmark):
     """Benchmark the bubble_sort function"""
-    sorted_list = benchmark(sorting.bubble_sort, list=[4, 2, 3, 1])
+    sorted_list = benchmark(sorting.bubble_sort, list_inputs=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
@@ -32,10 +32,10 @@ def test_bubble_sort_hypothesis_integer_lists_yes(list_inputs):
 
 
 @pytest.mark.parametrize(
-    "list, expected_answer",
+    "list_inputs, expected_answer",
     [([5, 3, 9, 2, 1], [1, 2, 3, 5, 9]), ([7, 2, 10, 3, 1], [1, 2, 3, 7, 10])],
 )
-def test_issubset_multiple(list, expected_answer):
+def test_issubset_multiple(list_inputs, expected_answer):
     """Check the is_subset function with multiple inputs"""
-    sorted_list = sorting.bubble_sort(list)
+    sorted_list = sorting.bubble_sort(list_inputs)
     assert sorted_list == expected_answer
