@@ -6,7 +6,6 @@ from hypothesis import given
 from hypothesis import settings
 from hypothesis import Verbosity
 from hypothesis.strategies import integers
-from hypothesis.strategies import text
 
 from speedsurprises.text import string_reverser
 
@@ -21,7 +20,7 @@ def test_string_reverser_benchmark(benchmark):
     assert reversed_bnch_string == "olleh"
 
 
-@given(input_string=strings(elements=integers(min_value=1, max_value=5), min_size=3))
+@given(input_string=string(elements=integers(min_value=1, max_value=5), min_size=3))
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_issubset_hypothesis_integer_lists_yes(input_string):
