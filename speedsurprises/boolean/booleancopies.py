@@ -6,7 +6,7 @@ Boolean_T = True
 def bcopies_oft(inputlength):
     """Create empty list for boolean true"""
     list_of_boolean_true = []
-    # iterate length of booleanlist times, appending a boolean true at each iteration
+    # iterate length of inputlength times, appending a boolean true at each iteration
     # pylint: disable=unused-variable
     for i in range(int(inputlength)):
         list_of_boolean_true.append(Boolean_T)
@@ -14,10 +14,10 @@ def bcopies_oft(inputlength):
     return list_of_boolean_true
 
 
-def bcopies_of(booleanlist, boolean):
+def bcopies_of(inputlength, boolean):
     """Create empty list for boolean true"""
     list_of_boolean_true = []
-    # iterate length of booleanlist times, appending a boolean true at each iteration
+    # iterate length of inputlength times, appending a boolean true at each iteration
     # pylint: disable=unused-variable
     for i in range(int(inputlength)):
         list_of_boolean_true.append(boolean)
