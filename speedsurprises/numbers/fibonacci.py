@@ -14,10 +14,8 @@ def compute_recursive_fibonacci(value):
 
 
 def compute_iterative_fibonacci(value):
-    if (value == 0):
-        return 0
-    elif (value <= 2):
-        return 1
+    if (value <= 1):
+        return value
     else:
         x = 0
         y = 1
