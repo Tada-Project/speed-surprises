@@ -44,7 +44,7 @@ def bubble_sort(list):
 # Worst-case time complexity: O(nlogn)
 
 
-def mergeSort(list):
+def merge_sort(list):
     """Sorts a list using MergeSort function."""
     if len(list) > 1:
         mid = len(list) // 2
