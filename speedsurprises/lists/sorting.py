@@ -75,3 +75,4 @@ def mergeSort(list):
             list[k]=righthalf[j]
             j=j+1
             k=k+1
+    return list
