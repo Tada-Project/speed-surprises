@@ -14,7 +14,7 @@ from speedsurprises.lists import sorting
 @pytest.mark.benchmark
 def test_insertionSort_benchmark(benchmark):
     """Benchmark the insertionSort function"""
-    sorted_list = benchmark(insertionSort.insertionSort, list=[4, 2, 3, 1])
+    sorted_list = benchmark(sorting.insertionSort, list=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
@@ -23,7 +23,7 @@ def test_insertionSort_benchmark(benchmark):
 @pytest.mark.hypothesisworks
 def test_insertionSort_hypothesis(listInput):
     """Using hypothesis"""
-    insertionSort_list = insertionSort.insertionSort(listInput)
+    insertionSort_list = sorting.insertionSort(listInput)
     python_sort_list = sorted(listInput)
     assert insertionSort_list == python_sort_list
 
@@ -34,13 +34,13 @@ def test_insertionSort_hypothesis(listInput):
 )
 def test_insertionSort_multiple(list_input, expected_answer):
     """Check the insertionSort function with multiple lists"""
-    sorted_list = insertionSort.insertionSort(list_input)
+    sorted_list = sorting.insertionSort(list_input)
     assert sorted_list == expected_answer
 
 
 def test_insertionSort_single():
     """Check the insertionSort function with a single list"""
-    sorted_list = insertionSort.insertionSort([4, 3, 1, 5, 6])
+    sorted_list = sorting.insertionSort([4, 3, 1, 5, 6])
     assert sorted_list == [1, 3, 4, 5, 6]
 
 @pytest.mark.benchmark
