@@ -34,3 +34,44 @@ def bubble_sort(list):
                 list[i] = list[i + 1]
                 list[i + 1] = temp
     return list
+
+
+"""Do list sorting using MergeSort"""
+
+# Source and/or inspiration for the function(s):
+# https://bit.ly/2TOMWP3
+
+# Worst-case time complexity: O(nlogn)
+
+
+def mergeSort(list):
+    """Sorts a list using MergeSort function."""
+    if len(list)>1:
+        mid = len(list)//2
+        lefthalf = list[:mid]
+        righthalf = list[mid:]
+
+        mergeSort(lefthalf)
+        mergeSort(righthalf)
+
+        i=0
+        j=0
+        k=0
+        while i < len(lefthalf) and j < len(righthalf):
+            if lefthalf[i] < righthalf[j]:
+                list[k]=lefthalf[i]
+                i=i+1
+            else:
+                list[k]=righthalf[j]
+                j=j+1
+            k=k+1
+
+        while i < len(lefthalf):
+            list[k]=lefthalf[i]
+            i=i+1
+            k=k+1
+
+        while j < len(righthalf):
+            list[k]=righthalf[j]
+            j=j+1
+            k=k+1
