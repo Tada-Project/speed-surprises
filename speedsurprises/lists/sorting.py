@@ -1,4 +1,4 @@
-"""Sort list with InsertionSort"""
+"""Do list sorting using InsertionSort"""
 
 # Inspiration for function:
 # https://bit.ly/2flYwOq
