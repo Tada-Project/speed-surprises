@@ -1,5 +1,7 @@
 """ Main file for Speed-Surprises Benchmarking Tool. """
 
+# Sample run: python3 benchmark.py -m speedsurprises.numbers.factorial -f compute_factorial -t int
+
 import getopt
 import importlib
 import sys
@@ -18,8 +20,8 @@ def get_num_of_rounds():
 def main(argv):
     directory = ""
     module = ""
-    function = ""
-    type = ""
+    # function = ""
+    # type = ""
 
     try:
         opts, args = getopt.getopt(argv, "m:f:t:h", ["module=", "function=", "type=", "help"])
@@ -35,6 +37,7 @@ def main(argv):
             module = arg
         elif opt in ("-f", "--function"):
             function = arg
+
         elif opt in ("-t", "--type"):
             type = arg
         else:
@@ -47,14 +50,14 @@ def main(argv):
 
     user_module = importlib.import_module(module)
 
-    function_call = module + "." + function + "(" + type + ")"
-
-    run_benchmark(previous_time, function_call, function, user_module)
+    run_benchmark(previous_time, function, user_module)
 
 
-def run_benchmark(previous_time, function_call, function, user_module):
+def run_benchmark(previous_time, function, user_module):
     print("************************************************")
     print("Running Benchmark with", function)
+
+    run_function = getattr(user_module, function)
 
     user_rounds = get_num_of_rounds()
     round_num = 1
@@ -64,7 +67,9 @@ def run_benchmark(previous_time, function_call, function, user_module):
         current_size = current_size * input_growth_factor
         start_time = time.time()
 
+        run_function(current_size)
 
+        #user_module.compute_factorial(current_size)
         #factorial.compute_factorial(current_size)
         #exec('factorial.compute_factorial(current_size)')
 
