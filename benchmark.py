@@ -2,14 +2,17 @@
 
 # Sample run: python3 benchmark.py -m speedsurprises.numbers.factorial -f compute_factorial -t int
 
+# Imports:
 import getopt
 import importlib
 import sys
 import time
 
+# Set defaults:
 input_size_start = 100
 input_growth_factor = 2
 previous_time = 1
+
 
 def get_num_of_rounds():
     """Recieves user-inputted number of rounds for experiment."""
@@ -48,8 +51,6 @@ def main(argv):
     print("Function:", function)
     print("Type:", type)
 
-
-
     user_module = importlib.import_module(module)
 
     run_benchmark(previous_time, user_module, function, type)
@@ -57,16 +58,12 @@ def main(argv):
 
 def run_benchmark(previous_time, user_module, function, type):
     current_size = input_size_start
-    # type
-    if type == "int":
-        type = current_size
-    if type == "list":
-        type = []
+
 
     print("************************************************")
     print("Running Benchmark with", function)
-
     run_function = getattr(user_module, function)
+
 
     user_rounds = get_num_of_rounds()
     round_num = 1
@@ -77,11 +74,8 @@ def run_benchmark(previous_time, user_module, function, type):
 
         start_time = time.time()
 
-        run_function(test_list, test_list)
-
-        #user_module.compute_factorial(current_size)
-        #factorial.compute_factorial(current_size)
-        #exec('factorial.compute_factorial(current_size)')
+        params = (test_list, test_list) # testing for the list
+        run_function(*params)
 
         stop_time = time.time()
         time_elapsed = stop_time - start_time
@@ -91,7 +85,7 @@ def run_benchmark(previous_time, user_module, function, type):
         else:
             avg_runtime = time_elapsed / previous_time
 
-        print("Round", round_num, " --- Size:", current_size, " --- ", time_elapsed, " --- AVG RUN: ", avg_runtime)
+        print("Round", round_num, " --- Size:", current_size, " --- ", time_elapsed, " --- AVG RUN: ", avg_runtime) # print results
         previous_time = time_elapsed
         round_num += 1
 
