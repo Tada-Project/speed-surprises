@@ -1,7 +1,7 @@
 """ Main file for Speed-Surprises Benchmarking Tool. """
 
 import getopt
-from speedsurprises.numbers import factorial
+import importlib
 import sys
 import time
 
@@ -22,7 +22,7 @@ def main(argv):
     type = ""
 
     try:
-        opts, args = getopt.getopt(argv, "d:m:f:t:h", ["directory=", "module=", "function=", "type=", "help"])
+        opts, args = getopt.getopt(argv, "m:f:t:h", ["module=", "function=", "type=", "help"])
     except getopt.GetoptError:
         print("Incorrect Format!")
         print("benchmark.py -d <directory> -m <module> -f <function> -t <type>")
@@ -31,8 +31,6 @@ def main(argv):
         if opt == '-h':
             print("benchmark.py -d <directory> -m <module> -f <function> -t <type>")
             sys.exit(2)
-        elif opt in ("-d", "--directory"):
-            directory = arg
         elif opt in ("-m", "--module"):
             module = arg
         elif opt in ("-f", "--function"):
@@ -43,17 +41,18 @@ def main(argv):
             print("benchmark.py -d <directory> -m <module> -f <function> -t <type>")
 
     print("***User Arguments***")
-    print("Directory:", directory)
     print("Module:", module)
     print("Function:", function)
     print("Type:", type)
 
+    user_module = importlib.import_module(module)
+
     function_call = module + "." + function + "(" + type + ")"
 
-    run_benchmark(previous_time, function_call, function)
+    run_benchmark(previous_time, function_call, function, user_module)
 
 
-def run_benchmark(previous_time, function_call, function):
+def run_benchmark(previous_time, function_call, function, user_module):
     print("************************************************")
     print("Running Benchmark with", function)
 
@@ -65,9 +64,9 @@ def run_benchmark(previous_time, function_call, function):
         current_size = current_size * input_growth_factor
         start_time = time.time()
 
+
         #factorial.compute_factorial(current_size)
-        #run_function = locals()['factorial.compute_factorial'](current_size)
-        exec('factorial.compute_factorial(current_size)')
+        #exec('factorial.compute_factorial(current_size)')
 
         stop_time = time.time()
         time_elapsed = stop_time - start_time
