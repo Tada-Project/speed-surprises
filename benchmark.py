@@ -48,12 +48,21 @@ def main(argv):
     print("Function:", function)
     print("Type:", type)
 
+
+
     user_module = importlib.import_module(module)
 
-    run_benchmark(previous_time, function, user_module)
+    run_benchmark(previous_time, user_module, function, type)
 
 
-def run_benchmark(previous_time, function, user_module):
+def run_benchmark(previous_time, user_module, function, type):
+    current_size = input_size_start
+    # type
+    if type == "int":
+        type = current_size
+    if type == "list":
+        type = []
+
     print("************************************************")
     print("Running Benchmark with", function)
 
@@ -61,13 +70,14 @@ def run_benchmark(previous_time, function, user_module):
 
     user_rounds = get_num_of_rounds()
     round_num = 1
-    current_size = input_size_start
 
+    test_list = [1]
     while(round_num <= user_rounds):
         current_size = current_size * input_growth_factor
+
         start_time = time.time()
 
-        run_function(current_size)
+        run_function(test_list, test_list)
 
         #user_module.compute_factorial(current_size)
         #factorial.compute_factorial(current_size)
