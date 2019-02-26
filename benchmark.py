@@ -5,7 +5,7 @@
 # Imports:
 import getopt
 import importlib
-import inspect
+from inspect import *
 import sys
 import time
 
@@ -40,28 +40,23 @@ def generate_data(current_size, type):
         exp_data = default_char * current_size
     else:
         print("Unsupported data type")
-    print(exp_data) # print what is being generated for testing
+    print(exp_data) # print what is being generated for testing purposes
     return exp_data
 
 
-def run_benchmark(previous_time, user_module, function, type):
+def run_benchmark(previous_time, user_module, function, type, run_function):
     current_size = input_size_start
 
     print("************************************************")
     print("Running Benchmark with", function)
-    run_function = getattr(user_module, function)
 
     user_rounds = get_num_of_rounds()
     round_num = 1
 
-    test_list = [1]
-    test_list2 = [1]
     while(round_num <= user_rounds):
         current_size = current_size * input_growth_factor
 
-        current_data = generate_data(current_size, type)
-
-        params = (data) # testing for the list
+        data = generate_data(current_size, type)
 
         start_time = time.time()
 
@@ -84,10 +79,10 @@ def run_benchmark(previous_time, user_module, function, type):
 def main(argv):
     module = ""
     function = ""
-    type = ""
+    type = []
 
     try:
-        opts, args = getopt.getopt(argv, "m:f:t:h", ["module=", "function=", "type=", "help"])
+        opts, args = getopt.getopt(argv, "m:f:t:h", ["module=", "function=", "type=",  "help"])
     except getopt.GetoptError:
         print("Incorrect Format!")
         print("benchmark.py -m <module> -f <function> -t <type>")
@@ -101,19 +96,22 @@ def main(argv):
         elif opt in ("-f", "--function"):
             function = arg
         elif opt in ("-t", "--type"):
-            type = arg
+            type = arg.replace(' ','').split(',')
         else:
             print("benchmark.py -m <module> -f <function> -t <type>")
 
+    # print the user's inputted arguments for testing purposes
     print("***User Arguments***")
     print("Module:", module)
     print("Function:", function)
     print("Type:", type)
 
     user_module = importlib.import_module(module)
+    run_function = getattr(user_module, function)
 
-    run_benchmark(previous_time, user_module, function, type)
+    # run the benchmark
+    run_benchmark(previous_time, user_module, function, type, run_function)
 
-
+# run main - run program
 if __name__ == "__main__":
    main(sys.argv[1:])
