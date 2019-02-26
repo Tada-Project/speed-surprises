@@ -26,6 +26,18 @@ def generate_data(current_size, type):
     if type == "int":
         # generate int
         exp_data = int(current_size)
+    elif type == "list":
+        # generate list
+        default_list = [1]
+        exp_data = default_list * current_size
+    elif type == "string":
+        # generate string
+        default_string = "str"
+        exp_data = default_string * current_size
+    elif type == "char":
+        # generate char
+        default_char = "c"
+        exp_data = default_char * current_size
     else:
         print("Unsupported data type")
     print(exp_data) # print what is being generated for testing
@@ -46,11 +58,12 @@ def run_benchmark(previous_time, user_module, function, type):
     test_list2 = [1]
     while(round_num <= user_rounds):
         current_size = current_size * input_growth_factor
-        data = generate_data(current_size, type)
 
-        start_time = time.time()
+        current_data = generate_data(current_size, type)
 
         params = (data) # testing for the list
+
+        start_time = time.time()
 
         run_function(data) # run the function with data size
 
