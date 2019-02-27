@@ -1,7 +1,4 @@
-""" Main file for Speed-Surprises Benchmarking Tool. """
-
-# Sample runs: python3 benchmark.py -m speedsurprises.numbers.factorial -f compute_factorial -t int
-#              python3 benchmark.py -m speedsurprises.lists.sets -f is_subset -t list,list
+"""Main file for Speed-Surprises Benchmarking Tool."""
 
 # Imports:
 import getopt
@@ -59,13 +56,9 @@ def generate_data(current_size, types):
     return params
 
 
-def run_benchmark(previous_time, user_module, function, types, run_function):
+def run_benchmark(previous_time, user_module, function, types, run_function, user_rounds):
     current_size = input_size_start
 
-    print("************************************************")
-    print("Running Benchmark with", function)
-
-    user_rounds = get_num_of_rounds()
     round_num = 1
 
     while(round_num <= user_rounds):
@@ -97,7 +90,6 @@ def start_up_message(function):
     print("*          Speed-Surprises Simple Benchmarking Tool            *")
     print("****************************************************************")
     print() # print balnk line for spacing
-    print("Running a doubling-experiment benchmark for", function, "...")
 
 
 def main(argv):
@@ -150,8 +142,14 @@ def main(argv):
     run_function = getattr(user_module, function)
 
     start_up_message(function)
+
+    user_rounds = get_num_of_rounds()
+
+    print() # print blank line for spacing
+    print("Running a doubling-experiment benchmark for", function, "...")
+
     # run the benchmark
-    run_benchmark(previous_time, user_module, function, types, run_function)
+    run_benchmark(previous_time, user_module, function, types, run_function, user_rounds)
 
 # run main - run program
 if __name__ == "__main__":
