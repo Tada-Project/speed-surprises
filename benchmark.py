@@ -30,7 +30,7 @@ def generate_data(current_size, types):
             bench_data.append(int(current_size))
         elif current_type == "float":
             # generate float
-            default_float = 2.0
+            default_float = 1.0
             gen_data = default_float * current_size
             bench_data.append(gen_data)
         elif current_type == "list":
@@ -59,7 +59,7 @@ def generate_data(current_size, types):
 def run_benchmark(previous_time, user_module, function, types, run_function, user_rounds):
     current_size = input_size_start
 
-    round_num = 1
+    round_num = 1 # set the starting round number
 
     while(round_num <= user_rounds):
         current_size = current_size * input_growth_factor
