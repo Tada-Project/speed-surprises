@@ -116,7 +116,20 @@ def main(argv):
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print("benchmark.py -m <module> -f <function> -t <types>")
+            # program help information
+            print("****************************************************************")
+            print("*                      S-S Benchmark Help:                     *")
+            print("****************************************************************")
+            print() # print blank line for spacing
+            print("Format:  benchmark.py -m <module> -f <function> -t <types>")
+            print() # print blank line for spacing
+            print("Sample Usage:")
+            print("python3 benchmark.py -m speedsurprises.numbers.factorial -f compute_factorial -t int")
+            print("python3 benchmark.py -m speedsurprises.lists.sets -f is_subset -t list,list")
+            print() # print blank line for spacing
+            print("Currently supported types: int, float, list, string, char")
+            print() # print blank line for spacing
+            print("* When entering types, for each parameter in your chosen function put it's type. \nFor example, if a functions paramters are two lists, enter 'list,list' for the types.")
             sys.exit(2)
         elif opt in ("-m", "--module"):
             module = arg
