@@ -63,31 +63,32 @@ def run_benchmark(previous_time, user_module, function, types, run_function, use
 
     while(round_num <= user_rounds):
         if round_num == 1:
-            current_size = 100
+            current_size = 100 # set the starting size
         else:
-            current_size = current_size * input_growth_factor
+            current_size = current_size * input_growth_factor # update size for post-round 1 rounds
 
-        params = generate_data(current_size, types)
+        params = generate_data(current_size, types) # generate data and store as parameters
 
-        start_time = time.time()
+        # Start the benchmark for current round
+        start_time = time.time() # start timer
 
-        run_function(*params) # run the function with data size
+        run_function(*params) # run the function with parameter data size
 
-        stop_time = time.time()
-        time_elapsed = stop_time - start_time
+        stop_time = time.time() # stop timer
+        time_elapsed = stop_time - start_time # calculate function run time
 
         if(round_num == 1):
-            avg_runtime = 0
+            avg_runtime = 0 # no previous rounds so avg runtime is 0
         else:
             avg_runtime = time_elapsed / previous_time
 
-        print("Round", round_num, " --- Size:", current_size, " --- ", time_elapsed, " --- AVG RUN: ", avg_runtime) # print results
+        print("Round", round_num, " --- Size:", current_size, " --- ", time_elapsed, " --- AVG RUN: ", avg_runtime)
 
         previous_time = time_elapsed
         round_num += 1
 
 
-def start_up_message(function):
+def start_up_message():
     """Creates and displays a simple welcome message."""
     print("****************************************************************")
     print("*          Speed-Surprises Simple Benchmarking Tool            *")
@@ -96,10 +97,14 @@ def start_up_message(function):
 
 
 def main(argv):
+    """Driver function that gets arguments and runs necessary functions."""
+
+    # Create variables for storing arguments
     module = ""
     function = ""
     types = []
 
+    # Get arguments
     try:
         opts, args = getopt.getopt(argv, "m:f:t:h", ["module=", "function=", "types=",  "help"])
     except getopt.GetoptError:
@@ -141,17 +146,17 @@ def main(argv):
     print("Function:", function)
     print("types:", types)
 
-    user_module = importlib.import_module(module)
-    run_function = getattr(user_module, function)
+    user_module = importlib.import_module(module) # import argument's module
+    run_function = getattr(user_module, function) # code that will run function when called
 
-    start_up_message(function)
+    start_up_message() # display start up message
 
-    user_rounds = get_num_of_rounds()
+    user_rounds = get_num_of_rounds() # get number of user-chosen rounds
 
     print() # print blank line for spacing
     print("Running a doubling-experiment benchmark for", function, "...")
 
-    # run the benchmark
+    # run the benchmark:
     run_benchmark(previous_time, user_module, function, types, run_function, user_rounds)
 
 # run main - run program
