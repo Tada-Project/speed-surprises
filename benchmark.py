@@ -52,7 +52,7 @@ def generate_data(current_size, types):
             gen_data = default_char * current_size
             bench_data.append(gen_data)
         else:
-            print("Unsupported data types")
+            print("Unsupported data type:", current_type)
 
     params = bench_data
     print("TEST_PARAMS", params)
@@ -91,6 +91,15 @@ def run_benchmark(previous_time, user_module, function, types, run_function):
         round_num += 1
 
 
+def start_up_message(function):
+    """Creates and displays a simple welcome message."""
+    print("****************************************************************")
+    print("*          Speed-Surprises Simple Benchmarking Tool            *")
+    print("****************************************************************")
+    print() # print balnk line for spacing
+    print("Running a doubling-experiment benchmark for", function, "...")
+
+
 def main(argv):
     module = ""
     function = ""
@@ -124,6 +133,7 @@ def main(argv):
     user_module = importlib.import_module(module)
     run_function = getattr(user_module, function)
 
+    start_up_message(function)
     # run the benchmark
     run_benchmark(previous_time, user_module, function, types, run_function)
 
