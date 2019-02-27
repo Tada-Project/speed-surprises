@@ -62,7 +62,10 @@ def run_benchmark(previous_time, user_module, function, types, run_function, use
     round_num = 1 # set the starting round number
 
     while(round_num <= user_rounds):
-        current_size = current_size * input_growth_factor
+        if round_num == 1:
+            current_size = 100
+        else:
+            current_size = current_size * input_growth_factor
 
         params = generate_data(current_size, types)
 
