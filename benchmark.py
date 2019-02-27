@@ -21,30 +21,40 @@ def get_num_of_rounds():
     return user_rounds
 
 
-def generate_data(current_size, type):
+def generate_data(current_size, types):
     """Generates data to be used in experiment."""
-    if type == "int":
-        # generate int
-        exp_data = int(current_size)
-    elif type == "list":
-        # generate list
-        default_list = [1]
-        exp_data = default_list * current_size
-    elif type == "string":
-        # generate string
-        default_string = "str"
-        exp_data = default_string * current_size
-    elif type == "char":
-        # generate char
-        default_char = "c"
-        exp_data = default_char * current_size
-    else:
-        print("Unsupported data type")
-    print(exp_data) # print what is being generated for testing purposes
-    return exp_data
+    i = 0
+    num_params = len(types)
+    bench_data = []
+
+    for current_type in types:
+        if current_type == "int":
+            # generate int
+            bench_data.append(int(current_size))
+        elif current_type == "list":
+            # generate list
+            default_list = [1]
+            gen_data = default_list * current_size
+            bench_data.append(gen_data)
+        elif current_type == "string":
+            # generate string
+            default_string = "str"
+            gen_data = default_string * current_size
+            bench_data.append(gen_data)
+        elif current_type == "char":
+            # generate char
+            default_char = "c"
+            gen_data = default_char * current_size
+            bench_data.append(gen_data)
+        else:
+            print("Unsupported data types")
+            
+    params = bench_data
+    print("TEST_PARAMS", params)
+    return params
 
 
-def run_benchmark(previous_time, user_module, function, type, run_function):
+def run_benchmark(previous_time, user_module, function, types, run_function):
     current_size = input_size_start
 
     print("************************************************")
@@ -56,11 +66,11 @@ def run_benchmark(previous_time, user_module, function, type, run_function):
     while(round_num <= user_rounds):
         current_size = current_size * input_growth_factor
 
-        data = generate_data(current_size, type)
+        params = generate_data(current_size, types)
 
         start_time = time.time()
 
-        run_function(data) # run the function with data size
+        run_function(*params) # run the function with data size
 
         stop_time = time.time()
         time_elapsed = stop_time - start_time
@@ -79,38 +89,38 @@ def run_benchmark(previous_time, user_module, function, type, run_function):
 def main(argv):
     module = ""
     function = ""
-    type = []
+    types = []
 
     try:
-        opts, args = getopt.getopt(argv, "m:f:t:h", ["module=", "function=", "type=",  "help"])
+        opts, args = getopt.getopt(argv, "m:f:t:h", ["module=", "function=", "types=",  "help"])
     except getopt.GetoptError:
         print("Incorrect Format!")
-        print("benchmark.py -m <module> -f <function> -t <type>")
+        print("benchmark.py -m <module> -f <function> -t <types>")
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print("benchmark.py -m <module> -f <function> -t <type>")
+            print("benchmark.py -m <module> -f <function> -t <types>")
             sys.exit(2)
         elif opt in ("-m", "--module"):
             module = arg
         elif opt in ("-f", "--function"):
             function = arg
-        elif opt in ("-t", "--type"):
-            type = arg.replace(' ','').split(',')
+        elif opt in ("-t", "--types"):
+            types = arg.replace(' ','').split(',')
         else:
-            print("benchmark.py -m <module> -f <function> -t <type>")
+            print("benchmark.py -m <module> -f <function> -t <types>")
 
     # print the user's inputted arguments for testing purposes
     print("***User Arguments***")
     print("Module:", module)
     print("Function:", function)
-    print("Type:", type)
+    print("types:", types)
 
     user_module = importlib.import_module(module)
     run_function = getattr(user_module, function)
 
     # run the benchmark
-    run_benchmark(previous_time, user_module, function, type, run_function)
+    run_benchmark(previous_time, user_module, function, types, run_function)
 
 # run main - run program
 if __name__ == "__main__":
