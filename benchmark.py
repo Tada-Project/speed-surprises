@@ -1,6 +1,7 @@
 """ Main file for Speed-Surprises Benchmarking Tool. """
 
-# Sample run: python3 benchmark.py -m speedsurprises.numbers.factorial -f compute_factorial -t int
+# Sample runs: python3 benchmark.py -m speedsurprises.numbers.factorial -f compute_factorial -t int
+#              python3 benchmark.py -m speedsurprises.lists.sets -f is_subset -t list,list
 
 # Imports:
 import getopt
@@ -23,7 +24,6 @@ def get_num_of_rounds():
 
 def generate_data(current_size, types):
     """Generates data to be used in experiment."""
-    i = 0
     num_params = len(types)
     bench_data = []
 
@@ -31,6 +31,11 @@ def generate_data(current_size, types):
         if current_type == "int":
             # generate int
             bench_data.append(int(current_size))
+        elif current_type == "float":
+            # generate float
+            default_float = 2.0
+            gen_data = default_float * current_size
+            bench_data.append(gen_data)
         elif current_type == "list":
             # generate list
             default_list = [1]
@@ -48,7 +53,7 @@ def generate_data(current_size, types):
             bench_data.append(gen_data)
         else:
             print("Unsupported data types")
-            
+
     params = bench_data
     print("TEST_PARAMS", params)
     return params
