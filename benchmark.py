@@ -4,13 +4,17 @@
 import getopt
 import importlib
 from inspect import *
+from prettytable import PrettyTable
 import sys
 import time
+
 
 # Set benchmarking defaults:
 input_size_start = 100
 input_growth_factor = 2
 previous_time = 1
+
+results_table = PrettyTable(['Round', 'Size', 'Runtime', 'Average']) # create results table
 
 
 def main(argv):
@@ -128,11 +132,17 @@ def run_benchmark(previous_time, user_module, function, types, run_function, use
         else:
             avg_runtime = time_elapsed / previous_time
 
-        print("Round", round_num, " --- Size:", current_size, " --- ", time_elapsed, " --- AVG RUN: ", avg_runtime)
+        add_results(results_table, round_num, current_size, time_elapsed, avg_runtime)
+        #print("Round", round_num, " --- Size:", current_size, " --- ", time_elapsed, " --- AVG RUN: ", avg_runtime)
 
         previous_time = time_elapsed
         round_num += 1
+    print(results_table)
 
+
+def add_results(results_table, round_num, current_size, time_elapsed, avg_runtime):
+    """Add elements into the results_table."""
+    results_table.add_row([round_num, current_size, time_elapsed, avg_runtime])
 
 def get_num_of_rounds():
     """Recieves user-inputted number of rounds for experiment."""
