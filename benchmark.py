@@ -110,6 +110,9 @@ def main(argv):
     except getopt.GetoptError:
         print("Incorrect Format!")
         print("benchmark.py -m <module> -f <function> -t <types>")
+        print() # print blank line for spacing
+        print("Type benchmark.py -h for more help.")
+        print() # print blank line for spacing
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
