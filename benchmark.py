@@ -119,6 +119,9 @@ def run_benchmark(previous_time, user_module, function, types, run_function, use
         else:
             current_size = current_size * input_growth_factor # update size for post-round 1 rounds
 
+        print() # print blank line for spacing
+        print("Running round", round_num, "with size of", current_size, "...")
+
         params = generate_data(current_size, types) # generate data and store as parameters
 
         # Start the benchmark for current round:
@@ -137,7 +140,8 @@ def run_benchmark(previous_time, user_module, function, types, run_function, use
 
         previous_time = time_elapsed
         round_num += 1
-    print(results_table)
+    print() # print blank line for spacing
+    print(results_table) # print the results table
 
 
 def add_results(results_table, round_num, current_size, time_elapsed, avg_runtime):
