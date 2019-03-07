@@ -13,7 +13,7 @@ input_size_start = 100
 input_growth_factor = 2
 
 results_table = PrettyTable(
-    ["Round", "Size", "Runtime", "Average"]
+    ["Round", "Size", "Runtime", "Ratio"]
 )  # create results table
 
 
@@ -153,12 +153,12 @@ def run_benchmark(types, run_function, user_rounds):
         time_elapsed = stop_time - start_time  # calculate function run time
 
         if round_num == 1:
-            avg_runtime = 0  # no previous rounds; avg runtime is 0
+            ratio_runtime = 0  # no previous rounds; ratio runtime is 0
         else:
-            avg_runtime = time_elapsed / previous_time
+            ratio_runtime = time_elapsed / previous_time
 
         add_results(
-            results_table, round_num, current_size, time_elapsed, avg_runtime
+            results_table, round_num, current_size, time_elapsed, ratio_runtime
         )
 
         previous_time = time_elapsed
@@ -168,9 +168,9 @@ def run_benchmark(types, run_function, user_rounds):
 
 
 # pylint: disable=W0621
-def add_results(results_table, round_num, current_size, time_elapsed, avg_runtime):
+def add_results(results_table, round_num, current_size, time_elapsed, ratio_runtime):
     """Add elements into the results_table."""
-    results_table.add_row([round_num, current_size, time_elapsed, avg_runtime])
+    results_table.add_row([round_num, current_size, time_elapsed, ratio_runtime])
 
 
 def get_num_of_rounds():
