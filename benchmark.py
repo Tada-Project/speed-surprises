@@ -3,7 +3,6 @@
 # Imports:
 import getopt
 import importlib
-from inspect import *
 from prettytable import PrettyTable
 import sys
 import time
