@@ -1,17 +1,16 @@
 """Main file for Speed-Surprises Benchmarking Tool."""
 
-# Imports:
+from __future__ import division  # correct pylint 'old division' issues
 import getopt
 import importlib
-from prettytable import PrettyTable
 import sys
 import time
+from prettytable import PrettyTable
 
 
 # Set benchmarking defaults:
 input_size_start = 100
 input_growth_factor = 2
-previous_time = 1
 
 results_table = PrettyTable(
     ["Round", "Size", "Runtime", "Average"]
@@ -27,6 +26,7 @@ def main(argv):
 
     # Get arguments:
     try:
+        #pylint: disable=W0612
         opts, args = getopt.getopt(
             argv, "m:f:t:h", ["module=", "function=", "types=", "help"]
         )
@@ -47,6 +47,7 @@ def main(argv):
             print("Format:  benchmark.py -m <module> -f <function> -t <types>")
             print()  # print blank line for spacing
             print("Sample Usage:")
+            #pylint: disable=C0301
             print(
                 "python3 benchmark.py -m speedsurprises.numbers.factorial -f compute_factorial -t int"
             )
@@ -57,7 +58,8 @@ def main(argv):
             print("Currently supported types: int, float, list, string, char")
             print()  # print blank line for spacing
             print(
-                "* When entering types, for each parameter in your chosen function put it's type. \nFor example, if a functions paramters are two lists, enter 'list,list' for the types."
+                "* When entering types, for each function parameter put it's type. \n",
+                "For example, enter 'list,list' if both parameter types are lists."
             )
             sys.exit(2)
         elif opt in ("-m", "--module"):
@@ -83,7 +85,7 @@ def main(argv):
 
     # run the benchmark:
     run_benchmark(
-        previous_time, user_module, function, types, run_function, user_rounds
+        types, run_function, user_rounds
     )
 
 
@@ -122,9 +124,10 @@ def generate_data(current_size, types):
     return params
 
 
-def run_benchmark(
-    previous_time, user_module, function, types, run_function, user_rounds
-):
+def run_benchmark(types, run_function, user_rounds):
+    """Run the benchmark with the chosen imports."""
+
+    previous_time = 1
     current_size = input_size_start
     round_num = 1  # set the starting round number
 
@@ -154,15 +157,16 @@ def run_benchmark(
         else:
             avg_runtime = time_elapsed / previous_time
 
-        add_results(results_table, round_num, current_size, time_elapsed, avg_runtime)
-        # print("Round", round_num, " --- Size:", current_size, " --- ", time_elapsed, " --- AVG RUN: ", avg_runtime)
+        add_results(
+            results_table, round_num, current_size, time_elapsed, avg_runtime
+        )
 
         previous_time = time_elapsed
         round_num += 1
     print()  # print blank line for spacing
     print(results_table)  # print the results table
 
-
+#pylint: disable=W0621
 def add_results(results_table, round_num, current_size, time_elapsed, avg_runtime):
     """Add elements into the results_table."""
     results_table.add_row([round_num, current_size, time_elapsed, avg_runtime])
@@ -170,6 +174,7 @@ def add_results(results_table, round_num, current_size, time_elapsed, avg_runtim
 
 def get_num_of_rounds():
     """Recieves user-inputted number of rounds for experiment."""
+    #pylint: disable=W1632
     user_rounds = int(input("Please specify a number of rounds: "))
     return user_rounds
 
