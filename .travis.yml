@@ -29,10 +29,10 @@ cache: pip
 # --> lint the functions with flake8
 # --> lint the test suites with flake8
 # --> lint the functions with pylint
-# --> lint the tests with pylint
+# --> lint the tests with pylintbenchmark-tool
 # --> lint the README documentation with mdl
 script:
-  - pipenv run pytest --cov-config pytest.cov --cov
+  - pipenv run pytest tests --cov-config pytest.cov --cov
   - pipenv run flake8 benchmark.py
   - pipenv run flake8 speedsurprises
   - pipenv run flake8 tests
