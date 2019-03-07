@@ -26,7 +26,7 @@ def main(argv):
 
     # Get arguments:
     try:
-        #pylint: disable=W0612
+        # pylint: disable=W0612
         opts, args = getopt.getopt(
             argv, "m:f:t:h", ["module=", "function=", "types=", "help"]
         )
@@ -47,7 +47,7 @@ def main(argv):
             print("Format:  benchmark.py -m <module> -f <function> -t <types>")
             print()  # print blank line for spacing
             print("Sample Usage:")
-            #pylint: disable=C0301
+            # pylint: disable=C0301
             print(
                 "python3 benchmark.py -m speedsurprises.numbers.factorial -f compute_factorial -t int"
             )
@@ -166,7 +166,8 @@ def run_benchmark(types, run_function, user_rounds):
     print()  # print blank line for spacing
     print(results_table)  # print the results table
 
-#pylint: disable=W0621
+
+# pylint: disable=W0621
 def add_results(results_table, round_num, current_size, time_elapsed, avg_runtime):
     """Add elements into the results_table."""
     results_table.add_row([round_num, current_size, time_elapsed, avg_runtime])
@@ -174,7 +175,7 @@ def add_results(results_table, round_num, current_size, time_elapsed, avg_runtim
 
 def get_num_of_rounds():
     """Recieves user-inputted number of rounds for experiment."""
-    #pylint: disable=W1632
+    # pylint: disable=W1632
     user_rounds = int(input("Please specify a number of rounds: "))
     return user_rounds
 
