@@ -32,8 +32,10 @@ cache: pip
 # --> lint the README documentation with mdl
 script:
   - pipenv run pytest --cov-config pytest.cov --cov
+  - pipenv run flake8 benchmark.py
   - pipenv run flake8 speedsurprises
   - pipenv run flake8 tests
+  - pipenv run pylint benchmark.py
   - pipenv run pylint speedsurprises
   - pipenv run pylint tests
   - mdl README.md
