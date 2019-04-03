@@ -6,7 +6,7 @@
 # Worst-case time complexity: O(n) -- Linear
 
 
-def compute_factorial(value):
+def compute_iterative_factorial(value):
     """Assumes value is a natural number
     Returns value!"""
     answer = 1
@@ -14,3 +14,17 @@ def compute_factorial(value):
         answer *= value
         value = value - 1
     return answer
+
+
+def compute_recursive_factorial(value):
+    if value < 1:
+        return 1
+    else:
+        return value * compute_recursive_factorial(value - 1)
+
+
+def compute_hashmap_recursive_factorial(value):
+    dict = {0: 1}
+    if value not in dict:
+        dict[value] = value * compute_hashmap_recursive_factorial(value - 1)
+    return dict[value]

@@ -11,9 +11,23 @@ from speedsurprises.numbers import factorial
 
 
 @pytest.mark.benchmark
-def test_factorial_benchmark(benchmark):
-    """Benchmark the compute_factorial function"""
-    computed_value = benchmark(factorial.compute_factorial, value=10)
+def test_iterative_factorial_benchmark(benchmark):
+    """Benchmark the compute_iterative_factorial function"""
+    computed_value = benchmark(factorial.compute_iterative_factorial, value=10)
+    assert computed_value == 3628800
+
+
+@pytest.mark.benchmark
+def test_recursive_factorial_benchmark(benchmark):
+    """Benchmark the compute_recursive_factorial function"""
+    computed_value = benchmark(factorial.compute_recursive_factorial, value=10)
+    assert computed_value == 3628800
+
+
+@pytest.mark.benchmark
+def test_hashmap_recursive_factorial_benchmark(benchmark):
+    """Benchmark the compute_hashmap_recursive_factorial function"""
+    computed_value = benchmark(factorial.compute_hashmap_recursive_factorial, value=10)
     assert computed_value == 3628800
 
 
@@ -22,11 +36,21 @@ def test_factorial_benchmark(benchmark):
 @pytest.mark.hypothesisworks
 def test_factorial_hypothesis(factorial_input):
     """Returns output with correct factorial number"""
-    computed_value = factorial.compute_factorial(factorial_input)
-    previous_computed_value = factorial.compute_factorial(factorial_input - 1)
-    assert computed_value > 0
-    assert previous_computed_value > 0
-    assert computed_value == factorial_input * previous_computed_value
+    computed_iterative_value = factorial.compute_iterative_factorial(factorial_input)
+    computed_recursive_value = factorial.compute_recursive_factorial(factorial_input)
+    computed_hashmap_value = factorial.compute_hashmap_recursive_factorial(factorial_input)
+    previous_computed_iterative_value = factorial.compute_iterative_factorial(factorial_input - 1)
+    previous_computed_recursive_value = factorial.compute_recursive_factorial(factorial_input - 1)
+    previous_hashmap_value = factorial.compute_hashmap_recursive_factorial(factorial_input - 1)
+    assert computed_iterative_value > 0
+    assert computed_recursive_value > 0
+    assert computed_hashmap_value > 0
+    assert previous_computed_iterative_value > 0
+    assert previous_computed_recursive_value > 0
+    assert previous_hashmap_value > 0
+    assert computed_iterative_value == factorial_input * previous_computed_iterative_value
+    assert computed_recursive_value == factorial_input * previous_computed_recursive_value
+    assert computed_hashmap_value == factorial_input * previous_hashmap_value
 
 
 @pytest.mark.parametrize(
@@ -35,11 +59,19 @@ def test_factorial_hypothesis(factorial_input):
 )
 def test_factorial_multiple(factorial_input, expected_answer):
     """Check the compute_factorial function with multiple inputs"""
-    computed_value = factorial.compute_factorial(factorial_input)
-    assert computed_value == expected_answer
+    computed_iterative_value = factorial.compute_iterative_factorial(factorial_input)
+    computed_recursive_value = factorial.compute_recursive_factorial(factorial_input)
+    computed_hashmap_value = factorial.compute_hashmap_recursive_factorial(factorial_input)
+    assert computed_iterative_value == expected_answer
+    assert computed_recursive_value == expected_answer
+    assert computed_hashmap_value == expected_answer
 
 
 def test_factorial_single():
     """Check the compute_factorial function with a single input"""
-    computed_value = factorial.compute_factorial(10)
-    assert computed_value == 3628800
+    computed_iterative_value = factorial.compute_iterative_factorial(10)
+    computed_recursive_value = factorial.compute_recursive_factorial(10)
+    computed_hashmap_value = factorial.compute_hashmap_recursive_factorial(10)
+    assert computed_iterative_value == 3628800
+    assert computed_recursive_value == 3628800
+    assert computed_hashmap_value == 3628800
