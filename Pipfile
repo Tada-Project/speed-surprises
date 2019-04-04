@@ -4,11 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-"flake8" = "*"
-pylint = "*"
-pytest = "*"
-"pytest.cov" = "*"
-hypothesis = "*"
 
 [dev-packages]
 pylint = "*"
