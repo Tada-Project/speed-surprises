@@ -8,6 +8,7 @@ name = "pypi"
 pylint = "*"
 black = "*"
 prettytable = "*"
+pytest = "*"
 
 [dev-packages]
 pylint = "*"
