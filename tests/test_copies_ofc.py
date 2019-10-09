@@ -18,7 +18,7 @@ def test_count_benchmark(benchmark):
     assert copied_character_string.count("C") == 100
 
 
-@given(copies_as_int=integers(min_value=1))
+@given(copies_as_int=integers(min_value=1, max_value=10))
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_letter_count_hypothesis(copies_as_int):
