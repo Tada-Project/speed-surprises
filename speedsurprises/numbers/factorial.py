@@ -9,11 +9,13 @@
 def compute_iterative_factorial(value):
     """Assumes value is a natural number
     Returns value!"""
-    answer = 1
-    while value > 1:
-        answer *= value
-        value = value - 1
-    return answer
+    if value < 0:
+        ValueError("Inputs of 0 or grater!")
+    result = 1
+    while value != 0:
+        result *= value
+        value -= 1
+    return result
 
 
 def compute_recursive_factorial(value):
