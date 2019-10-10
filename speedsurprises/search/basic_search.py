@@ -16,20 +16,23 @@ def compute_linear_search(list):
     return -1
 
 
+# Worst-case time complexity: O(logn)
+
 def compute_binary_search(list):
     """Search a list using linear search function."""
-	first = 0
-	last = len(list)-1
+    first = 0
+    last = len(list)-1
     # Search target set as the last number in the list for the worst case
     target = list[last]
-	found = False
-	while( first <= last and not found):
-		mid = (first + last)//2
-		if list[mid] == target :
-			found = True
-		else:
-			if item < list[mid]:
-				last = mid - 1
-			else:
-				first = mid + 1
-	return found
+    found = False
+    while( first <= last and not found):
+        mid = (first + last)//2
+        if list[mid] == target :
+            found = True
+            return found
+        else:
+            if target < list[mid]:
+                last = mid - 1
+            else:
+                first = mid + 1
+    return found
