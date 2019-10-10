@@ -21,12 +21,12 @@ def compute_linear_search(list):
 def compute_binary_search(list):
     """Search a list using linear search function."""
     first = 0
-    last = len(list)-1
+    last = len(list) - 1
     # Search target set as the last number in the list for the worst case
     target = list[last]
     found = False
-    while( first <= last and not found):
-        mid = (first + last)//2
+    while(first <= last and not found):
+        mid = (first + last) / 2
         if list[mid] == target :
             found = True
             return found
