@@ -6,14 +6,18 @@
 # Worst-case time complexity: O(n^2)
 
 from hypothesis import given
-from hypothesis import settings
-from hypothesis import Verbosity
-from hypothesis.strategies import integers
-from hypothesis.strategies import lists
-from hypothesis.strategies import builds
+from hypothesis_jsonschema import from_schema
 
 
+list_example = {"type": "array",
+                "items": {
+                    "type": "number"}
+                }
+
+
+@given(from_schema(list_example))
 def insertion_sort(list):
+    print(list)
     for i in range(1, len(list)):
         currentValue = list[i]
         position = i
@@ -21,8 +25,6 @@ def insertion_sort(list):
             list[position] = list[position - 1]
             position -= 1
         list[position] = currentValue
-    return list
-
 
 
 """Do list sorting using BubbleSort"""
