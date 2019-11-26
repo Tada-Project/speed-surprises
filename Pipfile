@@ -3,18 +3,16 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
-[packages]
-
 [dev-packages]
 pylint = "*"
 neovim = "*"
 black = "*"
 pytest = "*"
 pytest-benchmark = "*"
-hypothesis = "*"
 flake8 = "*"
 pytest-cov = "*"
 codecov = "*"
+v = {editable = true,version = "*"}
 
 [requires]
 python_version = "3.6"

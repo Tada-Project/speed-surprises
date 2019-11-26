@@ -14,7 +14,6 @@ def insertion_sort(list):
             list[position] = list[position - 1]
             position -= 1
         list[position] = currentValue
-    return list
 
 
 """Do list sorting using BubbleSort"""
@@ -33,7 +32,6 @@ def bubble_sort(list):
                 temp = list[i]
                 list[i] = list[i + 1]
                 list[i + 1] = temp
-    return list
 
 
 """Do list sorting using MergeSort"""
@@ -75,4 +73,3 @@ def merge_sort(list):
             list[k] = righthalf[j]
             j = j + 1
             k = k + 1
-    return list
