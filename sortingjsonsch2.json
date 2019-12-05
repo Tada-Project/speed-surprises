@@ -1,0 +1,12 @@
+[{
+  "type": "integer",
+  "uniqueItems": true,
+  "maxItems": 1,
+  "minItems": 1
+},
+{
+  "type": "integer",
+  "uniqueItems": true,
+  "maxItems": 1,
+  "minItems": 1
+}]
