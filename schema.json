@@ -1,7 +1,8 @@
 [{
     "type": "array",
     "items": {
-      "type": "number"},
+      "type": "integer"},
+    "uniqueItems": true,
     "maxItems": 4,
     "minItems": 4
 }
