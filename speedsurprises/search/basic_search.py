@@ -6,6 +6,7 @@
 
 # Worst-case time complexity: O(n)
 
+
 def compute_linear_search(list):
     """Search a list using linear search function."""
     # x = random.choice(list)
@@ -18,6 +19,7 @@ def compute_linear_search(list):
 
 # Worst-case time complexity: O(logn)
 
+
 def compute_binary_search(list):
     """Search a list using linear search function."""
     first = 0
@@ -25,9 +27,9 @@ def compute_binary_search(list):
     # Search target set as the last number in the list for the worst case
     target = list[last]
     found = False
-    while(first <= last and not found):
+    while first <= last and not found:
         mid = (first + last) / 2
-        if list[mid] == target :
+        if list[mid] == target:
             found = True
             return found
         else:

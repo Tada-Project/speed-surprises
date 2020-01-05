@@ -15,14 +15,18 @@ from speedsurprises.numbers import fibonacci
 @pytest.mark.benchmark
 def test_iterative_fibonacci_benchmark(benchmark):
     """Benchmark the compute_iterative_fibonacci function"""
-    computed_iterative_value = benchmark(fibonacci.compute_iterative_fibonacci, value=19)
+    computed_iterative_value = benchmark(
+        fibonacci.compute_iterative_fibonacci, value=19
+    )
     assert computed_iterative_value == 4181
 
 
 @pytest.mark.benchmark
 def test_recursive_fibonacci_benchmark(benchmark):
     """Benchmark the compute_recusrive_fibonacci function"""
-    computed_recursive_value = benchmark(fibonacci.compute_recursive_fibonacci, value=19)
+    computed_recursive_value = benchmark(
+        fibonacci.compute_recursive_fibonacci, value=19
+    )
     assert computed_recursive_value == 4181
 
 
@@ -33,11 +37,11 @@ def test_fibonacci_hypothesis(fibonacci_input):
     """Returns output with correct fibonacci value"""
     computed_iterative_value = fibonacci.compute_iterative_fibonacci(fibonacci_input)
     computed_recursive_value = fibonacci.compute_recursive_fibonacci(fibonacci_input)
-    previous_computed_iterative_value = (
-        fibonacci.compute_iterative_fibonacci(fibonacci_input - 1)
+    previous_computed_iterative_value = fibonacci.compute_iterative_fibonacci(
+        fibonacci_input - 1
     )
-    previous_computed_recursive_value = (
-        fibonacci.compute_recursive_fibonacci(fibonacci_input - 1)
+    previous_computed_recursive_value = fibonacci.compute_recursive_fibonacci(
+        fibonacci_input - 1
     )
     goldenratio = 1.61803398875  # The golden ratio for fibonacci values.
     assert computed_iterative_value > 0
@@ -59,8 +63,7 @@ def test_fibonacci_hypothesis(fibonacci_input):
 
 
 @pytest.mark.parametrize(
-    "fibonacci_input,expected_answer",
-    [(1, 1), (2, 1), (3, 2), (4, 3), (5, 5)],
+    "fibonacci_input,expected_answer", [(1, 1), (2, 1), (3, 2), (4, 3), (5, 5)],
 )
 def test_fibonacci_multiple(fibonacci_input, expected_answer):
     """Checks the iterative and recursive fibonacci functions with multiple inputs"""

@@ -73,8 +73,7 @@ def test_bubble_sort_multiple(list_inputs, expected_answer):
 
 
 @pytest.mark.parametrize(
-    "list_inputs, expected_answer",
-    [([10, 3, 1], [1, 3, 10])],
+    "list_inputs, expected_answer", [([10, 3, 1], [1, 3, 10])],
 )
 def test_bubble_sort_single(list_inputs, expected_answer):
     """Check the bubble_sort function with one input"""
@@ -111,8 +110,7 @@ def test_merge_sort_multiple(list_inputs, expected_answer):
 
 
 @pytest.mark.parametrize(
-    "list_inputs, expected_answer",
-    [([10, 3, 1], [1, 3, 10])],
+    "list_inputs, expected_answer", [([10, 3, 1], [1, 3, 10])],
 )
 def test_merge_sort_single(list_inputs, expected_answer):
     """Check the merge_sort function with one input"""
