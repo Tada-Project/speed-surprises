@@ -132,6 +132,9 @@ def tim_merge(arr, l, m, r):
         j += 1
 
 
+# Source and/or inspiration for function(s):
+# https://www.geeksforgeeks.org/timsort/
+
 # iterative Timsort function to sort the
 # array[0...n-1] (similar to merge sort)
 def timSort(arr, n):
