@@ -3,7 +3,7 @@
 # Inspiration for function:
 # https://bit.ly/2flYwOq
 
-# Worst-case time complexity: O(n^2)
+# Worst-case time complexity: O(n)
 
 """
 old approach
@@ -46,7 +46,6 @@ def insertion_sort(list):
             list[position] = list[position - 1]
             position -= 1
         list[position] = currentValue
-    return list
 
 
 
@@ -138,4 +137,3 @@ def merge_sort(list):
             list[k] = righthalf[j]
             j = j + 1
             k = k + 1
-    return list
