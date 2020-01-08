@@ -80,13 +80,12 @@ def compute_binary_search(list):
     target = list[last]
     found = False
     while(first <= last and not found):
-        mid = (first + last) / 2
+        mid = int((first + last) / 2)
         if list[mid] == target :
             found = True
-            return found
+            break
         else:
             if target < list[mid]:
                 last = mid - 1
             else:
                 first = mid + 1
-    return found
