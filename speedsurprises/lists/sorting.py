@@ -37,8 +37,8 @@ O(n) linear or O(nlogn) linearithmic
 
 """
 
+
 def insertion_sort(list):
-    # print(list)
     for i in range(1, len(list)):
         currentValue = list[i]
         position = i
@@ -46,7 +46,6 @@ def insertion_sort(list):
             list[position] = list[position - 1]
             position -= 1
         list[position] = currentValue
-
 
 
 """
@@ -63,6 +62,8 @@ def insertion_sort(list):
 O(1) constant or O(logn) logarithmic
 
 """
+
+
 def generate_list(list):
     print()
 
@@ -87,6 +88,7 @@ def generate_list(list):
 +------+----------------------+----------------------+--------------------+
 O(1) constant or O(logn) logarithmic
 """
+
 
 def bubble_sort(list):
     """Sorts a list using BubbleSort function."""

@@ -20,7 +20,6 @@
 # O(1) constant or O(logn) logarithmic
 
 
-
 """MacOS 3.1GHz before the change
 +------+----------------------+----------------------+--------------------+
 | Size |         Mean         |        Median        |       Ratio        |
@@ -61,6 +60,7 @@ out of time: 529.6385278701782
 O(n) linear or O(nlogn) linearithmic
 """
 
+
 def compute_linear_search(list):
     """Search a list using linear search function."""
     # x = random.choice(list)
@@ -72,6 +72,7 @@ def compute_linear_search(list):
 
 # Worst-case time complexity: O(logn)
 
+
 def compute_binary_search(list):
     """Search a list using linear search function."""
     first = 0
@@ -82,9 +83,9 @@ def compute_binary_search(list):
         # Search target set as the last number in the list for the worst case
         target = list[last]
         found = False
-        while(first <= last and not found):
+        while first <= last and not found:
             mid = int((first + last) / 2)
-            if list[mid] == target :
+            if list[mid] == target:
                 found = True
                 break
             else:

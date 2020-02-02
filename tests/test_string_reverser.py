@@ -8,19 +8,13 @@ from speedsurprises.text import string_reverser
 @pytest.mark.benchmark
 def test_string_reverser_benchmark(benchmark):
     """Benchmark the mcopies_of function"""
-    reversed_bnch_string = benchmark(
-        string_reverser.reverse, s="hello",
-    )
+    reversed_bnch_string = benchmark(string_reverser.reverse, s="hello",)
     assert len(reversed_bnch_string) == 5
     assert reversed_bnch_string == "olleh"
 
 
 @pytest.mark.parametrize(
-    "original_string, reversed_string",
-    [
-        ("tester", "retset"),
-        ("hello", "olleh"),
-    ],
+    "original_string, reversed_string", [("tester", "retset"), ("hello", "olleh"),],
 )
 def test_string_reverser_multiple(original_string, reversed_string):
     """Returns multiple reversed strings"""
