@@ -14,6 +14,7 @@ O(c^n) exponential
 
 """
 
+
 def forloops(list):
     start_time = time.time()
     z = 0

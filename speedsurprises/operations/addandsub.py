@@ -1,7 +1,7 @@
 """Compute the basic addtion and subtraction function"""
 
 
-def compute_addtion(value1, value2):
+def compute_addition(value1, value2):
     """ Assumes the value is a natural number. Returns the value!"""
     answer = value1 + value2
     return answer

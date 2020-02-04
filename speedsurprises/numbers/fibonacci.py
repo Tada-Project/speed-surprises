@@ -19,24 +19,27 @@ O(c^n) exponential
 
 """
 
+
 def compute_recursive_fibonacci(value):
     """ Assumes the value is a natural number. Returns the value!"""
-    if(value <= 1):
+    if value <= 1:
         return value
     else:
-        return compute_recursive_fibonacci(value - 2) + compute_recursive_fibonacci(value - 1)
+        return compute_recursive_fibonacci(value - 2) + compute_recursive_fibonacci(
+            value - 1
+        )
 
 
 def compute_iterative_fibonacci(value):
     start_time = time.time()
-    if (value <= 1):
+    if value <= 1:
         return value
     else:
         x = 0
         y = 1
         for i in range(1, value):
             if (time.time() - start_time) < 5:
-                z = (x + y)
+                z = x + y
                 x = y
                 y = z
             else:

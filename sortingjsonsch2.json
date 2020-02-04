@@ -1,12 +1,19 @@
 [{
-  "type": "integer",
-  "uniqueItems": true,
-  "maxItems": 1,
-  "minItems": 1
-},
-{
-  "type": "integer",
-  "uniqueItems": true,
-  "maxItems": 1,
-  "minItems": 1
-}]
+    "type": "array",
+    "items": {
+      "type": "integer"
+    },
+    "uniqueItems": true,
+    "maxItems": 4,
+    "minItems": 4
+  },
+  {
+    "type": "array",
+    "items": {
+      "type": "integer"
+    },
+    "uniqueItems": true,
+    "maxItems": 4,
+    "minItems": 4
+  }
+]
