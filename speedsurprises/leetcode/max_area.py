@@ -44,7 +44,7 @@ def max_area_log(height: List[int]) -> int:
 def max_area_quadratic(height: List[int]):
     """O(n^2) brute force solution"""
     maxarea = 0
-    for i in range(len(height)):
+    for i, ele_i in enumerate(height):
         for j in range(i + 1, len(height)):
-            maxarea = max(maxarea, min(height[i], height[j]) * (j - i))
+            maxarea = max(maxarea, min(ele_i, height[j]) * (j - i))
     return maxarea
