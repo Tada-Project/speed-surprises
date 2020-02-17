@@ -28,6 +28,7 @@ def max_area_linear(height: List[int]) -> int:
 
 def max_area_log(height: List[int]) -> int:
     """O(nlogn) solution"""
+    # pylint: disable=W1637, W1638
     X = zip(height, range(len(height)))
     X = list(sorted(X, reverse=True))
     L = X[0][1]
