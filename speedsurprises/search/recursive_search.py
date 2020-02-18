@@ -4,8 +4,7 @@
 
 def compute_recursive_binary_search(list, l, r, x):
     if r >= l:
-        mid = int(l + ( r-l ) / 2)
-
+        mid = int(l + (r - l) / 2)
         # If the element is present at
         # the middle itself
         if list[mid] == x:
@@ -15,7 +14,7 @@ def compute_recursive_binary_search(list, l, r, x):
         # left subarray
         if list[mid] > x:
             return compute_recursive_binary_search(list, l,
-                                mid - 1, x)
+                                                   mid - 1, x)
         # Else he element can only be
         # present in the right
         return compute_recursive_binary_search(list, mid + 1, r, x)
