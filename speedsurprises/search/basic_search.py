@@ -8,10 +8,10 @@ import math
 # Worst-case time complexity: O(n)
 
 
-def compute_linear_search(list):
+def compute_linear_search(list, x):
     """Search a list using linear search function."""
     # x = random.choice(list)
-    x = list[len(list) - 1]
+    # x = list[len(list) - 1]
     for i in range(len(list)):
         if list[i] == x:
             return i
@@ -21,15 +21,15 @@ def compute_linear_search(list):
 # Worst-case time complexity: O(logn)
 
 
-def compute_iterative_binary_search(list):
+def compute_iterative_binary_search(list, target):
     """Search a list using linear search function."""
     first = 0
     last = len(list) - 1
     # Search target set as the last number in the list for the worst case
-    target = list[last]
+    # target = list[last]
     found = False
     while first <= last and not found:
-        mid = (first + last) / 2
+        mid = int((first + last) / 2)
         if list[mid] == target:
             found = True
             return found
@@ -41,13 +41,12 @@ def compute_iterative_binary_search(list):
     return found
 
 
-# O(n)
+# O(n^(1/2))
 
 
-def compute_jump_search(list):
+def compute_jump_search(list, x):
     """Search a list using jump search function"""
     n = len(list)
-    x = list[len(list) - 1]
     step = int(math.floor(math.sqrt(n)))
     prev = 0
     while list[min(step, n) - 1] < x:

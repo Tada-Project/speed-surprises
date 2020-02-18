@@ -2,7 +2,9 @@
 # https://www.geeksforgeeks.org/exponential-search/
 
 
-def compute_recursive_binary_search(list, l, r, x):
+def compute_recursive_binary_search(list, x, l = 0, r = None):
+    if r is None:
+        r = len(list) - 1
     if r >= l:
         mid = int(l + (r - l) / 2)
         # If the element is present at
@@ -13,22 +15,21 @@ def compute_recursive_binary_search(list, l, r, x):
         # then it can only be present in the
         # left subarray
         if list[mid] > x:
-            return compute_recursive_binary_search(list, l,
-                                                   mid - 1, x)
+            return compute_recursive_binary_search(list, x, l,
+                                                   mid - 1)
         # Else he element can only be
         # present in the right
-        return compute_recursive_binary_search(list, mid + 1, r, x)
+        return compute_recursive_binary_search(list, x, mid + 1, r)
     # We reach here if the element is not present
     return -1
 
 
 # Returns the position of first
 # occurrence of x in array
-def compute_exponential_search(list):
+def compute_exponential_search(list, x):
     # IF x is present at first
     # location itself
-    n = len(list)
-    x = list[len(list) - 1]
+    n = len(list) - 1
     if list[0] == x:
         return 0
     # Find range for binary search
@@ -37,5 +38,5 @@ def compute_exponential_search(list):
     while i < n and list[i] <= x:
         i = i * 2
     # Call binary search for the found range
-    return compute_recursive_binary_search(list, i / 2,
-                                           min(i, n), x)
+    return compute_recursive_binary_search(list, x, i / 2,
+                                           min(i, n))
