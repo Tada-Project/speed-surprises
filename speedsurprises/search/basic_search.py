@@ -77,19 +77,19 @@ def compute_interpolation_search(list, x):
     while lo <= hi and x >= list[lo] and x <= list[hi]:
         if lo == hi:
             if list[lo] == x:
-                return lo;
-            return -1;
+                return lo
+            return -1
         # Probing the position with keeping
         # uniform distribution in mind.
-        pos  = lo + int(((float(hi - lo) /
-            ( arr[hi] - list[lo])) * ( x - list[lo])))
+        pos = lo + int(((float(hi - lo) /
+            (list[hi] - list[lo])) * (x - list[lo])))
         # Condition of target found
         if list[pos] == x:
             return pos
         # If x is larger, x is in upper part
         if list[pos] < x:
-            lo = pos + 1;
+            lo = pos + 1
         # If x is smaller, x is in lower part
         else:
-            hi = pos - 1;
+            hi = pos - 1
     return -1
