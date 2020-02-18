@@ -140,8 +140,8 @@ def tim_merge(arr, l, m, r):
 
 # iterative Timsort function to sort the
 # array[0...n-1] (similar to merge sort)
-def timSort(arr, n):
-
+def timSort(arr):
+    n = len(arr)
     RUN = 32
     # Sort individual subarrays of size RUN
     for i in range(0, n, RUN):
