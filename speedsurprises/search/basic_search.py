@@ -81,8 +81,8 @@ def compute_interpolation_search(list, x):
             return -1
         # Probing the position with keeping
         # uniform distribution in mind.
-        pos = lo + int(((float(hi - lo) /
-            (list[hi] - list[lo])) * (x - list[lo])))
+        pos = lo + int(((float(hi - lo)
+                         / (list[hi] - list[lo])) * (x - list[lo])))
         # Condition of target found
         if list[pos] == x:
             return pos
