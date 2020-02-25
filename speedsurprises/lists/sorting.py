@@ -78,93 +78,92 @@ def merge_sort(list):
     return list
 
 
-# This function sorts array from left index to
-# to right index which is of size atmost RUN
-def tim_insertion_sort(arr, left, right):
-
-    for i in range(left + 1, right + 1):
-
-        temp = arr[i]
-        j = i - 1
-        while arr[j] > temp and j >= left:
-
-            arr[j + 1] = arr[j]
-            j -= 1
-
-        arr[j + 1] = temp
+# https://github.com/TheAlgorithms/Python/blob/master/sorts/tim_sort.py
 
 
-# merge function merges the sorted runs
-def tim_merge(arr, l, m, r):
+def tim_binary_search(lst, item, start, end):
+    if start == end:
+        return start if lst[start] > item else start + 1
+    if start > end:
+        return start
 
-    # original array is broken in two parts
-    # left and right array
-    len1, len2 = m - l + 1, r - m
-    left, right = [], []
-    for i in range(0, len1):
-        left.append(arr[l + i])
-    for i in range(0, len2):
-        right.append(arr[m + 1 + i])
+    mid = (start + end) // 2
+    if lst[mid] < item:
+        return tim_binary_search(lst, item, mid + 1, end)
+    elif lst[mid] > item:
+        return tim_binary_search(lst, item, start, mid - 1)
+    else:
+        return mid
 
-    i, j, k = 0, 0, l
-    # after comparing, we merge those two array
-    # in larger sub array
-    while i < len1 and j < len2:
 
-        if left[i] <= right[j]:
-            arr[k] = left[i]
-            i += 1
+def tim_insertion_sort(lst):
+    length = len(lst)
 
+    for index in range(1, length):
+        value = lst[index]
+        pos = tim_binary_search(lst, value, 0, index - 1)
+        lst = lst[:pos] + [value] + lst[pos:index] + lst[index + 1 :]
+
+    return lst
+
+
+def tim_merge(left, right):
+    if not left:
+        return right
+
+    if not right:
+        return left
+
+    if left[0] < right[0]:
+        return [left[0]] + tim_merge(left[1:], right)
+
+    return [right[0]] + tim_merge(left, right[1:])
+
+
+def tim_sort(lst):
+    """
+    >>> tim_sort("Python")
+    ['P', 'h', 'n', 'o', 't', 'y']
+    >>> tim_sort((1.1, 1, 0, -1, -1.1))
+    [-1.1, -1, 0, 1, 1.1]
+    >>> tim_sort(list(reversed(list(range(7)))))
+    [0, 1, 2, 3, 4, 5, 6]
+    >>> tim_sort([3, 2, 1]) == insertion_sort([3, 2, 1])
+    True
+    >>> tim_sort([3, 2, 1]) == sorted([3, 2, 1])
+    True
+    """
+    length = len(lst)
+    runs, sorted_runs = [], []
+    new_run = [lst[0]]
+    sorted_array = []
+    i = 1
+    while i < length:
+        if lst[i] < lst[i - 1]:
+            runs.append(new_run)
+            new_run = [lst[i]]
         else:
-            arr[k] = right[j]
-            j += 1
-
-        k += 1
-
-    # copy remaining elements of left, if any
-    while i < len1:
-
-        arr[k] = left[i]
-        k += 1
+            new_run.append(lst[i])
         i += 1
+    runs.append(new_run)
 
-    # copy remaining element of right, if any
-    while j < len2:
-        arr[k] = right[j]
-        k += 1
-        j += 1
+    for run in runs:
+        sorted_runs.append(tim_insertion_sort(run))
+    for run in sorted_runs:
+        sorted_array = tim_merge(sorted_array, run)
+
+    return sorted_array
 
 
-# Source and/or inspiration for function(s):
-# https://www.geeksforgeeks.org/timsort/
+def python_sort(list):
+    list.sort()
+    return list
 
-# iterative Timsort function to sort the
-# array[0...n-1] (similar to merge sort)
-def timSort(arr):
-    n = len(arr)
-    RUN = 32
-    # Sort individual subarrays of size RUN
-    for i in range(0, n, RUN):
-        tim_insertion_sort(arr, i, min((i + 31), (n - 1)))
 
-    # start merging from size RUN (or 32). It will merge
-    # to form size 64, then 128, 256 and so on ....
-    size = RUN
-    while size < n:
+# https://github.com/TheAlgorithms/Python/blob/master/sorts/wiggle_sort.py
 
-        # pick starting point of left sub array. We
-        # are going to merge arr[left..left+size-1]
-        # and arr[left+size, left+2*size-1]
-        # After every merge, we increase left by 2*size
-        for left in range(0, n, 2 * size):
-
-            # find ending point of left sub array
-            # mid+1 is starting point of right sub array
-            mid = left + size - 1
-            right = min((left + 2 * size - 1), (n - 1))
-
-            # merge sub array arr[left.....mid] &
-            # arr[mid+1....right]
-            tim_merge(arr, left, mid, right)
-
-        size = 2 * size
+def wiggle_sort(nums):
+    """Perform Wiggle Sort."""
+    for i in range(len(nums)):
+        if (i % 2 == 1) == (nums[i - 1] > nums[i]):
+            nums[i - 1], nums[i] = nums[i], nums[i - 1]
