@@ -5,7 +5,7 @@
 
 # Worst-case time complexity: O(len(list_one) * len(list_two)) -- Quadratic
 from functools import reduce
-from constraint import *
+from constraint import * # noqa: F403
 
 
 def is_subset(first_list, second_list):
@@ -91,7 +91,7 @@ def mul_inv(a, b):
 
 
 def CSP_basics_1(a, b):
-    problem = Problem()
+    problem = Problem() # noqa: F405
     problem.addVariable("a", a)
     problem.addVariable("b", b)
     problem.getSolutions()
@@ -118,9 +118,9 @@ def CSP_basics_1(a, b):
 
 
 def CSP_basics_3(a, b):
-    problem = Problem()
+    problem = Problem() # noqa: F405
     problem.addVariables(a, b)
-    problem.addConstraint(AllDifferentConstraint())
+    problem.addConstraint(AllDifferentConstraint()) # noqa: F405
     problem.getSolutions()
 
 
@@ -136,7 +136,7 @@ def CSP_basics_3(a, b):
 
 
 def CSP_rooks(cols, rows):
-    problem = Problem()
+    problem = Problem() # noqa: F405
     problem.addVariables(cols, rows)
     for col1 in cols:
         for col2 in cols:
