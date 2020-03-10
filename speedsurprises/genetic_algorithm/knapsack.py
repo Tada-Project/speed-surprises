@@ -40,7 +40,6 @@ def knapsack(knapsack_items):
     for i, item in enumerate(knapsack_items):
         items[i] = item
 
-    print(items)
     creator.create("Fitness", base.Fitness, weights=(-1.0, 1.0))
     creator.create("Individual", set, fitness=creator.Fitness)
 
