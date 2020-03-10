@@ -3,8 +3,8 @@
 from speedsurprises.genetic_algorithm import knapsack
 
 
-def test_knapsack_size_100():
-    """Test if onemax return all ones"""
+def test_knapsack_with_input():
+    """Test if knapsack function gives right result"""
     # example from DEAP
     items = [
         (8, 12.48509930835593),
