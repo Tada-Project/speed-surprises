@@ -70,7 +70,7 @@ def compute_interpolation_search(list, x):
     # Find indexs of two corners
     lo = 0
     n = len(list)
-    hi = (n - 1)
+    hi = n - 1
     # Since array is sorted, an element present
     # in array must be in range defined by corner
     while lo <= hi and x >= list[lo] and x <= list[hi]:
@@ -80,8 +80,7 @@ def compute_interpolation_search(list, x):
             return -1
         # Probing the position with keeping
         # uniform distribution in mind.
-        pos = lo + int(((float(hi - lo)
-                         / (list[hi] - list[lo])) * (x - list[lo])))
+        pos = lo + int(((float(hi - lo) / (list[hi] - list[lo])) * (x - list[lo])))
         # Condition of target found
         if list[pos] == x:
             return pos

@@ -162,6 +162,7 @@ def python_sort(list):
 
 # https://github.com/TheAlgorithms/Python/blob/master/sorts/wiggle_sort.py
 
+
 def wiggle_sort(nums):
     """Perform Wiggle Sort."""
     for i in range(len(nums)):

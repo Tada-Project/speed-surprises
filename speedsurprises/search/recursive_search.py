@@ -2,7 +2,7 @@
 # https://www.geeksforgeeks.org/exponential-search/
 
 
-def compute_recursive_binary_search(list, x, l = 0, r = None):
+def compute_recursive_binary_search(list, x, l=0, r=None):
     if r is None:
         r = len(list) - 1
     if r >= l:
@@ -15,8 +15,7 @@ def compute_recursive_binary_search(list, x, l = 0, r = None):
         # then it can only be present in the
         # left subarray
         if list[mid] > x:
-            return compute_recursive_binary_search(list, x, l,
-                                                   mid - 1)
+            return compute_recursive_binary_search(list, x, l, mid - 1)
         # Else he element can only be
         # present in the right
         return compute_recursive_binary_search(list, x, mid + 1, r)
@@ -38,5 +37,4 @@ def compute_exponential_search(list, x):
     while i < n and list[i] <= x:
         i = i * 2
     # Call binary search for the found range
-    return compute_recursive_binary_search(list, x, i / 2,
-                                           min(i, n))
+    return compute_recursive_binary_search(list, x, i / 2, min(i, n))

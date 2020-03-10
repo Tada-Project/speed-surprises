@@ -22,6 +22,7 @@ def is_subset(first_list, second_list):
             return False
     return True
 
+
 # pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=chinese_remainder --types hypothesis --schema=../speed-surprises/setjsonsch.json --expect="O(n)" --startsize=2 --maxsize=100
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
@@ -63,6 +64,7 @@ def mul_inv(a, b):
         x1 += b0
     return x1
 
+
 # What is the number x ?
 #
 # x mod 3≡ 2
@@ -87,11 +89,14 @@ def mul_inv(a, b):
 # +------+------------------------+------------------------+--------------------+
 # O(n^2) quadratic
 
+
 def CSP_basics_1(a, b):
     problem = Problem()
     problem.addVariable("a", a)
     problem.addVariable("b", b)
     problem.getSolutions()
+
+
 #
 #
 # def CSP_basics_2(a, b):
@@ -111,11 +116,13 @@ def CSP_basics_1(a, b):
 # O(c^n) exponential
 # freeze at size 16
 
+
 def CSP_basics_3(a, b):
     problem = Problem()
     problem.addVariables(a, b)
     problem.addConstraint(AllDifferentConstraint())
     problem.getSolutions()
+
 
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
@@ -126,6 +133,7 @@ def CSP_basics_3(a, b):
 # |  8   |   1.4531092024166734   |   1.4536827800000083   | 2639.4645122664656 |
 # +------+------------------------+------------------------+--------------------+
 # O(c^n) exponential
+
 
 def CSP_rooks(cols, rows):
     problem = Problem()
