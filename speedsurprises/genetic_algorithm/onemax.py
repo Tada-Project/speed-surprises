@@ -22,57 +22,57 @@ import random
 
 from deap import base, creator, tools
 
-creator.create("FitnessMax", base.Fitness, weights=(1.0,))
-creator.create("Individual", list, fitness=creator.FitnessMax)
 
-toolbox = base.Toolbox()
+def onemax(size):
+    """Search for a 1 filled list individual"""
 
-# Attribute generator
-#                      define 'attr_bool' to be an attribute ('gene')
-#                      which corresponds to integers sampled uniformly
-#                      from the range [0,1] (i.e. 0 or 1 with equal
-#                      probability)
-toolbox.register("attr_bool", random.randint, 0, 1)
+    creator.create("FitnessMax", base.Fitness, weights=(1.0,))
+    creator.create("Individual", list, fitness=creator.FitnessMax)
 
-# Structure initializers
-#                         define 'individual' to be an individual
-#                         consisting of 100 'attr_bool' elements ('genes')
-toolbox.register(
-    "individual", tools.initRepeat, creator.Individual, toolbox.attr_bool, 100
-)
+    toolbox = base.Toolbox()
 
-# define the population to be a list of individuals
-toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+    # Attribute generator
+    #                      define 'attr_bool' to be an attribute ('gene')
+    #                      which corresponds to integers sampled uniformly
+    #                      from the range [0,1] (i.e. 0 or 1 with equal
+    #                      probability)
+    toolbox.register("attr_bool", random.randint, 0, 1)
 
+    # Structure initializers
+    #                         define 'individual' to be an individual
+    #                         consisting of 100 'attr_bool' elements ('genes')
+    toolbox.register(
+        "individual", tools.initRepeat, creator.Individual, toolbox.attr_bool, size
+    )
 
-def evalOneMax(individual):
-    """the goal ('fitness') function to be maximized"""
-    return (sum(individual),)
+    # define the population to be a list of individuals
+    toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
+    def evalOneMax(individual):
+        """the goal ('fitness') function to be maximized"""
+        return (sum(individual),)
 
-# ----------
-# Operator registration
-# ----------
-# register the goal / fitness function
-toolbox.register("evaluate", evalOneMax)
+    # ----------
+    # Operator registration
+    # ----------
+    # register the goal / fitness function
+    toolbox.register("evaluate", evalOneMax)
 
-# register the crossover operator
-toolbox.register("mate", tools.cxTwoPoint)
+    # register the crossover operator
+    toolbox.register("mate", tools.cxTwoPoint)
 
-# register a mutation operator with a probability to
-# flip each attribute/gene of 0.05
-toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
+    # register a mutation operator with a probability to
+    # flip each attribute/gene of 0.05
+    toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 
-# operator for selecting individuals for breeding the next
-# generation: each individual of the current generation
-# is replaced by the 'fittest' (best) of three individuals
-# drawn randomly from the current generation.
-toolbox.register("select", tools.selTournament, tournsize=3)
+    # operator for selecting individuals for breeding the next
+    # generation: each individual of the current generation
+    # is replaced by the 'fittest' (best) of three individuals
+    # drawn randomly from the current generation.
+    toolbox.register("select", tools.selTournament, tournsize=3)
 
-# ----------
+    # ----------
 
-
-def main():
     random.seed(64)
 
     # create an initial population of 300 individuals (where
@@ -85,26 +85,26 @@ def main():
     # MUTPB is the probability for mutating an individual
     CXPB, MUTPB = 0.5, 0.2
 
-    print("Start of evolution")
+    # print("Start of evolution")
 
     # Evaluate the entire population
     fitnesses = list(map(toolbox.evaluate, pop))
     for ind, fit in zip(pop, fitnesses):
         ind.fitness.values = fit
 
-    print("  Evaluated %i individuals" % len(pop))
+    # print("  Evaluated %i individuals" % len(pop))
 
     # Extracting all the fitnesses of
     fits = [ind.fitness.values[0] for ind in pop]
 
     # Variable keeping track of the number of generations
-    g = 0
+    # g = 0
 
     # Begin the evolution
-    while max(fits) < 100 and g < 1000:
+    while max(fits) < size:
         # A new generation
-        g = g + 1
-        print("-- Generation %i --" % g)
+        # g = g + 1
+        # print("-- Generation %i --" % g)
 
         # Select the next generation individuals
         offspring = toolbox.select(pop, len(pop))
@@ -136,7 +136,7 @@ def main():
         for ind, fit in zip(invalid_ind, fitnesses):
             ind.fitness.values = fit
 
-        print("  Evaluated %i individuals" % len(invalid_ind))
+        # print("  Evaluated %i individuals" % len(invalid_ind))
 
         # The population is entirely replaced by the offspring
         pop[:] = offspring
@@ -144,21 +144,19 @@ def main():
         # Gather all the fitnesses in one list and print the stats
         fits = [ind.fitness.values[0] for ind in pop]
 
-        length = len(pop)
-        mean = sum(fits) / length
-        sum2 = sum(x * x for x in fits)
-        std = abs(sum2 / length - mean ** 2) ** 0.5
+        # length = len(pop)
+        # mean = sum(fits) / length
+        # sum2 = sum(x * x for x in fits)
+        # std = abs(sum2 / length - mean ** 2) ** 0.5
+        #
+        # print("  Min %s" % min(fits))
+        # print("  Max %s" % max(fits))
+        # print("  Avg %s" % mean)
+        # print("  Std %s" % std)
 
-        print("  Min %s" % min(fits))
-        print("  Max %s" % max(fits))
-        print("  Avg %s" % mean)
-        print("  Std %s" % std)
-
-    print("-- End of (successful) evolution --")
+    # print("-- End of (successful) evolution --")
 
     best_ind = tools.selBest(pop, 1)[0]
-    print("Best individual is %s, %s" % (best_ind, best_ind.fitness.values))
+    # print("Best individual is %s, %s" % (best_ind, best_ind.fitness.values))
 
-
-if __name__ == "__main__":
-    main()
+    return best_ind
