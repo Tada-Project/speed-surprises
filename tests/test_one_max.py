@@ -9,6 +9,5 @@ from speedsurprises.genetic_algorithm import onemax
 )
 def test_onemax_size_100(input_amount, expected_answer):
     """Test if onemax return all ones"""
-    output = sum(onemax.onemax(100))
-    expect = 100
-    assert output == expect
+    output = sum(onemax.onemax(input_amount))
+    assert output == expected_answer
