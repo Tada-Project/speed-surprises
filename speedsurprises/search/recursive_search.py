@@ -2,11 +2,11 @@
 # https://www.geeksforgeeks.org/exponential-search/
 
 
-def compute_recursive_binary_search(list, x, l=0, r=None):
-    if r is None:
-        r = len(list) - 1
-    if r >= l:
-        mid = int(l + (r - l) / 2)
+def compute_recursive_binary_search(list, x, left=0, right=None):
+    if right is None:
+        right = len(list) - 1
+    if right >= left:
+        mid = int(left + (right - left) / 2)
         # If the element is present at
         # the middle itself
         if list[mid] == x:
@@ -15,10 +15,10 @@ def compute_recursive_binary_search(list, x, l=0, r=None):
         # then it can only be present in the
         # left subarray
         if list[mid] > x:
-            return compute_recursive_binary_search(list, x, l, mid - 1)
+            return compute_recursive_binary_search(list, x, left, mid - 1)
         # Else he element can only be
         # present in the right
-        return compute_recursive_binary_search(list, x, mid + 1, r)
+        return compute_recursive_binary_search(list, x, mid + 1, right)
     # We reach here if the element is not present
     return -1
 

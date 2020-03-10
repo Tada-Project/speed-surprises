@@ -14,7 +14,7 @@ def test_string_reverser_benchmark(benchmark):
 
 
 @pytest.mark.parametrize(
-    "original_string, reversed_string", [("tester", "retset"), ("hello", "olleh"),],
+    "original_string, reversed_string", [("tester", "retset"), ("hello", "olleh"), ],
 )
 def test_string_reverser_multiple(original_string, reversed_string):
     """Returns multiple reversed strings"""
