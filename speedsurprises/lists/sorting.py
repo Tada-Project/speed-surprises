@@ -100,7 +100,6 @@ def tim_binary_search(lst, item, start, end):
 def tim_insertion_sort(lst):
     """Sorts a list using tim_insertion_sort function."""
     length = len(lst)
-
     for index in range(1, length):
         value = lst[index]
         pos = tim_binary_search(lst, value, 0, index - 1)

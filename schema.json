@@ -1,9 +1,0 @@
-[{
-    "type": "array",
-    "items": {
-      "type": "integer"},
-    "uniqueItems": true,
-    "maxItems": 4,
-    "minItems": 4
-}
-]
