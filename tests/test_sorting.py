@@ -119,19 +119,19 @@ def test_merge_sort_single(list_inputs, expected_answer):
 
 
 @pytest.mark.benchmark
-def test_tim_sort_benchmark(benchmark):
-    """Benchmark the tim_sort function"""
-    sorted_list = benchmark(sorting.tim_sort, lst=[4, 2, 3, 1])
+def test_tim_sort_v1_benchmark(benchmark):
+    """Benchmark the tim_sort_v1 function"""
+    sorted_list = benchmark(sorting.tim_sort_v1, list=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
 @given(list_inputs=lists(elements=integers(min_value=1, max_value=10), min_size=2))
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
-def test_tim_sort_hypothesis_integer_lists_yes(list_inputs):
-    """Sees if list of hypothesis-generated data sorted using tim_sort is
+def test_tim_sort_v1_hypothesis_integer_lists_yes(list_inputs):
+    """Sees if list of hypothesis-generated data sorted using tim_sort_v1 is
     equal to same data sorted using Python's sort function"""
-    merge_sort_list = sorting.tim_sort(list_inputs)
+    tim_sort_list = sorting.tim_sort_v1(list_inputs)
     python_sort_list = sorted(list_inputs)
     assert merge_sort_list == python_sort_list
 
@@ -140,18 +140,55 @@ def test_tim_sort_hypothesis_integer_lists_yes(list_inputs):
     "list_inputs, expected_answer",
     [([5, 3, 9, 2, 1], [1, 2, 3, 5, 9]), ([7, 2, 10, 3, 1], [1, 2, 3, 7, 10])],
 )
-def test_tim_sort_multiple(list_inputs, expected_answer):
-    """Check the tim_sort function with multiple inputs"""
-    sorted_list = sorting.tim_sort(list_inputs)
+def test_tim_sort_v1_multiple(list_inputs, expected_answer):
+    """Check the tim_sort_v1 function with multiple inputs"""
+    sorted_list = sorting.tim_sort_v1(list_inputs)
     assert sorted_list == expected_answer
 
 
 @pytest.mark.parametrize(
     "list_inputs, expected_answer", [([10, 3, 1], [1, 3, 10])],
 )
-def test_tim_sort_single(list_inputs, expected_answer):
-    """Check the tim_sort function with one input"""
-    sorted_list = sorting.tim_sort(list_inputs)
+def test_tim_sort_v1_single(list_inputs, expected_answer):
+    """Check the tim_sort_v1 function with one input"""
+    sorted_list = sorting.tim_sort_v1(list_inputs)
+    assert sorted_list == expected_answer
+
+
+@pytest.mark.benchmark
+def test_tim_sort_v2_benchmark(benchmark):
+    """Benchmark the tim_sort_v1 function"""
+    sorted_list = benchmark(sorting.tim_sort_v2, list=[4, 2, 3, 1])
+    assert sorted_list == [1, 2, 3, 4]
+
+
+@given(list_inputs=lists(elements=integers(min_value=1, max_value=10), min_size=2))
+@settings(verbosity=Verbosity.verbose, deadline=None)
+@pytest.mark.hypothesisworks
+def test_tim_sort_v2_hypothesis_integer_lists_yes(list_inputs):
+    """Sees if list of hypothesis-generated data sorted using tim_sort_v2 is
+    equal to same data sorted using Python's sort function"""
+    tim_sort_list = sorting.tim_sort_v2(list_inputs)
+    python_sort_list = sorted(list_inputs)
+    assert merge_sort_list == python_sort_list
+
+
+@pytest.mark.parametrize(
+    "list_inputs, expected_answer",
+    [([5, 3, 9, 2, 1], [1, 2, 3, 5, 9]), ([7, 2, 10, 3, 1], [1, 2, 3, 7, 10])],
+)
+def test_tim_sort_v2_multiple(list_inputs, expected_answer):
+    """Check the tim_sort_v2 function with multiple inputs"""
+    sorted_list = sorting.tim_sort_v2(list_inputs)
+    assert sorted_list == expected_answer
+
+
+@pytest.mark.parametrize(
+    "list_inputs, expected_answer", [([10, 3, 1], [1, 3, 10])],
+)
+def test_tim_sort_v2_single(list_inputs, expected_answer):
+    """Check the tim_sort_v2 function with one input"""
+    sorted_list = sorting.tim_sort_v2(list_inputs)
     assert sorted_list == expected_answer
 
 
@@ -182,7 +219,7 @@ def test_quick_sort_benchmark(benchmark):
 def test_quick_sort_hypothesis_integer_lists_yes(list_inputs):
     """Sees if list of hypothesis-generated data sorted using quick_sort is
     equal to same data sorted using Python's sort function"""
-    merge_sort_list = sorting.quick_sort(list_inputs)
+    quick_sort_list = sorting.quick_sort(list_inputs)
     python_sort_list = sorted(list_inputs)
     assert merge_sort_list == python_sort_list
 
@@ -210,7 +247,7 @@ def test_random_quick_sort_benchmark(benchmark):
 def test_random_quick_sort_hypothesis_integer_lists_yes(list_inputs):
     """Sees if list of hypothesis-generated data sorted using random_quick_sort is
     equal to same data sorted using Python's sort function"""
-    merge_sort_list = sorting.random_quick_sort(list_inputs)
+    quick_sort_list = sorting.random_quick_sort(list_inputs)
     python_sort_list = sorted(list_inputs)
     assert merge_sort_list == python_sort_list
 
@@ -238,7 +275,7 @@ def test_intro_sort_benchmark(benchmark):
 def test_intro_sort_hypothesis_integer_lists_yes(list_inputs):
     """Sees if list of hypothesis-generated data sorted using intro_sort is
     equal to same data sorted using Python's sort function"""
-    merge_sort_list = sorting.intro_sort(list_inputs)
+    intro_sort_list = sorting.intro_sort(list_inputs)
     python_sort_list = sorted(list_inputs)
     assert merge_sort_list == python_sort_list
 

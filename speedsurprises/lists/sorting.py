@@ -11,8 +11,10 @@ from heapq import heappush, heappop
 # Worst-case time complexity: O(n^2)
 
 
-def insertion_sort(list):
-    for i in range(1, len(list)):
+def insertion_sort(list, low=0, high=None):
+    if high is None:
+        high = len(list) - 1
+    for i in range(low + 1, high + 1):
         currentValue = list[i]
         position = i
         while position > 0 and list[position - 1] > currentValue:
@@ -86,35 +88,33 @@ def merge_sort(list):
 # https://github.com/TheAlgorithms/Python/blob/master/sorts/tim_sort.py
 
 
-def tim_binary_search(lst, item, start, end):
+def tim_binary_search(list, item, start, end):
     """Search used by tim_insertion_sort function."""
     if start == end:
-        return start if lst[start] > item else start + 1
+        return start if list[start] > item else start + 1
     if start > end:
         return start
-
     mid = (start + end) // 2
-    if lst[mid] < item:
-        return tim_binary_search(lst, item, mid + 1, end)
-    elif lst[mid] > item:
-        return tim_binary_search(lst, item, start, mid - 1)
+    if list[mid] < item:
+        return tim_binary_search(list, item, mid + 1, end)
+    elif list[mid] > item:
+        return tim_binary_search(list, item, start, mid - 1)
     else:
         return mid
 
 
-def tim_insertion_sort(lst):
+def tim_insertion_sort(list):
     """Sorts a list using tim_insertion_sort function."""
-    length = len(lst)
+    length = len(list)
     for index in range(1, length):
-        value = lst[index]
-        pos = tim_binary_search(lst, value, 0, index - 1)
-        lst = lst[:pos] + [value] + lst[pos:index] + lst[index + 1 :]
-
-    return lst
+        value = list[index]
+        pos = tim_binary_search(list, value, 0, index - 1)
+        list = list[:pos] + [value] + list[pos:index] + list[index + 1 :]
+    return list
 
 
 def tim_merge(left, right):
-    """Merge used by tim_sort function."""
+    """Merge used by tim_sort_v1 function."""
     if not left:
         return right
 
@@ -127,33 +127,76 @@ def tim_merge(left, right):
     return [right[0]] + tim_merge(left, right[1:])
 
 
-def tim_sort(lst):
-    """Sorts a list using tim_sort function."""
-    length = len(lst)
+def tim_sort_v1(list):
+    """Sorts a list using tim_sort_v1 function."""
+    length = len(list)
     runs, sorted_runs = [], []
-    new_run = [lst[0]]
+    new_run = [list[0]]
     sorted_array = []
     i = 1
     while i < length:
-        if lst[i] < lst[i - 1]:
+        if list[i] < list[i - 1]:
             runs.append(new_run)
-            new_run = [lst[i]]
+            new_run = [list[i]]
         else:
-            new_run.append(lst[i])
+            new_run.append(list[i])
         i += 1
     runs.append(new_run)
-
     for run in runs:
         sorted_runs.append(tim_insertion_sort(run))
     for run in sorted_runs:
         sorted_array = tim_merge(sorted_array, run)
-
     return sorted_array
 
 
 def python_sort(list):
     """Sorts a list using python default sort function."""
     list.sort()
+    return list
+
+
+# https://www.geeksforgeeks.org/timsort/
+
+
+def time_merge_v2(list, l, m, r):
+    """merge used by tim_sort_v2 function."""
+    len1, len2 =  m - l + 1, r - m
+    left, right = [], []
+    for i in range(0, len1):
+        left.append(list[l + i])
+    for i in range(0, len2):
+        right.append(list[m + 1 + i])
+    i, j, k = 0, 0, l
+    while i < len1 and j < len2:
+        if left[i] <= right[j]:
+            list[k] = left[i]
+            i += 1
+        else:
+            list[k] = right[j]
+            j += 1
+        k += 1
+    while i < len1:
+        list[k] = left[i]
+        k += 1
+        i += 1
+    while j < len2:
+        list[k] = right[j]
+        k += 1
+        j += 1
+
+
+def tim_sort_v2(list):
+    n = len(list)
+    for i in range(0, n, 32):
+        high = min((i + 31), (n - 1))
+        list[i:high] = insertion_sort(list, i, high)
+    size = 32
+    while size < n:
+        for left in range(0, n, 2 * size):
+            mid = left + size - 1
+            right = min((left + 2 * size - 1), (n-1))
+            merge(list, left, mid, right)
+        size = 2*size
     return list
 
 
