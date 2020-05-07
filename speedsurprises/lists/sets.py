@@ -98,7 +98,7 @@ def CSP_basics_1(a, b):
 
 
 def CSP_basics_2(a, b):
-    problem = Problem() # noqa: F405
+    problem = Problem()  # noqa: F405
     problem.addVariable("a", a)
     problem.addVariable("b", b)
     problem.addConstraint(lambda a, b : a * 2 == b, ("a", "b"))

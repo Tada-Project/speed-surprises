@@ -161,3 +161,4 @@ def wiggle_sort(list):
     for i in range(len(list)):
         if (i % 2 == 1) == (list[i - 1] > list[i]):
             list[i - 1], list[i] = list[i], list[i - 1]
+    return list
