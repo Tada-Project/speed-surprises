@@ -1,5 +1,10 @@
 """Do list sorting using InsertionSort"""
 
+import math
+import random
+from heapq import heappush, heappop
+
+
 # Inspiration for function:
 # https://bit.ly/2flYwOq
 
@@ -160,4 +165,82 @@ def wiggle_sort(list):
     for i in range(len(list)):
         if (i % 2 == 1) == (list[i - 1] > list[i]):
             list[i - 1], list[i] = list[i], list[i - 1]
+    return list
+
+
+def heap_sort(list):
+    """Sorts a list using heap_sort function."""
+    h = []
+    for value in list:
+        heappush(h, value)
+    list = []
+    list = list + [heappop(h) for i in range(len(h))]
+    return list
+
+
+def partition(list, low, high):
+    """partition used by quick_sort function."""
+    pivot = list[high]
+    i = low - 1
+    for j in range(low, high):
+        if list[j] <= pivot:
+            i = i + 1
+            (list[i], list[j]) = (list[j], list[i])
+    (list[i + 1], list[high]) = (list[high], list[i + 1])
+    return i + 1
+
+
+def quick_sort(list, low=0, high=None):
+    """Sorts a list using quick_sort function."""
+    if high is None:
+        high = len(list) - 1
+    if low < high:
+        pi = partition(list, low, high)
+        quick_sort(list, low, pi-1)
+        quick_sort(list, pi+1, high)
+    return list
+
+
+# https://github.com/endvroy/introSort/blob/master/quickSort.py
+
+
+def random_partition(list, low, high):
+    """partition used by random_quick_sort function."""
+    index = random.randint(low, high)
+    pivot = list[index]
+    i = low - 1
+    for j in range(low, high):
+        if list[j] <= pivot:
+            i = i + 1
+            (list[i], list[j]) = (list[j], list[i])
+    (list[i + 1], list[high]) = (list[high], list[i + 1])
+    return i + 1
+
+
+def random_quick_sort(list, low=0, high=None):
+    """Sorts a list using random_quick_sort function."""
+    if high is None:
+        high = len(list) - 1
+    if low < high:
+        pi = random_partition(list, low, high)
+        quick_sort(list, low, pi-1)
+        quick_sort(list, pi+1, high)
+    return list
+
+
+def intro_sort(list, low=0, high=None, depthlimit=0):
+    """Sorts a list using intro_sort function."""
+    if high is None:
+        high = len(list) - 1
+
+    if len(list) < 16:
+        list = insertion_sort(list)
+
+    if depthlimit < math.log2(len(list)):
+        if low < high:
+            mid = partition(list, low, high)
+            intro_sort(list, low, mid - 1, depthlimit + 1)
+            intro_sort(list, mid + 1, high, depthlimit + 1)
+    else:
+        list[low:high + 1] = heap_sort(list[low:high + 1])
     return list
