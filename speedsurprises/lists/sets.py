@@ -94,15 +94,16 @@ def CSP_basics_1(a, b):
     problem = Problem()  # noqa: F405
     problem.addVariable("a", a)
     problem.addVariable("b", b)
-    problem.getSolutions()
+    return problem.getSolutions()
 
 
-#
-#
-# def CSP_basics_2(a, b):
-#     problem = Problem()
-#     problem.addConstraint(lambda a, b: a*2 == b, ("a", "b"))
-#     problem.getSolutions()
+def CSP_basics_2(a, b):
+    problem = Problem()
+    problem.addVariable("a", a)
+    problem.addVariable("b", b)
+    problem.addConstraint(lambda a, b: a*2 == b, ("a", "b"))
+    return problem.getSolutions()
+
 
 # pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=CSP_basics_3 --types hypothesis --schema=../speed-surprises/setjsonsch.json --expect="O(n)" --startsize=2 --maxsize=16
 # Quit due to researched max size
@@ -121,7 +122,7 @@ def CSP_basics_3(a, b):
     problem = Problem()  # noqa: F405
     problem.addVariables(a, b)
     problem.addConstraint(AllDifferentConstraint())  # noqa: F405
-    problem.getSolutions()
+    return problem.getSolutions()
 
 
 # Quit due to researched max size
@@ -142,4 +143,4 @@ def CSP_rooks(cols, rows):
         for col2 in cols:
             if col1 < col2:
                 problem.addConstraint(lambda row1, row2: row1 != row2, (col1, col2))
-    problem.getSolutions()
+    return problem.getSolutions()
