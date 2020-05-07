@@ -133,7 +133,7 @@ def test_tim_sort_v1_hypothesis_integer_lists_yes(list_inputs):
     equal to same data sorted using Python's sort function"""
     tim_sort_list = sorting.tim_sort_v1(list_inputs)
     python_sort_list = sorted(list_inputs)
-    assert merge_sort_list == python_sort_list
+    assert tim_sort_list == python_sort_list
 
 
 @pytest.mark.parametrize(
@@ -170,7 +170,7 @@ def test_tim_sort_v2_hypothesis_integer_lists_yes(list_inputs):
     equal to same data sorted using Python's sort function"""
     tim_sort_list = sorting.tim_sort_v2(list_inputs)
     python_sort_list = sorted(list_inputs)
-    assert merge_sort_list == python_sort_list
+    assert tim_sort_list == python_sort_list
 
 
 @pytest.mark.parametrize(
@@ -221,7 +221,7 @@ def test_quick_sort_hypothesis_integer_lists_yes(list_inputs):
     equal to same data sorted using Python's sort function"""
     quick_sort_list = sorting.quick_sort(list_inputs)
     python_sort_list = sorted(list_inputs)
-    assert merge_sort_list == python_sort_list
+    assert quick_sort_list == python_sort_list
 
 
 @pytest.mark.parametrize(
@@ -249,7 +249,7 @@ def test_random_quick_sort_hypothesis_integer_lists_yes(list_inputs):
     equal to same data sorted using Python's sort function"""
     quick_sort_list = sorting.random_quick_sort(list_inputs)
     python_sort_list = sorted(list_inputs)
-    assert merge_sort_list == python_sort_list
+    assert quick_sort_list == python_sort_list
 
 
 @pytest.mark.parametrize(
@@ -277,7 +277,7 @@ def test_intro_sort_hypothesis_integer_lists_yes(list_inputs):
     equal to same data sorted using Python's sort function"""
     intro_sort_list = sorting.intro_sort(list_inputs)
     python_sort_list = sorted(list_inputs)
-    assert merge_sort_list == python_sort_list
+    assert intro_sort_list == python_sort_list
 
 
 @pytest.mark.parametrize(

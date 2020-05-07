@@ -158,15 +158,15 @@ def python_sort(list):
 # https://www.geeksforgeeks.org/timsort/
 
 
-def time_merge_v2(list, l, m, r):
+def time_merge_v2(list, low, mid, high):
     """merge used by tim_sort_v2 function."""
-    len1, len2 =  m - l + 1, r - m
+    len1, len2 = mid - low + 1, high - mid
     left, right = [], []
     for i in range(0, len1):
-        left.append(list[l + i])
+        left.append(list[low + i])
     for i in range(0, len2):
-        right.append(list[m + 1 + i])
-    i, j, k = 0, 0, l
+        right.append(list[mid + 1 + i])
+    i, j, k = 0, 0, low
     while i < len1 and j < len2:
         if left[i] <= right[j]:
             list[k] = left[i]
@@ -194,9 +194,9 @@ def tim_sort_v2(list):
     while size < n:
         for left in range(0, n, 2 * size):
             mid = left + size - 1
-            right = min((left + 2 * size - 1), (n-1))
-            merge(list, left, mid, right)
-        size = 2*size
+            right = min((left + 2 * size - 1), (n - 1))
+            time_merge_v2(list, left, mid, right)
+        size = 2 * size
     return list
 
 
