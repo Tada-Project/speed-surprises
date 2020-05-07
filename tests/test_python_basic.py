@@ -33,7 +33,7 @@ def test_list_copy_hypothesis(listInput):
 )
 def test_list_copy_multiple(list_input, expected_answer):
     """Check the list_copy function with multiple lists"""
-    copied_list = python_basic.list_copy(listInput)
+    copied_list = python_basic.list_copy(list_input)
     assert copied_list == expected_answer
 
 
@@ -65,7 +65,7 @@ def test_list_append_hypothesis(listInput):
 )
 def test_list_append_multiple(list_input, expected_answer):
     """Check the list_append function with multiple lists"""
-    appended_list = python_basic.list_append(listInput)
+    appended_list = python_basic.list_append(list_input)
     assert appended_list == expected_answer
 
 
