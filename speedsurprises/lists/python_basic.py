@@ -32,7 +32,7 @@ def list_copy(list):
 
 def list_append(list):
     res = []
-    res = res.append(list)
+    res.append(list)
     return res
 
 

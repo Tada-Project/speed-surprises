@@ -47,7 +47,7 @@ def test_list_copy_single():
 def test_list_append_benchmark(benchmark):
     """Benchmark the list_append function"""
     appended_list = benchmark(python_basic.list_append, list=[1, 2, 3, 4])
-    assert appended_list == [1, 2, 3, 4]
+    assert appended_list == [[1, 2, 3, 4]]
 
 
 @given(listInput=lists(elements=integers(min_value=1, max_value=10), min_size=2))
@@ -56,12 +56,12 @@ def test_list_append_benchmark(benchmark):
 def test_list_append_hypothesis(listInput):
     """Using hypothesis"""
     appended_list = python_basic.list_append(listInput)
-    assert appended_list == listInput
+    assert appended_list == [listInput]
 
 
 @pytest.mark.parametrize(
     "list_input, expected_answer",
-    [([2, 3, 4, 6, 8], [2, 3, 4, 6, 8]), ([1, 2, 3, 4], [1, 2, 3, 4])],
+    [(2, [2]), (4, [4])],
 )
 def test_list_append_multiple(list_input, expected_answer):
     """Check the list_append function with multiple lists"""
@@ -71,8 +71,8 @@ def test_list_append_multiple(list_input, expected_answer):
 
 def test_list_append_single():
     """Check the list_append function with a single list"""
-    appended_list = python_basic.list_append([4, 3, 1, 5, 6])
-    assert appended_list == [4, 3, 1, 5, 6]
+    appended_list = python_basic.list_append(5)
+    assert appended_list == [5]
 
 
 def test_list_poplast_single():
