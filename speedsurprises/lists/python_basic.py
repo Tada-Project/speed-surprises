@@ -36,6 +36,9 @@ def list_append(list):
     return res
 
 
+# hypothesis will try generate empty list, which will cause error
+
+
 def list_poplast(list):
     # print(list)
     list.pop()
