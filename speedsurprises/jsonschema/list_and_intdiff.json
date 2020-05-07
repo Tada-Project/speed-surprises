@@ -2,7 +2,7 @@
   "type": "array",
   "items": {
     "type": "integer",
-    "maximum": 100,
+    "maximum": 1000,
     "minimum": 0
     },
   "uniqueItems": true,
@@ -11,6 +11,6 @@
 },
 {
   "type": "integer",
-  "maximum": 200,
-  "minimum": 101
+  "maximum": 2000,
+  "minimum": 1001
 }]

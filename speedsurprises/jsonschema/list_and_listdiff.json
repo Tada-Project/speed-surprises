@@ -2,8 +2,8 @@
   "type": "array",
   "items": {
     "type": "integer",
-    "maximum": 200,
-    "minimum": 101
+    "maximum": 2000,
+    "minimum": 1001
     },
   "uniqueItems": true,
   "maxItems": 0,
@@ -13,7 +13,7 @@
   "type": "array",
   "items": {
     "type": "integer",
-    "maximum": 100,
+    "maximum": 1000,
     "minimum": 1
     },
   "uniqueItems": true,
