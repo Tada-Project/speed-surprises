@@ -11,10 +11,8 @@ from heapq import heappush, heappop
 # Worst-case time complexity: O(n^2)
 
 
-def insertion_sort(list, low=0, high=None):
-    if high is None:
-        high = len(list) - 1
-    for i in range(low + 1, high + 1):
+def insertion_sort(list):
+    for i in range(1, len(list)):
         currentValue = list[i]
         position = i
         while position > 0 and list[position - 1] > currentValue:
@@ -188,8 +186,7 @@ def time_merge_v2(list, low, mid, high):
 def tim_sort_v2(list):
     n = len(list)
     for i in range(0, n, 32):
-        high = min((i + 31), (n - 1))
-        list[i:high] = insertion_sort(list, i, high)
+        list[i:i + 32] = insertion_sort(list[i : i + 32])
     size = 32
     while size < n:
         for left in range(0, n, 2 * size):
@@ -199,7 +196,7 @@ def tim_sort_v2(list):
         size = 2 * size
     return list
 
-
+print(tim_sort_v2([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,3,3,3,3,2,2,2,2,2,1,1,1,1,1]))
 # https://github.com/TheAlgorithms/Python/blob/master/sorts/wiggle_sort.py
 
 
