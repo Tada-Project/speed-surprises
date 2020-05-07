@@ -32,13 +32,13 @@ def compute_iterative_binary_search(list, target):
         mid = int((first + last) / 2)
         if list[mid] == target:
             found = True
-            return found
+            return mid
         else:
             if target < list[mid]:
                 last = mid - 1
             else:
                 first = mid + 1
-    return found
+    return -1
 
 
 # O(n^(1/2))

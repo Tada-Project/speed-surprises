@@ -1,4 +1,4 @@
-"""Tests for the insertionSort function in the insertionSort module of the lists package"""
+"""Tests for the Sorting function in the Sorting module of the lists package"""
 
 import pytest
 
