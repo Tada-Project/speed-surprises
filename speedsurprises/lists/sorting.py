@@ -95,18 +95,18 @@ def tim_insertion_sort(arr, left, right):
 
 
 # merge function merges the sorted runs
-def tim_merge(arr, l, m, r):
+def tim_merge(arr, l_index, m, r_index):
 
     # original array is broken in two parts
     # left and right array
-    len1, len2 = m - l + 1, r - m
+    len1, len2 = m - l_index + 1, r_index - m
     left, right = [], []
     for i in range(0, len1):
-        left.append(arr[l + i])
+        left.append(arr[l_index + i])
     for i in range(0, len2):
         right.append(arr[m + 1 + i])
 
-    i, j, k = 0, 0, l
+    i, j, k = 0, 0, l_index
     # after comparing, we merge those two array
     # in larger sub array
     while i < len1 and j < len2:
