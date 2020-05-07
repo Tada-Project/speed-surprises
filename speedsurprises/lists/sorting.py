@@ -157,7 +157,7 @@ def python_sort(list):
 
 
 def wiggle_sort(list):
-    """Sorts a list using wiggle_sort function."""
+    """nums[0] < nums[1] > nums[2] < nums[3]"""
     for i in range(len(list)):
         if (i % 2 == 1) == (list[i - 1] > list[i]):
             list[i - 1], list[i] = list[i], list[i - 1]

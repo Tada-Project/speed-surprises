@@ -42,7 +42,7 @@ def CSP_basics_3_benchmark(benchmark):
 def test_CSP_rooks_benchmark(benchmark):
     """Benchmark the CSP_rooks function"""
     solution = benchmark(
-        sets.CSP_rooks, cols=range(3), rows=range(3)
+        sets.CSP_rooks, cols=range(3), rows=range(3)  # pylint: disable=W1638
     )
     expected = [{0: 2, 1: 1, 2: 0}, {0: 2, 1: 0, 2: 1}, {0: 1, 1: 2, 2: 0},
                 {0: 1, 1: 0, 2: 2}, {0: 0, 1: 1, 2: 2}, {0: 0, 1: 2, 2: 1}]

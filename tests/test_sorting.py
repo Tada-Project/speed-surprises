@@ -165,5 +165,5 @@ def test_python_sort_benchmark(benchmark):
 @pytest.mark.benchmark
 def test_wiggle_sort_benchmark(benchmark):
     """Benchmark the wiggle_sort function"""
-    sorted_list = benchmark(sorting.wiggle_sort, list=[4, 2, 3, 1])
-    assert sorted_list == [1, 2, 3, 4]
+    sorted_list = benchmark(sorting.wiggle_sort, list=[3, 5, 2, 1, 6, 4])
+    assert sorted_list == [3, 5, 1, 6, 2, 4]
