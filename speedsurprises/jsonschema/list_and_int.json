@@ -1,0 +1,13 @@
+[{
+    "type": "array",
+    "items": {
+      "type": "integer"
+    },
+    "uniqueItems": true,
+    "maxItems": 0,
+    "minItems": 0
+  },
+  {
+    "type": "integer"
+  }
+]
