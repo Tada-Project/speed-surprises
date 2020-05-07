@@ -14,9 +14,7 @@ flake8 = "*"
 pytest-cov = "*"
 codecov = "*"
 v = {editable = true,version = "*"}
-
-[requires]
-python_version = "3.6"
+python-constraint = "*"
 
 [pipenv]
 allow_prereleases = true
