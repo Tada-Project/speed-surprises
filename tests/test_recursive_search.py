@@ -1,4 +1,4 @@
-"""Tests for the recursive searching function in the recursive_search module of the search package"""
+"""Tests for the search function in the recursive_search module of the search package"""
 
 import pytest
 

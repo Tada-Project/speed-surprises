@@ -117,6 +117,7 @@ def test_merge_sort_single(list_inputs, expected_answer):
     sorted_list = sorting.merge_sort(list_inputs)
     assert sorted_list == expected_answer
 
+
 @pytest.mark.benchmark
 def test_tim_sort_benchmark(benchmark):
     """Benchmark the tim_sort function"""

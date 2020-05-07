@@ -41,10 +41,8 @@ def CSP_basics_3_benchmark(benchmark):
 @pytest.mark.benchmark
 def test_CSP_rooks_benchmark(benchmark):
     """Benchmark the CSP_rooks function"""
-    colr = range(3)
-    rowr = range(3)
     solution = benchmark(
-        sets.CSP_rooks, cols=colr, rows=rowr
+        sets.CSP_rooks, cols=range(3), rows=range(3)
     )
     expected = [{0: 2, 1: 1, 2: 0}, {0: 2, 1: 0, 2: 1}, {0: 1, 1: 2, 2: 0},
                 {0: 1, 1: 0, 2: 2}, {0: 0, 1: 1, 2: 2}, {0: 0, 1: 2, 2: 1}]
