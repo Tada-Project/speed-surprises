@@ -186,7 +186,7 @@ def time_merge_v2(list, low, mid, high):
 def tim_sort_v2(list):
     n = len(list)
     for i in range(0, n, 32):
-        list[i:i + 32] = insertion_sort(list[i : i + 32])
+        list[i : i + 32] = insertion_sort(list[i : i + 32])
     size = 32
     while size < n:
         for left in range(0, n, 2 * size):
