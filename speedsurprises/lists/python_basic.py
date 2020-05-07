@@ -37,7 +37,7 @@ def list_append(list):
 
 
 def list_poplast(list):
-    print(list)
+    # print(list)
     list.pop()
     return list
 
