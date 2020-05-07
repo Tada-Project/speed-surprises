@@ -196,7 +196,7 @@ def tim_sort_v2(list):
         size = 2 * size
     return list
 
-print(tim_sort_v2([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,3,3,3,3,2,2,2,2,2,1,1,1,1,1]))
+
 # https://github.com/TheAlgorithms/Python/blob/master/sorts/wiggle_sort.py
 
 
