@@ -207,14 +207,8 @@ def quick_sort(list, low=0, high=None):
 def random_partition(list, low, high):
     """partition used by random_quick_sort function."""
     index = random.randint(low, high)
-    pivot = list[index]
-    i = low - 1
-    for j in range(low, high):
-        if list[j] <= pivot:
-            i = i + 1
-            (list[i], list[j]) = (list[j], list[i])
-    (list[i + 1], list[high]) = (list[high], list[i + 1])
-    return i + 1
+    (list[low], list[index]) = (list[index], list[low])
+    return partition(list, low, high)
 
 
 def random_quick_sort(list, low=0, high=None):
