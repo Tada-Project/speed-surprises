@@ -22,6 +22,7 @@ import random
 
 from deap import base, creator, tools
 
+
 # Quit due to over maximum time: 429.2712752819061
 # +------+---------------------+----------------------+--------------------+
 # | Size |         Mean        |        Median        |       Ratio        |
@@ -33,7 +34,6 @@ from deap import base, creator, tools
 # | 160  |  3.1533941145307227 |  3.1513590500107966  | 6.191339376474929  |
 # +------+---------------------+----------------------+--------------------+
 # O(n^3) cubic
-
 def onemax(size):
     """Search for a 1 filled list individual"""
 

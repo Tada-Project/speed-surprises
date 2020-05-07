@@ -18,6 +18,7 @@ import random
 import numpy
 from deap import algorithms, base, creator, tools
 
+
 # Quit due to indicator:  0.0990873786000493
 # +------+---------------------+---------------------+--------------------+
 # | Size |         Mean        |        Median       |       Ratio        |
@@ -27,7 +28,6 @@ from deap import algorithms, base, creator, tools
 # | 200  |  0.2573390010657022 |  0.257054961490212  | 0.8196915358517523 |
 # +------+---------------------+---------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
-
 def knapsack(knapsack_items):
     """0-1 knapsack"""
     IND_INIT_SIZE = 5
