@@ -156,8 +156,8 @@ def python_sort(list):
 # https://github.com/TheAlgorithms/Python/blob/master/sorts/wiggle_sort.py
 
 
-def wiggle_sort(nums):
+def wiggle_sort(list):
     """Sorts a list using wiggle_sort function."""
-    for i in range(len(nums)):
-        if (i % 2 == 1) == (nums[i - 1] > nums[i]):
-            nums[i - 1], nums[i] = nums[i], nums[i - 1]
+    for i in range(len(list)):
+        if (i % 2 == 1) == (list[i - 1] > list[i]):
+            list[i - 1], list[i] = list[i], list[i - 1]

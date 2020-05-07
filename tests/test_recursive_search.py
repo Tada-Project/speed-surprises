@@ -12,26 +12,36 @@ from speedsurprises.search import recursive_search
 
 
 @pytest.mark.benchmark
-def test_recursive_binary_search_benchmark(benchmark):
+def test_recursive_binary_search_benchmark_found(benchmark):
     """Benchmark the recursive_binary_search function"""
     position = benchmark(
         recursive_search.compute_recursive_binary_search, list=[4, 2, 3, 1], x=4
     )
+    assert position == 0
+
+
+@pytest.mark.benchmark
+def test_recursive_binary_search_benchmark_notfound(benchmark):
+    """Benchmark the recursive_binary_search function"""
     notfound = benchmark(
         recursive_search.compute_recursive_binary_search, list=[4, 2, 3, 1], x=10
     )
-    assert position == 0
     assert notfound == -1
 
 
 @pytest.mark.benchmark
-def test_exponential_search_benchmark(benchmark):
+def test_exponential_search_benchmark_found(benchmark):
     """Benchmark the exponential_search function"""
     position = benchmark(
         recursive_search.compute_exponential_search, list=[4, 2, 3, 1], x=4
     )
+    assert position == 0
+
+
+@pytest.mark.benchmark
+def test_exponential_search_benchmark_notfound(benchmark):
+    """Benchmark the exponential_search function"""
     notfound = benchmark(
         recursive_search.compute_exponential_search, list=[4, 2, 3, 1], x=10
     )
-    assert position == 0
     assert notfound == -1
