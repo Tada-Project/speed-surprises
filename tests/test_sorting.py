@@ -116,3 +116,53 @@ def test_merge_sort_single(list_inputs, expected_answer):
     """Check the merge_sort function with one input"""
     sorted_list = sorting.merge_sort(list_inputs)
     assert sorted_list == expected_answer
+
+@pytest.mark.benchmark
+def test_tim_sort_benchmark(benchmark):
+    """Benchmark the tim_sort function"""
+    sorted_list = benchmark(sorting.tim_sort, list=[4, 2, 3, 1])
+    assert sorted_list == [1, 2, 3, 4]
+
+
+@given(list_inputs=lists(elements=integers(min_value=1, max_value=10), min_size=2))
+@settings(verbosity=Verbosity.verbose, deadline=None)
+@pytest.mark.hypothesisworks
+def test_tim_sort_hypothesis_integer_lists_yes(list_inputs):
+    """Sees if list of hypothesis-generated data sorted using tim_sort is
+    equal to same data sorted using Python's sort function"""
+    merge_sort_list = sorting.tim_sort(list_inputs)
+    python_sort_list = sorted(list_inputs)
+    assert merge_sort_list == python_sort_list
+
+
+@pytest.mark.parametrize(
+    "list_inputs, expected_answer",
+    [([5, 3, 9, 2, 1], [1, 2, 3, 5, 9]), ([7, 2, 10, 3, 1], [1, 2, 3, 7, 10])],
+)
+def test_tim_sort_multiple(list_inputs, expected_answer):
+    """Check the tim_sort function with multiple inputs"""
+    sorted_list = sorting.tim_sort(list_inputs)
+    assert sorted_list == expected_answer
+
+
+@pytest.mark.parametrize(
+    "list_inputs, expected_answer", [([10, 3, 1], [1, 3, 10])],
+)
+def test_tim_sort_single(list_inputs, expected_answer):
+    """Check the tim_sort function with one input"""
+    sorted_list = sorting.tim_sort(list_inputs)
+    assert sorted_list == expected_answer
+
+
+@pytest.mark.benchmark
+def test_python_sort_benchmark(benchmark):
+    """Benchmark the python_sort function"""
+    sorted_list = benchmark(sorting.python_sort, list=[4, 2, 3, 1])
+    assert sorted_list == [1, 2, 3, 4]
+
+
+@pytest.mark.benchmark
+def test_wiggle_sort_benchmark(benchmark):
+    """Benchmark the wiggle_sort function"""
+    sorted_list = benchmark(sorting.wiggle_sort, list=[4, 2, 3, 1])
+    assert sorted_list == [1, 2, 3, 4]

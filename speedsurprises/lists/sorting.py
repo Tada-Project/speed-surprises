@@ -82,6 +82,7 @@ def merge_sort(list):
 
 
 def tim_binary_search(lst, item, start, end):
+    """Search used by tim_insertion_sort function."""
     if start == end:
         return start if lst[start] > item else start + 1
     if start > end:
@@ -97,6 +98,7 @@ def tim_binary_search(lst, item, start, end):
 
 
 def tim_insertion_sort(lst):
+    """Sorts a list using tim_insertion_sort function."""
     length = len(lst)
 
     for index in range(1, length):
@@ -108,6 +110,7 @@ def tim_insertion_sort(lst):
 
 
 def tim_merge(left, right):
+    """Merge used by tim_sort function."""
     if not left:
         return right
 
@@ -121,18 +124,7 @@ def tim_merge(left, right):
 
 
 def tim_sort(lst):
-    """
-    >>> tim_sort("Python")
-    ['P', 'h', 'n', 'o', 't', 'y']
-    >>> tim_sort((1.1, 1, 0, -1, -1.1))
-    [-1.1, -1, 0, 1, 1.1]
-    >>> tim_sort(list(reversed(list(range(7)))))
-    [0, 1, 2, 3, 4, 5, 6]
-    >>> tim_sort([3, 2, 1]) == insertion_sort([3, 2, 1])
-    True
-    >>> tim_sort([3, 2, 1]) == sorted([3, 2, 1])
-    True
-    """
+    """Sorts a list using tim_sort function."""
     length = len(lst)
     runs, sorted_runs = [], []
     new_run = [lst[0]]
@@ -156,6 +148,7 @@ def tim_sort(lst):
 
 
 def python_sort(list):
+    """Sorts a list using python default sort function."""
     list.sort()
     return list
 
@@ -164,7 +157,7 @@ def python_sort(list):
 
 
 def wiggle_sort(nums):
-    """Perform Wiggle Sort."""
+    """Sorts a list using wiggle_sort function."""
     for i in range(len(nums)):
         if (i % 2 == 1) == (nums[i - 1] > nums[i]):
             nums[i - 1], nums[i] = nums[i], nums[i - 1]
