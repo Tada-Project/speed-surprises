@@ -91,7 +91,7 @@ def test_list_in_single():
 
 def test_dict_in_single():
     """Check the dict_in function with a single list"""
-        dict_is_in = python_basic.dict_in({"first": 1, "second": 2, "third": 3}, "first")
-        dict_isnot_in = python_basic.dict_in({"first": 1, "second": 2, "third": 3}, 1)
-        assert dict_is_in == 1
-        assert dict_isnot_in == 0
+    dict_is_in = python_basic.dict_in({"first": 1, "second": 2, "third": 3}, "first")
+    dict_isnot_in = python_basic.dict_in({"first": 1, "second": 2, "third": 3}, 1)
+    assert dict_is_in == 1
+    assert dict_isnot_in == 0
