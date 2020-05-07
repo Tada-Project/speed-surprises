@@ -196,8 +196,8 @@ def quick_sort(list, low=0, high=None):
         high = len(list) - 1
     if low < high:
         pi = partition(list, low, high)
-        quick_sort(list, low, pi-1)
-        quick_sort(list, pi+1, high)
+        quick_sort(list, low, pi - 1)
+        quick_sort(list, pi + 1, high)
     return list
 
 
@@ -217,8 +217,8 @@ def random_quick_sort(list, low=0, high=None):
         high = len(list) - 1
     if low < high:
         pi = random_partition(list, low, high)
-        quick_sort(list, low, pi-1)
-        quick_sort(list, pi+1, high)
+        quick_sort(list, low, pi - 1)
+        quick_sort(list, pi + 1, high)
     return list
 
 

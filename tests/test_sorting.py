@@ -191,7 +191,7 @@ def test_quick_sort_hypothesis_integer_lists_yes(list_inputs):
     "list_inputs, expected_answer",
     [([5, 3, 9, 2, 1], [1, 2, 3, 5, 9]), ([7, 2, 10, 3, 1], [1, 2, 3, 7, 10])],
 )
-def test_tim_sort_multiple(list_inputs, expected_answer):
+def test_quick_sort_multiple(list_inputs, expected_answer):
     """Check the quick_sort function with multiple inputs"""
     sorted_list = sorting.quick_sort(list_inputs)
     assert sorted_list == expected_answer
