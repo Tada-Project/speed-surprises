@@ -1,0 +1,16 @@
+[{
+  "type": "array",
+  "items": {
+    "type": "integer",
+    "maximum": 1000,
+    "minimum": 0
+    },
+  "uniqueItems": true,
+  "maxItems": 0,
+  "minItems": 0
+},
+{
+  "type": "integer",
+  "maximum": 3001,
+  "minimum": 2001
+}]
