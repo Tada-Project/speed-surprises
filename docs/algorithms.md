@@ -2,19 +2,19 @@
 
 ## Algorithms
 
-[Sorting](https://github.com/Tada-Project/speed-surprises/blob/master/speedsurprises/lists/sorting.py)
+- [Sorting](https://github.com/Tada-Project/speed-surprises/blob/master/speedsurprises/lists/sorting.py)
 
-- [Insertion Sort](#insertion-sort)
-- [Bubble Sort](#bubble-sort)
-- Merge Sort
-- Tim Sort I
-- Tim Sort II
-- Python Sort
-- Wiggle Sort
-- Heap Sort
-- Quick Sort
-- Random Partition Quick Sort
-- Intro Sort
+  - [Insertion Sort](#insertion-sort)
+  - [Bubble Sort](#bubble-sort)
+  - Merge Sort
+  - Tim Sort I
+  - Tim Sort II
+  - Python Sort
+  - Wiggle Sort
+  - Heap Sort
+  - Quick Sort
+  - Random Partition Quick Sort
+  - Intro Sort
 
 
 ## Result tables
@@ -24,7 +24,12 @@ Experiments of this [Tada! version](https://github.com/Tada-Project/tada/tree/20
 ### Insertion Sort
 
 ```bash
-pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module speedsurprises.lists.sorting --function insertion_sort --types hypothesis --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function insertion_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
 ```
 
 `Quit due to over maximum time: 203.07405996322632`
@@ -47,7 +52,13 @@ pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module speed
 ---
 
 ```bash
-pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module speedsurprises.lists.sorting --function insertion_sort --types hypothesis --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json --startsize 50
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function insertion_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+  --startsize 50
 ```
 
 `Quit due to researched max size`
@@ -67,7 +78,12 @@ pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module speed
 ### Bubble Sort
 
 ```bash
-pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module speedsurprises.lists.sorting --function bubble_sort --types hypothesis --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function bubble_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
 ```
 
 `Quit due to end of rounds:  11`
