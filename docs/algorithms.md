@@ -1,4 +1,4 @@
-# Tada!- SpeedSurprises Result tables
+# Tada! - SpeedSurprises Result tables
 
 ## Algorithms
 
@@ -9,11 +9,11 @@
   - [Merge Sort](#merge-sort)
   - Tim Sort I
   - Tim Sort II
-  - Python Sort
+  - [Python Sort](#python-sort)
   - Wiggle Sort
   - Heap Sort
-  - Quick Sort
-  - Random Partition Quick Sort
+  - [Quick Sort](#quick-sort)
+  - [Random Partition Quick Sort](#random-partition-quick-sort)
   - Intro Sort
 
 
@@ -188,3 +188,114 @@ pipenv run python tada_a_bigoh.py
 `O(n) linear or O(nlogn) linearithmic`
 
 ---
+
+### Python Sort
+
+**Expect Worst-case time complexity: O(nlogn)**
+
+```bash
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function python_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+```
+
+`Quit due to indicator:  0.002434314893605747`
+
+| Size |          Mean          |         Median         |       Ratio        |
+|------|------------------------|------------------------|--------------------|
+|  1   | 3.189960465113322e-07  | 2.993960437774658e-07  |         0          |
+|  2   | 3.1744674434661866e-07 | 3.1756691646575926e-07 | 0.9951431932098931 |
+
+`O(1) constant or O(logn) logarithmic`
+
+---
+
+```bash
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function python_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+  --startsize 25
+```
+
+Quit due to researched max size
+
+| Size |          Mean          |         Median         |       Ratio        |
+|------|------------------------|------------------------|--------------------|
+|  25  | 6.164247662862142e-07  | 6.013342647552489e-07  |         0          |
+|  50  | 9.188426554361979e-07  |  8.91502170562744e-07  | 1.4905998358436607 |
+| 100  | 1.529599284998576e-06  | 1.5124425735473634e-06 | 1.664702085769447  |
+| 200  | 3.1618267959594726e-06 | 2.751934463500976e-06  | 2.067094844361421  |
+| 400  |  5.91229665629069e-06  | 4.958955535888672e-06  | 1.8698989659541339 |
+| 800  | 1.1246859719848633e-05 | 9.330470489501956e-06  | 1.9022827124011044 |
+
+O(n) linear or O(nlogn) linearithmic
+
+
+---
+
+### Quick Sort
+
+**Expect Worst-case time complexity: O(n^2)**
+
+```bash
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function quick_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+```
+
+`Quit due to over maximum time: 211.9507429599762`
+
+| Size |          Mean          |         Median         |       Ratio        |
+|------|------------------------|------------------------|--------------------|
+|  1   | 3.546292347272237e-07  | 3.3944345378875735e-07 |         0          |
+|  2   | 1.3590765644073487e-06 | 1.3167702255249024e-06 | 3.832387269066334  |
+|  4   |  3.83002790629069e-06  | 3.804722564697266e-06  | 2.818110477801408  |
+|  8   | 1.1098425689697265e-05 | 1.0788862243652343e-05 | 2.8977401630595123 |
+|  16  | 3.178052498372396e-05  | 3.0381406372070318e-05 | 2.8635164907421067 |
+|  32  | 0.00010787689663085937 | 0.00010373415966796875 | 3.394434065708711  |
+|  64  | 0.0003954205560872396  | 0.00035954054492187514 | 3.6654795274683973 |
+| 128  |  0.001451803187109375  |  0.00137220704296875   | 3.671542019654313  |
+| 256  |  0.005399346281770833  |   0.005262021140625    | 3.7190621495474514 |
+| 512  |     0.021974467325     |  0.021032632250000002  | 4.069838491224347  |
+
+`O(n^2) quadratic`
+
+---
+
+### Random Partition Quick Sort
+
+**Expect Worst-case time complexity: O(n^2)**
+
+```bash
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function random_quick_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+```
+
+`Quit due to over maximum time: 202.9476158618927`
+
+| Size |          Mean          |         Median         |       Ratio        |
+|------|------------------------|------------------------|--------------------|
+|  1   | 3.7572151136398314e-07 | 3.4565737056732173e-07 |         0          |
+|  2   | 2.982754879506429e-06  | 2.4417830047607426e-06 | 7.9387386383018725 |
+|  4   | 5.340259534200032e-06  | 4.988395141601563e-06  | 1.7903782744238477 |
+|  8   | 1.2775530756632487e-05 | 1.1613666534423824e-05 | 2.3923052194028345 |
+|  16  |  3.19691664835612e-05  | 3.085918701171874e-05  |  2.50237482047188  |
+|  32  | 0.00010278333562011718 | 9.811109472656249e-05  | 3.2150771172895354 |
+|  64  | 0.00034891050032552083 | 0.00034443401855468753 | 3.3946212994592737 |
+| 128  | 0.0013947162506510416  |  0.00129523112109375   | 3.9973467389196427 |
+| 256  |   0.0054021078515625   |  0.004992947187499999  | 3.8732665866916243 |
+
+`O(n^2) quadratic`
