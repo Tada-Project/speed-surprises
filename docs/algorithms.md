@@ -397,7 +397,7 @@ pipenv run python tada_a_bigoh.py
 
 `O(n^2) quadratic`
 
---
+---
 
 ### Intro Sort
 
