@@ -189,6 +189,43 @@ pipenv run python tada_a_bigoh.py
 
 ---
 
+### Tim Sort II
+
+**Expect Worst-case time complexity: O(nlogn)**
+
+```bash
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function tim_sort_v2
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+```
+
+`Quit due to indicator:  0.0800524319950432`
+
+| Size |          Mean          |         Median         |       Ratio        |
+|------|------------------------|------------------------|--------------------|
+|  1   | 1.152107676188151e-06  | 1.1373776855468751e-06 |         0          |
+|  2   | 1.4386200313568116e-06 | 1.375230224609375e-06  | 1.248685397285618  |
+|  4   | 1.6889930661519368e-06 | 1.6201506805419922e-06 | 1.1740369446677243 |
+
+`O(1) constant or O(logn) logarithmic`
+
+---
+
+```bash
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function tim_sort_v2
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+  --startsize 25
+```
+
+---
+
 ### Python Sort
 
 **Expect Worst-case time complexity: O(nlogn)**
