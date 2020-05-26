@@ -10,11 +10,11 @@
   - Tim Sort I
   - Tim Sort II
   - [Python Sort](#python-sort)
-  - Wiggle Sort
-  - Heap Sort
+  - [Wiggle Sort](#wiggle-sort)
+  - [Heap Sort](#heap-sort)
   - [Quick Sort](#quick-sort)
   - [Random Partition Quick Sort](#random-partition-quick-sort)
-  - Intro Sort
+  - [Intro Sort](#intro-sort)
 
 
 ## Result tables
@@ -223,7 +223,7 @@ pipenv run python tada_a_bigoh.py
   --startsize 25
 ```
 
-Quit due to researched max size
+`Quit due to researched max size`
 
 | Size |          Mean          |         Median         |       Ratio        |
 |------|------------------------|------------------------|--------------------|
@@ -234,8 +234,105 @@ Quit due to researched max size
 | 400  |  5.91229665629069e-06  | 4.958955535888672e-06  | 1.8698989659541339 |
 | 800  | 1.1246859719848633e-05 | 9.330470489501956e-06  | 1.9022827124011044 |
 
-O(n) linear or O(nlogn) linearithmic
+`O(n) linear or O(nlogn) linearithmic`
 
+---
+
+### Wiggle Sort
+
+**Expect Worst-case time complexity: O(n)**
+
+```bash
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function wiggle_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+```
+
+`Quit due to indicator:  0.011277950513701127`
+
+| Size |          Mean         |         Median        |       Ratio        |
+|------|-----------------------|-----------------------|--------------------|
+|  1   | 8.366020188649495e-07 | 7.986261291503908e-07 |         0          |
+|  2   | 8.556875771840414e-07 | 8.149755401611328e-07 | 1.0228131870216928 |
+
+`O(1) constant or O(logn) logarithmic`
+
+---
+
+```bash
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function wiggle_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+  --startsize 25
+```
+
+`Quit due to researched max size`
+
+| Size |          Mean          |         Median         |       Ratio        |
+|------|------------------------|------------------------|--------------------|
+|  25  | 3.938760516357422e-06  | 3.7966550140380852e-06 |         0          |
+|  50  | 6.843358874511718e-06  | 6.6236741638183585e-06 | 1.7374396960900982 |
+| 100  | 1.4840771779378255e-05 | 1.3946045104980469e-05 | 2.1686385372325168 |
+| 200  | 3.3553052827962235e-05 | 3.0738537963867175e-05 | 2.2608698069587807 |
+| 400  | 5.604745706380208e-05  | 5.4768426025390626e-05 | 1.6704130426276325 |
+| 800  | 0.00013075716440429688 | 0.00012391347851562498 | 2.332972292667059  |
+
+`O(n) linear or O(nlogn) linearithmic`
+
+---
+
+### Heap Sort
+
+**Expect Worst-case time complexity: O(nlogn)**
+
+```bash
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function heap_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+```
+
+`Quit due to indicator:  0.09065803189023482`
+
+| Size |          Mean          |         Median         |       Ratio        |
+|------|------------------------|------------------------|--------------------|
+|  1   | 1.1722028593699138e-06 | 1.0418929595947265e-06 |         0          |
+|  2   | 1.4059314409891764e-06 | 1.2337477989196774e-06 | 1.1993926049155836 |
+
+`O(1) constant or O(logn) logarithmic`
+
+---
+
+```bash
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function heap_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+  --startsize 25
+```
+
+`Quit due to researched max size`
+
+| Size |          Mean          |         Median         |       Ratio        |
+|------|------------------------|------------------------|--------------------|
+|  25  |  7.13459870707194e-06  | 6.963895294189453e-06  |         0          |
+|  50  | 1.406882550048828e-05  | 1.4043482360839843e-05 | 1.9719154612778729 |
+| 100  | 2.9160663700358075e-05 | 2.8793668823242185e-05 | 2.072714861616985  |
+| 200  |  6.52137589029948e-05  | 6.253267602539063e-05  | 2.2363605840080387 |
+| 400  | 0.00017103164934895835 | 0.00015168834082031243 | 2.6226313622462283 |
+| 800  |  0.000322172528515625  | 0.00030969022460937504 | 1.8837012315673325 |
+
+`O(n) linear or O(nlogn) linearithmic`
 
 ---
 
@@ -299,3 +396,55 @@ pipenv run python tada_a_bigoh.py
 | 256  |   0.0054021078515625   |  0.004992947187499999  | 3.8732665866916243 |
 
 `O(n^2) quadratic`
+
+--
+
+### Intro Sort
+
+**Expect Worst-case time complexity: O(nlogn)**
+
+```bash
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function intro_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+```
+
+`Quit due to indicator:  0.07103254756469535`
+
+| Size |          Mean          |         Median         |       Ratio        |
+|------|------------------------|------------------------|--------------------|
+|  1   | 2.1118265579223633e-06 | 2.0123853302001957e-06 |         0          |
+|  2   | 5.682626615905762e-06  | 5.651774230957033e-06  | 2.690858581443539  |
+|  4   | 1.3066739489746093e-05 | 1.1926759429931644e-05 |  2.29941897874692  |
+|  8   |  2.13048064839681e-05  | 2.0168315856933586e-05 | 1.6304607971014264 |
+|  16  | 1.8478870552571614e-05 | 1.8240897155761724e-05 | 0.8673568833623058 |
+
+`O(1) constant or O(logn) logarithmic`
+
+---
+
+```bash
+pipenv run python tada_a_bigoh.py
+  --directory ../speed-surprises/
+  --module speedsurprises.lists.sorting
+  --function intro_sort
+  --types hypothesis
+  --schema ../speed-surprises/speedsurprises/jsonschema/single_int_list.json
+  --startsize 25
+```
+
+`Quit due to researched max size`
+
+| Size |          Mean          |         Median         |       Ratio        |
+|------|------------------------|------------------------|--------------------|
+|  25  | 4.7666535156250004e-05 | 4.252998876953126e-05  |         0          |
+|  50  | 6.397039845377604e-05  | 6.138071313476561e-05  | 1.3420400338325889 |
+| 100  | 0.00015452709407552082 | 0.00013641595214843751 | 2.4156031197332557 |
+| 200  | 0.00031080462353515626 | 0.00029767779199218753 | 2.0113276923673924 |
+| 400  | 0.0007214549737630208  | 0.0006940638359375002  | 2.321249167908258  |
+| 800  |  0.00170539784453125   | 0.0016033724531250007  | 2.3638312944688753 |
+
+`O(n) linear or O(nlogn) linearithmic`
