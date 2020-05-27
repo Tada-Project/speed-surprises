@@ -1,0 +1,10 @@
+[{
+  "type": "integer",
+  "maximum": 0,
+  "minimum": 0
+},
+{
+  "type": "boolean",
+  "maximum": 0,
+  "minimum": 0
+}]
