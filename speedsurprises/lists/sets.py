@@ -8,6 +8,21 @@ from functools import reduce
 from constraint import *  # noqa: F403
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sets --function=is_su bset --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_listdiff.json --startsize=25 --m ax=1000
+# Quit due to researched max size
+# +------+------------------------+------------------------+--------------------+
+# | Size |          Mean          |         Median         |       Ratio        |
+# +------+------------------------+------------------------+--------------------+
+# |  25  | 1.0148903274536132e-06 | 9.621574401855469e-07  |         0          |
+# |  50  | 1.691708730061849e-06  | 1.5731895446777346e-06 | 1.6668882186574692 |
+# | 100  | 2.8073096211751303e-06 | 2.793572998046875e-06  | 1.6594521097449764 |
+# | 200  |  5.30609380086263e-06  | 5.204246520996093e-06  | 1.8900992469229372 |
+# | 400  | 1.0945872497558593e-05 | 1.0230209350585938e-05 | 2.062887108361915  |
+# | 800  | 2.213671895345052e-05  | 2.0025476074218756e-05 | 2.0223804871094537 |
+# +------+------------------------+------------------------+--------------------+
+# O(n) linear or O(nlogn) linearithmic
+
+
 def is_subset(first_list, second_list):
     """Assumes first_list and second_list are lists.
     Returns True if each element in list_one is also
@@ -23,7 +38,7 @@ def is_subset(first_list, second_list):
     return True
 
 
-# pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=chinese_remainder --types hypothesis --schema=../speed-surprises/setjsonsch.json --expect="O(n)" --startsize=2 --maxsize=100
+# pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=chinese_remainder --types hypothesis --schema=../speed-surprises/list_and_listdiff.json --expect="O(n)" --startsize=2 --maxsize=100
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -36,7 +51,8 @@ def is_subset(first_list, second_list):
 # |  64  | 7.879578753255216e-05  | 7.867523461918546e-05  | 2.3045345172119505 |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sets --function=chine se_remainder --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_listdiff.json --expect=" O(n)" --startsize=1 --maxsize=1600
+
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sets --function=chinese_remainder --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_listdiff.json --expect=" O(n)" --startsize=1 --maxsize=1600
 # Quit due to end of rounds:  11
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -110,6 +126,7 @@ def mul_inv(a, b):
 #     print(chinese_remainder(n,a))
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=CSP_basics_1 --types hypothesis --schema=../speed-surprises/list_and_listdiff.json --expect="O(n)" --startsize=2 --maxsize=100
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -139,7 +156,7 @@ def CSP_basics_2(a, b):
     return problem.getSolutions()
 
 
-# pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=CSP_basics_3 --types hypothesis --schema=../speed-surprises/setjsonsch.json --expect="O(n)" --startsize=2 --maxsize=16
+# pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=CSP_basics_3 --types hypothesis --schema=../speed-surprises/list_and_listdiff.json --expect="O(n)" --startsize=2 --maxsize=16
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -159,6 +176,7 @@ def CSP_basics_3(a, b):
     return problem.getSolutions()
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=CSP_rooks --types hypothesis --schema=../speed-surprises/list_and_listdiff.json --expect="O(n)" --startsize=2 --maxsize=16
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |

@@ -19,6 +19,7 @@ import numpy
 from deap import algorithms, base, creator, tools
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.genetic_algorithm.knapsack --function=knapsack --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/double_int_list.json --startsize=50 --max=1000
 # Quit due to indicator:  0.0990873786000493
 # +------+---------------------+---------------------+--------------------+
 # | Size |         Mean        |        Median       |       Ratio        |

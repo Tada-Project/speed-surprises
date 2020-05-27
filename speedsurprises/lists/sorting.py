@@ -9,6 +9,7 @@ from heapq import heappush, heappop
 # https://bit.ly/2flYwOq
 
 # Worst-case time complexity: O(n^2)
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=insertion_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
 # Quit due to over maximum time: 209.21209025382996
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -45,7 +46,8 @@ def insertion_sort(list):
 # https://bit.ly/2pXGWai
 
 # Worst-case time complexity: O(n^2)
-# Quit due to end of rounds:  11
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=bubble_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
+# # Quit due to end of rounds:  11
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
 # +------+------------------------+------------------------+--------------------+
@@ -80,6 +82,7 @@ def bubble_sort(list):
 # https://bit.ly/2TOMWP3
 
 # Worst-case time complexity: O(nlogn)
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=merge_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
 # Quit due to end of rounds:  11
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -175,6 +178,7 @@ def tim_merge(left, right):
 
 
 # Quit due to end of rounds:  11
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=tim_sort_v1 --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
 # +------+------------------------+------------------------+--------------------+
@@ -214,6 +218,7 @@ def tim_sort_v1(list):
     return sorted_array
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=python_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
 # Quit due to indicator:  0.011003815565909915
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -222,6 +227,8 @@ def tim_sort_v1(list):
 # |  2   | 3.3540796915690105e-07 | 3.045936584472656e-07  | 1.0222524934657993 |
 # +------+------------------------+------------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=python_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=25 --max=1000
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -244,6 +251,7 @@ def python_sort(list):
 
 # https://www.geeksforgeeks.org/timsort/
 # Quit due to over maximum time: 205.19060397148132
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=tim_sort_v2 --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
 # +------+------------------------+------------------------+--------------------+
@@ -303,6 +311,7 @@ def tim_sort_v2(list):
 
 
 # https://github.com/TheAlgorithms/Python/blob/master/sorts/wiggle_sort.py
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=wiggle_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=25 --max=1000
 # Quit due to researched max size
 # +------+-----------------------+------------------------+--------------------+
 # | Size |          Mean         |         Median         |       Ratio        |
@@ -325,6 +334,7 @@ def wiggle_sort(list):
     return list
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=heap_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=2 --max=1000
 # Quit due to over maximum time: 202.94003653526306
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -365,6 +375,7 @@ def partition(list, low, high):
     return i + 1
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=quick_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=2 --max=1000
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -404,6 +415,8 @@ def random_partition(list, low, high):
     return partition(list, low, high)
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=random_quick_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=2 --max=1000
+# Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
 # +------+------------------------+------------------------+--------------------+
@@ -431,6 +444,7 @@ def random_quick_sort(list, low=0, high=None):
     return list
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=intro_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
 # Quit due to indicator:  0.02063312599387209
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -441,6 +455,8 @@ def random_quick_sort(list, low=0, high=None):
 # |  16  | 2.302213623046875e-05  | 2.2438531494140624e-05 | 0.9595679868340938 |
 # +------+------------------------+------------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=intro_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=25 --max=1000
 # Quit due to researched max size
 # +------+-----------------------+------------------------+--------------------+
 # | Size |          Mean         |         Median         |       Ratio        |

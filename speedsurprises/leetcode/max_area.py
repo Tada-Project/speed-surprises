@@ -9,6 +9,7 @@ https://leetcode.com/problems/container-with-most-water/
 from typing import List
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.leetcode.max_area --function=max_area_linear --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
 # Quit due to end of rounds:  5
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -37,6 +38,7 @@ def max_area_linear(height: List[int]) -> int:
     return max_container
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.leetcode.max_area --function=max_area_log --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
 # Quit due to end of rounds:  5
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -63,6 +65,7 @@ def max_area_log(height: List[int]) -> int:
     return OPT
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.leetcode.max_area --function=max_area_quadratic --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
 # Quit due to end of rounds:  5
 # +------+-----------------------+-----------------------+--------------------+
 # | Size |          Mean         |         Median        |       Ratio        |

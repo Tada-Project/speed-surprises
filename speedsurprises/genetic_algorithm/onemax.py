@@ -23,6 +23,7 @@ import random
 from deap import base, creator, tools
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.genetic_algorithm.onemax --function=onemax --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int.json --startsize=10 --max=1000
 # Quit due to over maximum time: 429.2712752819061
 # +------+---------------------+----------------------+--------------------+
 # | Size |         Mean        |        Median        |       Ratio        |
