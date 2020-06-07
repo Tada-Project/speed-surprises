@@ -62,7 +62,7 @@ run_experiment () {
     for size in ${startsize[@]}; do
       # run each steps
       for step in ${steps[@]}; do
-        echo ${run_command} \
+        ${run_command} \
         --module speedsurprises.${modules[0]} \
         --function ${funcs[n]} \
         --types hypothesis \
