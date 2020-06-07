@@ -74,3 +74,9 @@ run_experiment () {
     done
   done
 }
+
+# execute experiments for i times
+for ((i = 0 ; i <= 1 ; i++))
+do
+  run_experiment
+done
