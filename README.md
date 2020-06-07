@@ -30,10 +30,10 @@ If you want to exclude the test cases that use Hypothesis you can type:
 
 - `pipenv run pytest -m "not hypothesisworks"`
 
-## Run experiment with Speed-Surprises
+## Running Experiment with Speed-Surprises and Shell Script
 
-Although you can certainly run experiments on single functions, this repository
-also provides you a [script](https://github.com/Tada-Project/speed-surprises/blob/master/speedsurprises/script/sort_experiment.sh)
+Although you can certainly run experiments on any single function in
+Speed-Surprises, we also provide you a [sample script](https://github.com/Tada-Project/speed-surprises/blob/master/speedsurprises/script/sort_experiment.sh)
 that will allow you to easily run experiments on a set of functions with
 different combinations of parameters.
 
@@ -59,7 +59,7 @@ folder/
 ```
 
 Then, move the script file into `tada` directory. After installing the
-dependencies successfully in `tada`, you can type `./sort_experiment.sh` in
+dependencies in `tada` successfully, you can type `./sort_experiment.sh` in
 the terminal to run the experiment.
 
 ## Adding New Functions to the Speed-Surprises
