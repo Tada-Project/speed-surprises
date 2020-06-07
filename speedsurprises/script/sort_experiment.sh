@@ -2,6 +2,9 @@
 # chmod +x ./sort_experiment.sh
 # pipenv install --dev
 
+# a script to run all sorts algorithm with diffrent starting size and steps,
+# results will be stored in a csv file
+
 # run this script inside of tada diretory
 speedsurprises_path="../speed-surprises/"
 
