@@ -7,7 +7,7 @@ from heapq import heappush, heappop
 
 # Inspiration for function:
 # https://bit.ly/2flYwOq
-
+#
 # Worst-case time complexity: O(n^2)
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=insertion_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
 # Quit due to over maximum time: 209.21209025382996
@@ -27,8 +27,6 @@ from heapq import heappush, heappop
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
 # might due to python under layer optimization
-
-
 def insertion_sort(list):
     for i in range(1, len(list)):
         currentValue = list[i]
@@ -40,11 +38,9 @@ def insertion_sort(list):
     return list
 
 
-"""Do list sorting using BubbleSort"""
-
 # Source and/or inspiration for the function(s):
 # https://bit.ly/2pXGWai
-
+#
 # Worst-case time complexity: O(n^2)
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=bubble_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
 # # Quit due to end of rounds:  11
@@ -63,8 +59,6 @@ def insertion_sort(list):
 # | 512  |  0.014749861666666668  |  0.013180387500000001  | 3.6687545772417662 |
 # +------+------------------------+------------------------+--------------------+
 # O(n^2) quadratic
-
-
 def bubble_sort(list):
     """Sorts a list using BubbleSort function."""
     for num in range(len(list) - 1, 0, -1):
@@ -75,8 +69,6 @@ def bubble_sort(list):
                 list[i + 1] = temp
     return list
 
-
-"""Do list sorting using MergeSort"""
 
 # Source and/or inspiration for the function(s):
 # https://bit.ly/2TOMWP3
@@ -99,8 +91,6 @@ def bubble_sort(list):
 # | 512  | 0.0016596982812499999  | 0.0015602148437500003  | 2.0689227908023096 |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-
-
 def merge_sort(list):
     """Sorts a list using MergeSort function."""
     if len(list) > 1:
@@ -136,8 +126,6 @@ def merge_sort(list):
 
 
 # https://github.com/TheAlgorithms/Python/blob/master/sorts/tim_sort.py
-
-
 def tim_binary_search(list, item, start, end):
     """Search used by tim_insertion_sort function."""
     if start == end:
@@ -194,8 +182,6 @@ def tim_merge(left, right):
 # | 512  |  0.07012807083333333   |  0.06902977499999999   |  8.10328038009702  |
 # +------+------------------------+------------------------+--------------------+
 # O(n^3) cubic
-
-
 def tim_sort_v1(list):
     """Sorts a list using tim_sort_v1 function."""
     length = len(list)
@@ -241,8 +227,6 @@ def tim_sort_v1(list):
 # | 800  | 8.159199930826822e-06  | 8.131915283203127e-06  | 1.9215334578984207 |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-
-
 def python_sort(list):
     """Sorts a list using python def1ault sort function."""
     list.sort()
@@ -267,8 +251,6 @@ def python_sort(list):
 # | 512  |  0.00083103263671875   | 0.0007166007812500002  | 2.6196816434888297 |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-
-
 def time_merge_v2(list, low, mid, high):
     """merge used by tim_sort_v2 function."""
     len1, len2 = mid - low + 1, high - mid
@@ -324,8 +306,6 @@ def tim_sort_v2(list):
 # | 800  |  0.000132110244140625 |  0.000130096142578125  | 1.885952529645446  |
 # +------+-----------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-
-
 def wiggle_sort(list):
     """nums[0] < nums[1] > nums[2] < nums[3]"""
     for i in range(len(list)):
@@ -351,8 +331,6 @@ def wiggle_sort(list):
 # | 1024 | 0.00041344592773437497 |   0.0003920462890625   | 2.1280093470462886 |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-
-
 def heap_sort(list):
     """Sorts a list using heap_sort function."""
     h = []
@@ -392,8 +370,6 @@ def partition(list, low, high):
 # +------+------------------------+------------------------+--------------------+
 # O(n^2) quadratic
 # crashed at 1024
-
-
 def quick_sort(list, low=0, high=None):
     """Sorts a list using quick_sort function."""
     if high is None:
@@ -431,8 +407,6 @@ def random_partition(list, low, high):
 # | 512  |     0.03046913125      |  0.027009112499999995  | 4.223503568238293  |
 # +------+------------------------+------------------------+--------------------+
 # O(n^2) quadratic
-
-
 def random_quick_sort(list, low=0, high=None):
     """Sorts a list using random_quick_sort function."""
     if high is None:
@@ -469,8 +443,6 @@ def random_quick_sort(list, low=0, high=None):
 # | 800  | 0.0020496763541666668 | 0.0019784421875000003  | 2.2586716540532326 |
 # +------+-----------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-
-
 def intro_sort(list, low=0, high=None, depthlimit=0):
     """Sorts a list using intro_sort function."""
     if high is None:
