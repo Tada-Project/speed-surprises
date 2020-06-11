@@ -94,5 +94,5 @@ def test_factorial_single():
 def test_error():
     """Check the compute_factorial function with a wrong input"""
     with pytest.raises(ValueError, match=r"Inputs of 0 or grater!"):
-        computed_iterative_value = testfile.compute_iterative_factorial(-10)
+        computed_iterative_value = factorial.compute_iterative_factorial(-10)
         assert computed_iterative_value == 1
