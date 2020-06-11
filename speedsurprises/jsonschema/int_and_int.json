@@ -1,0 +1,11 @@
+[{
+  "type": "integer",
+  "maximum": 0,
+  "minimum": 0
+},
+{
+  "type": "integer",
+  "maximum": 0,
+  "minimum": 0
+}
+]
