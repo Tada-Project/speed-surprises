@@ -52,7 +52,7 @@ def is_subset(first_list, second_list):
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
 
-# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sets --function=chinese_remainder --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_listdiff.json --expect=" O(n)" --startsize=1 --maxsize=1600
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sets --function=chinese_remainder --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_listdiff.json --expect="O(n)" --startsize=1 --maxsize=1600
 # Quit due to end of rounds:  11
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
