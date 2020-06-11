@@ -28,7 +28,6 @@ def bcopies_oft(inputlength):
     return list_of_boolean_true
 
 
-
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.boolean.booleancopies --function=bcopies_of --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int_and_boolean.json --starts ize=25 --max=1000
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
