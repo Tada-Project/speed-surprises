@@ -2,6 +2,7 @@
 
 # https://wiki.python.org/moin/TimeComplexity
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.python_basic --function=list_copy --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -20,6 +21,7 @@ def list_copy(list):
     return res
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.python_basic --function=list_append --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
 # Quit due to indicator:  0.004793372806200558
 # +------+------------------------+------------------------+-------------------+
 # | Size |          Mean          |         Median         |       Ratio       |
@@ -31,6 +33,7 @@ def list_copy(list):
 
 
 def list_append(list):
+    print(list)
     res = []
     res.append(list)
     return res
@@ -45,6 +48,7 @@ def list_poplast(list):
     return list
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.python_basic --function=list_in --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
 # def list_popintermediate(list):
 #     size = len(range(list))
 #     res = list.pop(size)

@@ -1,5 +1,5 @@
 [run]
 # omit the tests for analysis during test coverage monitoring
-omit=test/*
+omit=tests/*
 # run all of the tests that start with speedsurprises
 include=speedsurprises*

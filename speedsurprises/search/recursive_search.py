@@ -2,6 +2,7 @@
 # https://www.geeksforgeeks.org/exponential-search/
 
 
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.recursive_search --function=compute_recursive_binary_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=25 --max=1000
 # Quit due to indicator:  0.09266699082185953
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -10,6 +11,8 @@
 # |  50  | 3.060784098307292e-06  | 3.0957870483398445e-06 | 1.2042623598711506 |
 # +------+------------------------+------------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.recursive_search --function=compute_recursive_binary_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=200 --max=1000
 # Quit due to indicator:  0.0014415027123466984
 # +------+-----------------------+-----------------------+--------------------+
 # | Size |          Mean         |         Median        |       Ratio        |
@@ -45,6 +48,7 @@ def compute_recursive_binary_search(list, x, left=0, right=None):
 
 # Returns the position of first
 # occurrence of x in array
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.recursive_search --function=compute_exponential_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=25 --max=1000
 # Quit due to indicator:  0.09106801036873877
 # +------+------------------------+-----------------------+--------------------+
 # | Size |          Mean          |         Median        |       Ratio        |
@@ -53,6 +57,8 @@ def compute_recursive_binary_search(list, x, left=0, right=None):
 # |  50  | 2.0130554962158204e-06 |  1.96852798461914e-06 | 1.2003846523339632 |
 # +------+------------------------+-----------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.recursive_search --function=compute_exponential_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=200 --max=1000
 # Quit due to indicator:  0.07090269021012043
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |

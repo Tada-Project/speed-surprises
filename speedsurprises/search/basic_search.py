@@ -6,6 +6,7 @@ import math
 
 
 # Worst-case time complexity: O(n)
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_linear_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=2 --max=1000
 # Quit due to indicator:  0.072498847603935
 # +------+-----------------------+----------------------+--------------------+
 # | Size |          Mean         |        Median        |       Ratio        |
@@ -14,6 +15,8 @@ import math
 # |  4   | 6.849851735432942e-07 | 6.84989356994629e-07 | 1.1563315526167157 |
 # +------+-----------------------+----------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_linear_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=25 --max=1000
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -39,6 +42,7 @@ def compute_linear_search(list, x):
 
 
 # Worst-case time complexity: O(logn)
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_iterative_binary_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=25 --max=1000
 # Quit due to indicator:  0.01750971078860441
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -71,6 +75,7 @@ def compute_iterative_binary_search(list, target):
 
 
 # O(n^(1/2))
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_jump_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=25 --max=1000
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -105,6 +110,7 @@ def compute_jump_search(list, x):
 
 
 # O(n)
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_interpolation_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=25 --max=1000
 # Quit due to indicator:  0.02942966837610865
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -114,6 +120,7 @@ def compute_jump_search(list, x):
 # | 100  | 1.969701919555664e-06  | 1.8561180114746092e-06 | 1.0606440716704557 |
 # +------+------------------------+------------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_interpolation_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=100 --max=1000
 # Quit due to indicator:  0.018817638055081232
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
