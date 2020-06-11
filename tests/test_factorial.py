@@ -89,3 +89,10 @@ def test_factorial_single():
     assert computed_iterative_value == 3628800
     assert computed_recursive_value == 3628800
     assert computed_hashmap_value == 3628800
+
+
+def test_error():
+    """Check the compute_factorial function with a wrong input"""
+    with pytest.raises(ValueError, match=r"Inputs of 0 or grater!"):
+        computed_iterative_value = testfile.compute_iterative_factorial(-10)
+        assert computed_iterative_value == 1

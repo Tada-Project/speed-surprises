@@ -11,6 +11,7 @@ def compute_iterative_factorial(value):
     Returns value!"""
     if value < 0:
         ValueError("Inputs of 0 or grater!")
+        value = 0
     result = 1
     while value != 0:
         result *= value
