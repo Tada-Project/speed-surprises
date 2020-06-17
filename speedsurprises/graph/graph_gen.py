@@ -15,7 +15,7 @@ class AdjacencyList:
     def printList(self):
         for i in self.List:
             # print((i, "->", " -> ".join([str(j) for j in self.List[i]])))
-            a = (i, "->", " -> ".join([str(j) for j in self.List[i]])) # noqa: F841
+            a = (i, "->", " -> ".join([str(j) for j in self.List[i]]))  # noqa: F841
 
     def BFS(self, s):
         visited = [False] * (len(self.List))
