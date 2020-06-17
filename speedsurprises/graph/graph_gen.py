@@ -1,6 +1,5 @@
 # https://github.com/TheAlgorithms/Python/blob/master/graphs/graph_list.py
 
-from collections import defaultdict
 
 class AdjacencyList:
     def __init__(self):
@@ -16,31 +15,28 @@ class AdjacencyList:
     def printList(self):
         for i in self.List:
             # print((i, "->", " -> ".join([str(j) for j in self.List[i]])))
-            a = (i, "->", " -> ".join([str(j) for j in self.List[i]]))
-
+            a = (i, "->", " -> ".join([str(j) for j in self.List[i]])) # noqa: F841
 
     def BFS(self, s):
         visited = [False] * (len(self.List))
         queue = []
         queue.append(s)
         visited[s] = True
-
         while queue:
             s = queue.pop(0)
             for i in self.List[s]:
-                if visited[i] == False:
+                if visited[i] is False:
                     queue.append(i)
                     visited[i] = True
 
     def DFSUtil(self, v, visited):
         visited[v] = True
         for i in self.List[v]:
-            if visited[i] == False:
+            if visited[i] is False:
                 self.DFSUtil(i, visited)
 
-
     def DFS(self, v):
-        visited = [False] * (max(self.List)+1)
+        visited = [False] * (max(self.List) + 1)
         self.DFSUtil(v, visited)
 
 
