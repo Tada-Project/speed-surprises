@@ -1,0 +1,10 @@
+[
+  {
+    "type": "object",
+    "patternProperties": {
+      "^[0-9]+$": {"type": "integer"}
+    },
+    "minProperties": 0,
+    "maxProperties": 0
+  }
+]
