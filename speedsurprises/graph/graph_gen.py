@@ -40,18 +40,27 @@ class AdjacencyList:
         self.DFSUtil(v, visited)
 
 
-# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.graph.graph_gen --function=graph_gen --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int_and_int.json --startsize=50 --max=1000
-# Quit due to researched max size
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.graph.graph_gen --function=graph_gen --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int_and_int.json --startsize=50 --max=1000 --position 0
+# # Quit due to reached max size
+# +------+------------------------+------------------------+--------------------+
+# | Size |          Mean          |         Median         |       Ratio        |
+# +------+------------------------+------------------------+--------------------+
+# |  50  | 1.0281612040201823e-05 | 9.921871948242188e-06  |         0          |
+# | 100  | 2.0331334228515624e-05 | 2.0108789062500003e-05 | 1.977446158152893  |
+# | 200  | 3.850418782552083e-05  | 3.791147460937499e-05  | 1.8938347770367647 |
+# | 400  | 7.682291341145833e-05  |   7.582001953125e-05   | 1.9951833229044138 |
+# | 800  | 0.0001552128564453125  | 0.00015436083984374997 | 2.0203979457795738 |
+# +------+------------------------+------------------------+--------------------+
+# O(n) linear or O(nlogn) linearithmic
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.graph.graph_gen --function=graph_gen --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int_and_int.json --startsize=50 --max=1000 --position 1
+# Quit due to indicator:  0.009799269668756444
 # +------+-----------------------+-----------------------+--------------------+
 # | Size |          Mean         |         Median        |       Ratio        |
 # +------+-----------------------+-----------------------+--------------------+
-# |  50  | 0.0009070103385416667 | 0.0008345792968749999 |         0          |
-# | 100  | 0.0033801058854166666 | 0.0032019734374999992 | 3.7266453774400827 |
-# | 200  |  0.013200099270833333 |     0.012903215625    | 3.905232474457277  |
-# | 400  |  0.056190375833333334 |       0.05272175      | 4.256814640590653  |
-# | 800  |  0.22032294166666666  |  0.21442949999999994  |  3.92100850722494  |
+# |  50  | 6.628178469340006e-07 | 6.410791397094726e-07 |         0          |
+# | 100  | 6.499536450703938e-07 | 6.351037979125978e-07 | 0.9805916483342855 |
 # +------+-----------------------+-----------------------+--------------------+
-# O(n^2) quadratic
+# O(1) constant or O(logn) logarithmic
 
 
 def graph_gen(n_node, n_edge):
@@ -61,18 +70,27 @@ def graph_gen(n_node, n_edge):
             g.addEdge(no, ed)
 
 
-# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.graph.graph_gen --function=print_graph_gen --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int_and_int.json --startsize=50 --max=1000
-# Quit due to researched max size
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.graph.graph_gen --function=print_graph_gen --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int_and_int.json --startsize=50 --max=1000 --position 0
+# Quit due to reached max size
+# +------+------------------------+------------------------+--------------------+
+# | Size |          Mean          |         Median         |       Ratio        |
+# +------+------------------------+------------------------+--------------------+
+# |  50  |  9.71092997233073e-06  | 9.697445678710939e-06  |         0          |
+# | 100  |   1.880740234375e-05   |  1.84282958984375e-05  | 1.9367251537533245 |
+# | 200  | 3.6652762451171874e-05 | 3.6182470703124996e-05 | 1.9488476814211493 |
+# | 400  | 7.356022216796875e-05  |  7.3045556640625e-05   | 2.0069489241353717 |
+# | 800  | 0.00014922384440104166 |   0.000147655859375    |  2.02859425927645  |
+# +------+------------------------+------------------------+--------------------+
+# O(n) linear or O(nlogn) linearithmic
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.graph.graph_gen --function=print_graph_gen --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int_and_int.json --startsize=50 --max=1000 --position 1
+# Quit due to indicator:  0.016856965763805663
 # +------+-----------------------+-----------------------+--------------------+
 # | Size |          Mean         |         Median        |       Ratio        |
 # +------+-----------------------+-----------------------+--------------------+
-# |  50  | 0.0013258776302083333 | 0.0013200257812500003 |         0          |
-# | 100  |    0.00532784171875   |  0.005189290625000001 | 4.018351013217445  |
-# | 200  |  0.020877644791666667 |  0.020677262499999995 | 3.9185932866948807 |
-# | 400  |  0.08593218500000001  |      0.083972175      |  4.11599037427344  |
-# | 800  |   0.3618744566666667  |       0.34086715      | 4.211163217444857  |
+# |  50  | 8.354597345987955e-07 | 7.888870239257812e-07 |         0          |
+# | 100  | 8.077600351969401e-07 |  7.8647575378418e-07  | 0.9668449618159548 |
 # +------+-----------------------+-----------------------+--------------------+
-# O(n^2) quadratic
+# O(1) constant or O(logn) logarithmic
 
 
 def print_graph_gen(n_node, n_edge):
@@ -83,8 +101,8 @@ def print_graph_gen(n_node, n_edge):
     g.printList()
 
 
-# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.graph.graph_gen --function=graph_gen_BFS --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int_and_int.json --startsize=50  --max=1000
-# Quit due to researched max size
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.graph.graph_gen --function=graph_gen_BFS --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int_and_int.json --startsize=50  --max=1000 --position 0
+# Quit due to reached max size
 # +------+-----------------------+---------------------+--------------------+
 # | Size |          Mean         |        Median       |       Ratio        |
 # +------+-----------------------+---------------------+--------------------+
