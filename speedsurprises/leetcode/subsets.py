@@ -29,4 +29,3 @@ def subsets_iterative(nums):
         output += [curr + [num] for curr in output]
 
     return output
-

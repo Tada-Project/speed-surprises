@@ -99,4 +99,3 @@ def divide_and_conquer(nums):
         return max(left_sum, right_sum, cross_sum)
 
     return find_sub(nums, 0, len(nums) - 1)
-
