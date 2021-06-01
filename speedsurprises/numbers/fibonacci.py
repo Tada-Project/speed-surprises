@@ -26,3 +26,31 @@ def compute_iterative_fibonacci(value):
             x = y
             y = z
         return y
+
+
+def fibonacci_tuple(n):
+    result = ( )
+    a = 1
+    b = 1
+    for i in range(n):
+        result += (a,)
+        a, b = b, a + b
+    return result
+
+
+def fibonacci_list(n):
+    result = [  ]
+    a = 1
+    b = 1
+    for i in range(n):
+        result.append(a)
+        a, b = b, a + b
+    return result
+
+
+def fibonacci_generator(n):
+    a = 1
+    b = 1
+    for i in range(n):
+        yield a
+        a, b = b, a + b
