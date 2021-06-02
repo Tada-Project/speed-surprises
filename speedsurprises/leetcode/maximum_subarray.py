@@ -92,7 +92,7 @@ def divide_and_conquer(nums):
         if high == low:
             return nums[low]
         else:
-            mid = (low + high) / 2
+            mid = (low + high) // 2
             left_sum = find_sub(nums, low, mid)
             right_sum = find_sub(nums, mid + 1, high)
             cross_sum = find_cross_sum(nums, low, mid, high)
