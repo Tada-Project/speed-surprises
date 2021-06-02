@@ -58,3 +58,4 @@ def fibonacci_generator(n):
     for i in range(n):
         yield a
         a, b = b, a + b
+    return a

@@ -3,6 +3,7 @@ compute_recursive_fibonacci functions in the
 fibonacci module of the numbers package"""
 
 import pytest
+import types
 
 from hypothesis import given
 from hypothesis import settings
@@ -79,3 +80,20 @@ def test_fibonacci_single():
     computed_recursive_value = fibonacci.compute_recursive_fibonacci(18)
     assert computed_iterative_value == 2584
     assert computed_recursive_value == 2584
+
+
+def test_fibonacci_tuple():
+    """Check the fibonacci functions return correct values in tuple"""
+    computed_fibonacci_value = fibonacci.fibonacci_tuple(8)
+    assert computed_fibonacci_value == (1, 1, 2, 3, 5, 8, 13, 21)
+
+
+def test_fibonacci_list():
+    """Check the fibonacci functions return correct values in list"""
+    computed_fibonacci_value = fibonacci.fibonacci_list(8)
+    assert computed_fibonacci_value == [1, 1, 2, 3, 5, 8, 13, 21]
+
+
+def test_fibonacci_generator():
+    computed_fibonacci_value = fibonacci.fibonacci_generator(8)
+    assert isinstance(computed_fibonacci_value, types.GeneratorType) is True
