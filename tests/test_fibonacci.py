@@ -2,8 +2,8 @@
 compute_recursive_fibonacci functions in the
 fibonacci module of the numbers package"""
 
-import pytest
 import types
+import pytest
 
 from hypothesis import given
 from hypothesis import settings
@@ -95,5 +95,6 @@ def test_fibonacci_list():
 
 
 def test_fibonacci_generator():
+    """Check the fibonacci functions return generator"""
     computed_fibonacci_value = fibonacci.fibonacci_generator(8)
     assert isinstance(computed_fibonacci_value, types.GeneratorType) is True
