@@ -6,7 +6,7 @@ https://leetcode.com/problems/maximum-subarray/
 
 
 def brute_force(nums):
-    """brute force solution"""
+    """A brute force solution to maximum subarray problem."""
     if len(nums) == 1:
         return nums[0]
     max_sum = []
@@ -19,7 +19,7 @@ def brute_force(nums):
 
 
 def two_pointers(nums):
-    """Two pointers solution"""
+    """A two pointers solution to maximum subarray problem."""
     if len(nums) == 1:
         return nums[0]
     cur_sum = sum(nums)
@@ -40,7 +40,7 @@ def two_pointers(nums):
 
 
 def kadane(nums):
-    """dynamic programming approach"""
+    """A dynamic programming approach to maximum subarray problem."""
     size = len(nums)
     if not size:
         return 0
@@ -58,7 +58,7 @@ def kadane(nums):
 
 
 def optimized_kadane(nums):
-    """optimized kadane approach"""
+    """An optimized kadane approach to maximum subarray problem."""
     global_max = nums[0]
     curr = nums[0]
     for num in nums[1:]:
@@ -71,7 +71,7 @@ def optimized_kadane(nums):
 
 
 def divide_and_conquer(nums):
-    """divide and conquer approach"""
+    """A divide and conquer approach to maximum subarray problem."""
 
     def find_cross_sum(nums, low, mid, high):
         left_sum = nums[mid]

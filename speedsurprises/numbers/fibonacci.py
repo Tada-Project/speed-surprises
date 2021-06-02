@@ -6,7 +6,7 @@
 
 
 def compute_recursive_fibonacci(value):
-    """ Assumes the value is a natural number. Returns the value!"""
+    """Assumes the value is a natural number. Returns the value!"""
     if value <= 1:
         return value
     else:
@@ -16,7 +16,7 @@ def compute_recursive_fibonacci(value):
 
 
 def compute_iterative_fibonacci(value):
-    """Compute fibonacci iteratively"""
+    """Compute fibonacci iteratively."""
     if value <= 1:
         return value
     else:
@@ -30,7 +30,7 @@ def compute_iterative_fibonacci(value):
 
 
 def fibonacci_tuple(n):
-    """Fibonacci with tuple container."""
+    """Compute fibonacci and return in a tuple container."""
     result = ()
     a = 1
     b = 1
@@ -41,7 +41,7 @@ def fibonacci_tuple(n):
 
 
 def fibonacci_list(n):
-    """Fibonacci with list container."""
+    """Compute fibonacci and return in a list container."""
     result = []
     a = 1
     b = 1
@@ -52,7 +52,7 @@ def fibonacci_list(n):
 
 
 def fibonacci_generator(n):
-    """Fibonacci generator with no container."""
+    """Compute fibonacci through generator and return for testing purpose."""
     a = 1
     b = 1
     for i in range(n):

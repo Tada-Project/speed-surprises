@@ -6,7 +6,7 @@ https://leetcode.com/problems/subsets/
 
 
 def subsets_backtrack(nums):
-    """backtracking approach"""
+    """A backtracking approach to the subsets problem."""
     output = []
 
     def backtrack(so_far, rest):
@@ -22,7 +22,7 @@ def subsets_backtrack(nums):
 
 
 def subsets_iterative(nums):
-    """iterative approach"""
+    """An iterative approach to the subsets problem."""
     output = [[]]
 
     for num in nums:
