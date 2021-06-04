@@ -5,6 +5,7 @@ https://leetcode.com/problems/maximum-subarray/
 """
 
 
+# O(n^2)
 def brute_force(nums):
     """A brute force solution to maximum subarray problem."""
     if len(nums) == 1:
@@ -39,6 +40,7 @@ def two_pointers(nums):
     return max(max_sum)
 
 
+# O(n)
 def kadane(nums):
     """A dynamic programming approach to maximum subarray problem."""
     size = len(nums)
@@ -70,6 +72,7 @@ def optimized_kadane(nums):
     return global_max
 
 
+# O(nlogn)
 def divide_and_conquer(nums):
     """A divide and conquer approach to maximum subarray problem."""
 
