@@ -12,7 +12,6 @@ import math
 # Worst-case time complexity: O(n)
 
 # pylint: disable=line-too-long
-
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_linear_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=2 --max=1000
 
 # Quit due to indicator:  0.072498847603935
