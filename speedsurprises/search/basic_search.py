@@ -44,7 +44,7 @@ import math
 def compute_linear_search(search_list, x):
     """Search a list using linear search function."""
     for i in range(len(search_list)):
-        if list[i] == x:
+        if search_list[i] == x:
             return i
     return -1
 
@@ -101,21 +101,21 @@ def compute_iterative_binary_search(search_list, target):
 # O(n) linear or O(nlogn) linearithmic
 
 
-def compute_jump_search(list, x):
+def compute_jump_search(search_list, x):
     """Search a list using jump search function."""
-    n = len(list)
+    n = len(search_list)
     step = int(math.floor(math.sqrt(n)))
     prev = 0
-    while list[min(step, n) - 1] < x:
+    while search_list[min(step, n) - 1] < x:
         prev = step
         step += int(math.floor(math.sqrt(n)))
         if prev >= n:
             return -1
-    while list[prev] < x:
+    while search_list[prev] < x:
         prev = prev + 1
         if prev == min(step, n):
             return -1
-    if list[prev] == x:
+    if search_list[prev] == x:
         return prev
     return -1
 
@@ -143,23 +143,28 @@ def compute_jump_search(list, x):
 # O(1) constant or O(logn) logarithmic
 
 
-def compute_interpolation_search(list, x):
+def compute_interpolation_search(search_list, x):
     """Find indices of two corners."""
     lo = 0
-    n = len(list)
+    n = len(search_list)
     hi = n - 1
     # Since array is sorted, an element present
     # in array must be in range defined by corner
-    while lo <= hi and x >= list[lo] and x <= list[hi]:
+    while lo <= hi and x >= search_list[lo] and x <= search_list[hi]:
         if lo == hi:
-            if list[lo] == x:
+            if search_list[lo] == x:
                 return lo
             return -1
         # Probing the position with keeping
         # uniform distribution in mind.
-        pos = lo + int(((float(hi - lo) / (list[hi] - list[lo])) * (x - list[lo])))
+        pos = lo + int(
+            (
+                (float(hi - lo) / (search_list[hi] - search_list[lo]))
+                * (x - search_list[lo])
+            )
+        )
         # Condition of target found
-        if list[pos] == x:
+        if search_list[pos] == x:
             return pos
         # If x is larger, x is in upper part
         if list[pos] < x:
@@ -167,4 +172,4 @@ def compute_interpolation_search(list, x):
         # If x is smaller, x is in lower part
         else:
             hi = pos - 1
-    return - 1
+    return -1
