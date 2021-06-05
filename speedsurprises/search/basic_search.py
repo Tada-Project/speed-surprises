@@ -1,4 +1,4 @@
-"""Compute basic search functions"""
+"""Compute basic search functions."""
 # https://www.geeksforgeeks.org/python-program-for-linear-search/
 # https://www.geeksforgeeks.org/python-program-for-binary-search/
 # import random
@@ -91,7 +91,7 @@ def compute_iterative_binary_search(list, target):
 
 
 def compute_jump_search(list, x):
-    """Search a list using jump search function"""
+    """Search a list using jump search function."""
     n = len(list)
     step = int(math.floor(math.sqrt(n)))
     prev = 0
@@ -133,7 +133,7 @@ def compute_jump_search(list, x):
 
 
 def compute_interpolation_search(list, x):
-    # Find indexs of two corners
+    """Find indices of two corners."""
     lo = 0
     n = len(list)
     hi = n - 1
@@ -156,4 +156,4 @@ def compute_interpolation_search(list, x):
         # If x is smaller, x is in lower part
         else:
             hi = pos - 1
-    return -1
+    return - 1
