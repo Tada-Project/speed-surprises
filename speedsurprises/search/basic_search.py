@@ -1,12 +1,20 @@
 """Compute basic search functions."""
+
+# References:
+
 # https://www.geeksforgeeks.org/python-program-for-linear-search/
 # https://www.geeksforgeeks.org/python-program-for-binary-search/
 # import random
+
 import math
 
 
 # Worst-case time complexity: O(n)
+
+# pylint: disable=line-too-long
+
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_linear_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=2 --max=1000
+
 # Quit due to indicator:  0.072498847603935
 # +------+-----------------------+----------------------+--------------------+
 # | Size |          Mean         |        Median        |       Ratio        |
@@ -16,7 +24,9 @@ import math
 # +------+-----------------------+----------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_linear_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=25 --max=1000
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -33,8 +43,6 @@ import math
 
 def compute_linear_search(search_list, x):
     """Search a list using linear search function."""
-    # x = random.choice(list)
-    # x = list[len(list) - 1]
     for i in range(len(search_list)):
         if list[i] == x:
             return i
@@ -42,7 +50,10 @@ def compute_linear_search(search_list, x):
 
 
 # Worst-case time complexity: O(logn)
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_iterative_binary_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=25 --max=1000
+
 # Quit due to indicator:  0.01750971078860441
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
