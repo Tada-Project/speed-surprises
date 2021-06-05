@@ -1,4 +1,8 @@
-"""GA Knapsack example from DEAP: https://github.com/DEAP/deap/blob/master/examples/ga/knapsack.py"""
+"""GA Knapsack example from DEAP."""
+
+# Reference:
+# https://github.com/DEAP/deap/blob/master/examples/ga/knapsack.py
+
 #    This file is part of DEAP.
 #
 #    DEAP is free software: you can redistribute it and/or modify
@@ -18,8 +22,9 @@ import random
 import numpy
 from deap import algorithms, base, creator, tools
 
-
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.genetic_algorithm.knapsack --function=knapsack --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/double_int_list.json --startsize=50 --max=1000
+
 # Quit due to indicator:  0.0990873786000493
 # +------+---------------------+---------------------+--------------------+
 # | Size |         Mean        |        Median       |       Ratio        |
@@ -29,8 +34,10 @@ from deap import algorithms, base, creator, tools
 # | 200  |  0.2573390010657022 |  0.257054961490212  | 0.8196915358517523 |
 # +------+---------------------+---------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+
 def knapsack(knapsack_items):
-    """0-1 knapsack"""
+    """Solve the 0-1 knapsack problem."""
+    # pylint: disable=too-many-locals
     IND_INIT_SIZE = 5
     MAX_ITEM = 50
     MAX_WEIGHT = 50
@@ -79,9 +86,10 @@ def knapsack(knapsack_items):
         return weight, value
 
     def cxSet(ind1, ind2):
-        """Apply a crossover operation on input sets. The first child is the
-        intersection of the two sets, the second child is the difference of the
-        two sets.
+        """Apply a crossover operation on input sets.
+
+        The first child is the intersection of the two sets,
+        the second child is the difference of the two sets.
         """
         temp = set(ind1)  # Used in order to keep type
         ind1 &= ind2  # Intersection (inplace)
