@@ -1,4 +1,6 @@
-"""Test for max area problem"""
+"""Test for max area problem."""
+
+import pytest
 
 from speedsurprises.leetcode import two_sum
 
@@ -7,13 +9,15 @@ target = 9
 expected = [0, 1]
 
 
+@pytest.mark.slow
 def test_add_two_numbers_linear():
-    """test if returns correct output"""
+    """Test if two_sum_linear returns correct output."""
     output = two_sum.two_sum_linear(lst, target)
     assert output == expected
 
 
+@pytest.mark.slow
 def test_add_two_numbers_quadratic():
-    """test if returns correct output"""
+    """Test if two_sum_quadratic returns correct output."""
     output = two_sum.two_sum_quadratic(lst, target)
     assert output == expected
