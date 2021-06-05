@@ -20,6 +20,10 @@ pytest-benchmark = "^3.2.3"
 hypothesis = "^6.0.1"
 pytest-cov = "^2.10.1"
 codecov = "^2.1.11"
+taskipy = "^1.8.1"
+
+[tool.taskipy.tasks]
+pydocstyle = { cmd = "pydocstyle speedsurprises tests", help = "Run the pydocstyle checks for source code documentation" }
 
 [build-system]
 requires = ["poetry>=0.12"]
