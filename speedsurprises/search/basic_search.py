@@ -31,11 +31,11 @@ import math
 # O(n) linear or O(nlogn) linearithmic
 
 
-def compute_linear_search(list, x):
+def compute_linear_search(search_list, x):
     """Search a list using linear search function."""
     # x = random.choice(list)
     # x = list[len(list) - 1]
-    for i in range(len(list)):
+    for i in range(len(search_list)):
         if list[i] == x:
             return i
     return -1
