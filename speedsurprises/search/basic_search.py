@@ -65,20 +65,20 @@ def compute_linear_search(search_list, x):
 # O(1) constant or O(logn) logarithmic
 
 
-def compute_iterative_binary_search(list, target):
+def compute_iterative_binary_search(search_list, target):
     """Search a list using linear search function."""
     first = 0
-    last = len(list) - 1
+    last = len(search_list) - 1
     # Search target set as the last number in the list for the worst case
     # target = list[last]
     found = False
     while first <= last and not found:
         mid = int((first + last) / 2)
-        if list[mid] == target:
+        if search_list[mid] == target:
             found = True
             return mid
         else:
-            if target < list[mid]:
+            if target < search_list[mid]:
                 last = mid - 1
             else:
                 first = mid + 1
