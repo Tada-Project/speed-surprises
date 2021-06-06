@@ -14,7 +14,7 @@ from speedsurprises.lists import sorting
 @pytest.mark.benchmark
 def test_insertionSort_benchmark(benchmark):
     """Benchmark the insertionSort function"""
-    sorted_list = benchmark(sorting.insertion_sort, list=[4, 2, 3, 1])
+    sorted_list = benchmark(sorting.insertion_sort, thelist=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
@@ -47,7 +47,7 @@ def test_insertionSort_single():
 @pytest.mark.benchmark
 def test_bubble_sort_benchmark(benchmark):
     """Benchmark the bubble_sort function"""
-    sorted_list = benchmark(sorting.bubble_sort, list=[4, 2, 3, 1])
+    sorted_list = benchmark(sorting.bubble_sort, thelist=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
@@ -73,7 +73,8 @@ def test_bubble_sort_multiple(list_inputs, expected_answer):
 
 
 @pytest.mark.parametrize(
-    "list_inputs, expected_answer", [([10, 3, 1], [1, 3, 10])],
+    "list_inputs, expected_answer",
+    [([10, 3, 1], [1, 3, 10])],
 )
 def test_bubble_sort_single(list_inputs, expected_answer):
     """Check the bubble_sort function with one input"""
@@ -84,7 +85,7 @@ def test_bubble_sort_single(list_inputs, expected_answer):
 @pytest.mark.benchmark
 def test_merge_sort_benchmark(benchmark):
     """Benchmark the merge_sort function"""
-    sorted_list = benchmark(sorting.merge_sort, list=[4, 2, 3, 1])
+    sorted_list = benchmark(sorting.merge_sort, thelist=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
@@ -110,7 +111,8 @@ def test_merge_sort_multiple(list_inputs, expected_answer):
 
 
 @pytest.mark.parametrize(
-    "list_inputs, expected_answer", [([10, 3, 1], [1, 3, 10])],
+    "list_inputs, expected_answer",
+    [([10, 3, 1], [1, 3, 10])],
 )
 def test_merge_sort_single(list_inputs, expected_answer):
     """Check the merge_sort function with one input"""
@@ -121,7 +123,7 @@ def test_merge_sort_single(list_inputs, expected_answer):
 @pytest.mark.benchmark
 def test_tim_sort_v1_benchmark(benchmark):
     """Benchmark the tim_sort_v1 function"""
-    sorted_list = benchmark(sorting.tim_sort_v1, list=[4, 2, 3, 1])
+    sorted_list = benchmark(sorting.tim_sort_v1, thelist=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
@@ -147,7 +149,8 @@ def test_tim_sort_v1_multiple(list_inputs, expected_answer):
 
 
 @pytest.mark.parametrize(
-    "list_inputs, expected_answer", [([10, 3, 1], [1, 3, 10])],
+    "list_inputs, expected_answer",
+    [([10, 3, 1], [1, 3, 10])],
 )
 def test_tim_sort_v1_single(list_inputs, expected_answer):
     """Check the tim_sort_v1 function with one input"""
@@ -158,7 +161,7 @@ def test_tim_sort_v1_single(list_inputs, expected_answer):
 @pytest.mark.benchmark
 def test_tim_sort_v2_benchmark(benchmark):
     """Benchmark the tim_sort_v1 function"""
-    sorted_list = benchmark(sorting.tim_sort_v2, list=[4, 2, 3, 1])
+    sorted_list = benchmark(sorting.tim_sort_v2, thelist=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
@@ -184,7 +187,8 @@ def test_tim_sort_v2_multiple(list_inputs, expected_answer):
 
 
 @pytest.mark.parametrize(
-    "list_inputs, expected_answer", [([10, 3, 1], [1, 3, 10])],
+    "list_inputs, expected_answer",
+    [([10, 3, 1], [1, 3, 10])],
 )
 def test_tim_sort_v2_single(list_inputs, expected_answer):
     """Check the tim_sort_v2 function with one input"""
@@ -195,21 +199,21 @@ def test_tim_sort_v2_single(list_inputs, expected_answer):
 @pytest.mark.benchmark
 def test_python_sort_benchmark(benchmark):
     """Benchmark the python_sort function"""
-    sorted_list = benchmark(sorting.python_sort, list=[4, 2, 3, 1])
+    sorted_list = benchmark(sorting.python_sort, thelist=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
 @pytest.mark.benchmark
 def test_wiggle_sort_benchmark(benchmark):
     """Benchmark the wiggle_sort function"""
-    sorted_list = benchmark(sorting.wiggle_sort, list=[3, 5, 2, 1, 6, 4])
+    sorted_list = benchmark(sorting.wiggle_sort, thelist=[3, 5, 2, 1, 6, 4])
     assert sorted_list == [3, 5, 1, 6, 2, 4]
 
 
 @pytest.mark.benchmark
 def test_quick_sort_benchmark(benchmark):
     """Benchmark the quick_sort function"""
-    sorted_list = benchmark(sorting.quick_sort, list=[4, 2, 3, 1])
+    sorted_list = benchmark(sorting.quick_sort, thelist=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
@@ -237,7 +241,7 @@ def test_quick_sort_multiple(list_inputs, expected_answer):
 @pytest.mark.benchmark
 def test_random_quick_sort_benchmark(benchmark):
     """Benchmark the random_quick_sort function"""
-    sorted_list = benchmark(sorting.random_quick_sort, list=[4, 2, 3, 1])
+    sorted_list = benchmark(sorting.random_quick_sort, thelist=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
@@ -265,7 +269,7 @@ def test_random_quick_sort_multiple(list_inputs, expected_answer):
 @pytest.mark.benchmark
 def test_intro_sort_benchmark(benchmark):
     """Benchmark the intro_sort function"""
-    sorted_list = benchmark(sorting.intro_sort, list=[4, 2, 3, 1])
+    sorted_list = benchmark(sorting.intro_sort, thelist=[4, 2, 3, 1])
     assert sorted_list == [1, 2, 3, 4]
 
 
