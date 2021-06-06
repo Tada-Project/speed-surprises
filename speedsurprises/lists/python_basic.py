@@ -19,9 +19,9 @@
 # O(n) linear or O(nlogn) linearithmic
 
 
-def list_copy(list):
+def list_copy(thelist):
     """Copy a list."""
-    res = list.copy()
+    res = thelist.copy()
     return res
 
 # pylint: disable=line-too-long
@@ -37,25 +37,24 @@ def list_copy(list):
 # O(1) constant or O(logn) logarithmic
 
 
-def list_append(list):
-    # print(list)
+def list_append(thelist):
+    """Append a list to itself."""
     res = []
-    res.append(list)
+    res.append(thelist)
     return res
 
 
 # NOTE: hypothesis will try generate empty list, which will cause error
 
 
-def list_poplast(list):
-    # print(list)
-    list.pop()
+def list_poplast(thelist):
+    """Pop the last value in the list."""
+    thelist.pop()
     return list
 
 
 # pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.python_basic --function=list_in --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
-
 
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
@@ -68,15 +67,17 @@ def list_poplast(list):
 # crash at 200
 
 
-def list_in(list, x):
+def list_in(thelist, x):
+    """Determine if a value is in the list."""
     res = 0
-    if x in list:
+    if x in thelist:
         res = 1
     return res
 
 
-def dict_in(dict, x):
+def dict_in(thedict, x):
+    """Determine if a value is in the dictionary."""
     res = 0
-    if x in dict:
+    if x in thedict:
         res = 1
     return res
