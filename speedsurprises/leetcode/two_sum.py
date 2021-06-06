@@ -1,16 +1,21 @@
 """
+Compute the solution to the two-sum problem.
+
 Given an array of integers, return indices of the two numbers such that they
 add up to a specific target.
 
 You may assume that each input would have exactly one solution, and you may not
 use the same element twice.
-https://leetcode.com/problems/two-sum/
 """
+
+# Reference:
+# https://leetcode.com/problems/two-sum/
 
 from typing import List
 
 
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.leetcode.two_sum --function=two_sum_linear --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff_twosum.json --startsize=25 --max=1000
+
 # Quit due to indicator:  0.016086062325729705
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -21,22 +26,21 @@ from typing import List
 # | 200  | 1.1222591044108072e-05 | 8.983409881591797e-06  | 0.9683372050416476 |
 # +------+------------------------+------------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
-def two_sum_linear(nums: List[int], target: int) -> List[int]:
-    """O(n) solution"""
-    seen = {}
 
+
+def two_sum_linear(nums: List[int], target: int) -> List[int]:
+    """Compute the O(n) solution."""
+    seen = {}
     for index, num in enumerate(nums):
         other = target - num
-
         if other in seen:
             return [seen[other], index]
-
         seen[num] = index
-
     return []
 
 
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.leetcode.two_sum --function=two_sum_quadratic --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff_twosum.json --startsize=25 --max=1000
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -49,8 +53,9 @@ def two_sum_linear(nums: List[int], target: int) -> List[int]:
 # | 800  | 0.00013153273803710936 | 9.277166748046875e-05  | 0.7078024876191493 |
 # +------+------------------------+------------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+
 def two_sum_quadratic(nums: List[int], target: int) -> List[int]:
-    """O(n^2) brute force"""
+    """Compute the O(n^2) brute force solution."""
     for i, num in enumerate(nums):
         for j in range(i + 1, len(nums)):
             if nums[j] == target - num:
