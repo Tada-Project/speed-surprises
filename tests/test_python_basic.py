@@ -1,4 +1,4 @@
-"""Tests for python_basic functions in the python_basic module of the lists package"""
+"""Tests for python_basic functions in the python_basic module of the lists package."""
 
 import pytest
 
@@ -13,8 +13,8 @@ from speedsurprises.lists import python_basic
 
 @pytest.mark.benchmark
 def test_list_copy_benchmark(benchmark):
-    """Benchmark the list_copy function"""
-    copied_list = benchmark(python_basic.list_copy, list=[1, 2, 3, 4])
+    """Benchmark the list_copy function."""
+    copied_list = benchmark(python_basic.list_copy, thelist=[1, 2, 3, 4])
     assert copied_list == [1, 2, 3, 4]
 
 
@@ -22,7 +22,7 @@ def test_list_copy_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_list_copy_hypothesis(listInput):
-    """Using hypothesis"""
+    """Using hypothesis."""
     copied_list = python_basic.list_copy(listInput)
     assert copied_list == listInput
 
@@ -32,21 +32,21 @@ def test_list_copy_hypothesis(listInput):
     [([2, 3, 4, 6, 8], [2, 3, 4, 6, 8]), ([1, 2, 3, 4], [1, 2, 3, 4])],
 )
 def test_list_copy_multiple(list_input, expected_answer):
-    """Check the list_copy function with multiple lists"""
+    """Check the list_copy function with multiple lists."""
     copied_list = python_basic.list_copy(list_input)
     assert copied_list == expected_answer
 
 
 def test_list_copy_single():
-    """Check the list_copy function with a single list"""
+    """Check the list_copy function with a single list."""
     copied_list = python_basic.list_copy([4, 3, 1, 5, 6])
     assert copied_list == [4, 3, 1, 5, 6]
 
 
 @pytest.mark.benchmark
 def test_list_append_benchmark(benchmark):
-    """Benchmark the list_append function"""
-    appended_list = benchmark(python_basic.list_append, list=[1, 2, 3, 4])
+    """Benchmark the list_append function."""
+    appended_list = benchmark(python_basic.list_append, thelist=[1, 2, 3, 4])
     assert appended_list == [[1, 2, 3, 4]]
 
 
@@ -54,7 +54,7 @@ def test_list_append_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_list_append_hypothesis(listInput):
-    """Using hypothesis"""
+    """Using hypothesis."""
     appended_list = python_basic.list_append(listInput)
     assert appended_list == [listInput]
 
@@ -64,25 +64,25 @@ def test_list_append_hypothesis(listInput):
     [(2, [2]), (4, [4])],
 )
 def test_list_append_multiple(list_input, expected_answer):
-    """Check the list_append function with multiple lists"""
+    """Check the list_append function with multiple lists."""
     appended_list = python_basic.list_append(list_input)
     assert appended_list == expected_answer
 
 
 def test_list_append_single():
-    """Check the list_append function with a single list"""
+    """Check the list_append function with a single list."""
     appended_list = python_basic.list_append(5)
     assert appended_list == [5]
 
 
 def test_list_poplast_single():
-    """Check the list_poplast function with a single list"""
+    """Check the list_poplast function with a single list."""
     poplasted_list = python_basic.list_poplast([4, 3, 1, 5, 6])
     assert poplasted_list == [4, 3, 1, 5]
 
 
 def test_list_in_single():
-    """Check the list_in function with a single list"""
+    """Check the list_in function with a single list."""
     list_is_in = python_basic.list_in([4, 3, 1, 5, 6], 4)
     list_isnot_in = python_basic.list_in([4, 3, 1, 5, 6], 10)
     assert list_is_in == 1
@@ -90,7 +90,7 @@ def test_list_in_single():
 
 
 def test_dict_in_single():
-    """Check the dict_in function with a single list"""
+    """Check the dict_in function with a single list."""
     dict_is_in = python_basic.dict_in({"first": 1, "second": 2, "third": 3}, "first")
     dict_isnot_in = python_basic.dict_in({"first": 1, "second": 2, "third": 3}, 1)
     assert dict_is_in == 1
