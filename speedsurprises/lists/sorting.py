@@ -9,6 +9,8 @@ from heapq import heappush, heappop
 # https://bit.ly/2flYwOq
 
 # Worst-case time complexity: O(n^2)
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=insertion_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
 
 # Quit due to over maximum time: 209.21209025382996
