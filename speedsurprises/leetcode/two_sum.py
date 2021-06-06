@@ -54,6 +54,7 @@ def two_sum_linear(nums: List[int], target: int) -> List[int]:
 # +------+------------------------+------------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
 
+
 def two_sum_quadratic(nums: List[int], target: int) -> List[int]:
     """Compute the O(n^2) brute force solution."""
     for i, num in enumerate(nums):
