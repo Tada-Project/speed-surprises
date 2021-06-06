@@ -6,6 +6,7 @@
 # Worst-case time complexity: O(len(list_one) * len(list_two)) -- Quadratic
 
 from functools import reduce
+
 # pylint: disable=unused-wildcard-import
 from constraint import *  # noqa: F403
 
@@ -101,6 +102,7 @@ def is_subset(first_list, second_list):
 # Unstable <512, the std is about 15% of the mean every round until then
 # https://medium.com/@fangya.123/chinese-remainder-theorem-with-python-a483de81fbb8
 
+
 def chinese_remainder(n, a):
     """Prove the Chinese remainder theorem using Python."""
     thesum = 0
@@ -169,6 +171,7 @@ def CSP_basics_2(a, b):
     problem.addVariable("b", b)
     problem.addConstraint(lambda a, b: a * 2 == b, ("a", "b"))
     return problem.getSolutions()
+
 
 # pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=CSP_basics_3 --types hypothesis --schema=../speed-surprises/list_and_listdiff.json --expect="O(n)" --startsize=2 --maxsize=16
