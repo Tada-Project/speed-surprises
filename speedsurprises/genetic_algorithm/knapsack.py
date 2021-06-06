@@ -35,6 +35,7 @@ from deap import algorithms, base, creator, tools
 # +------+---------------------+---------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
 
+
 def knapsack(knapsack_items):
     """Solve the 0-1 knapsack problem."""
     # pylint: disable=too-many-locals
