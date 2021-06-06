@@ -9,7 +9,9 @@ def compute_recursive_fibonacci(value):
     """Compute fibonacci number in recursive fashion, assumes the value is a natural number."""
     if value <= 1:
         return value
-    return compute_recursive_fibonacci(value - 2) + compute_recursive_fibonacci(value - 1)
+    return compute_recursive_fibonacci(value - 2) + compute_recursive_fibonacci(
+        value - 1
+    )
 
 
 def compute_iterative_fibonacci(value):
