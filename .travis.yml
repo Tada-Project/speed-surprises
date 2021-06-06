@@ -12,6 +12,8 @@ env:
 
 # install mdl for checking Markdown
 before_install:
+  # install chef-utils to support Ruby & RubyGems
+  - gem install chef-utils -v 16.6.14
   - gem install mdl
 
 # command to install dependencies

@@ -1,0 +1,55 @@
+[{
+  "type": "array",
+  "items": [{
+    "type": "array",
+    "items": [{
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "maximum": 1000,
+        "minimum": 0
+      },
+      "maxItems": 2,
+      "minItems": 2
+    },
+    {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "maximum": 1000,
+        "minimum": 0
+      },
+      "maxItems": 2,
+      "minItems": 2
+    }],
+    "maxItems": 2,
+    "minItems": 2
+  },
+  {
+    "type": "array",
+    "items": [{
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "maximum": 1000,
+        "minimum": 0
+      },
+      "maxItems": 2,
+      "minItems": 2
+    },
+    {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "maximum": 1000,
+        "minimum": 0
+      },
+      "maxItems": 2,
+      "minItems": 2
+    }],
+    "maxItems": 2,
+    "minItems": 2
+  }],
+  "maxItems": 2,
+  "minItems": 2
+}]
