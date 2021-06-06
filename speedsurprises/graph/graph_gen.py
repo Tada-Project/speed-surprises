@@ -99,6 +99,7 @@ def print_graph_gen(n_node, n_edge):
             g.addEdge(no, ed)
     g.printList()
 
+
 # Reference:
 # https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
 
