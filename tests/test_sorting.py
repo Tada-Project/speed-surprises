@@ -55,7 +55,7 @@ def test_bubble_sort_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_bubble_sort_hypothesis_integer_lists_yes(list_inputs):
-    """Sees if list of hypothesis-generated data sorted using bubble_sort is equal to same data sorted using Python's sort function"""
+    """Ensure list of hypothesis-generated data using bubble_sort is equal to data sort function."""
     bubble_sort_list = sorting.bubble_sort(list_inputs)
     python_sort_list = sorted(list_inputs)
     assert bubble_sort_list == python_sort_list
@@ -92,7 +92,7 @@ def test_merge_sort_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_merge_sort_hypothesis_integer_lists_yes(list_inputs):
-    """Sees if list of hypothesis-generated data sorted using merge_sort is equal to same data sorted using Python's sort function"""
+    """Check list of hypothesis-generated data sorted using merge_sort equal sorted using sort."""
     merge_sort_list = sorting.merge_sort(list_inputs)
     python_sort_list = sorted(list_inputs)
     assert merge_sort_list == python_sort_list
@@ -129,7 +129,7 @@ def test_tim_sort_v1_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_tim_sort_v1_hypothesis_integer_lists_yes(list_inputs):
-    """Sees if list of hypothesis-generated data sorted using tim_sort_v1 is equal to same data sorted using Python's sort function."""
+    """Check list of hypothesis-generated data sorted using tim_sort_v1 equal to data Python's."""
     tim_sort_list = sorting.tim_sort_v1(list_inputs)
     python_sort_list = sorted(list_inputs)
     assert tim_sort_list == python_sort_list
@@ -166,7 +166,7 @@ def test_tim_sort_v2_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_tim_sort_v2_hypothesis_integer_lists_yes(list_inputs):
-    """Sees if list of hypothesis-generated data sorted using tim_sort_v2 is equal to same data sorted using Python's sort function"""
+    """Check list of hypothesis-generated data sorted using tim_sort_v2 equal data sort function."""
     tim_sort_list = sorting.tim_sort_v2(list_inputs)
     python_sort_list = sorted(list_inputs)
     assert tim_sort_list == python_sort_list
@@ -217,7 +217,7 @@ def test_quick_sort_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_quick_sort_hypothesis_integer_lists_yes(list_inputs):
-    """Sees if list of hypothesis-generated data sorted using quick_sort is equal to same data sorted using Python's sort function."""
+    """Check list of hypothesis-generated data sorted using quick_sort is equal data."""
     quick_sort_list = sorting.quick_sort(list_inputs)
     python_sort_list = sorted(list_inputs)
     assert quick_sort_list == python_sort_list
@@ -244,7 +244,7 @@ def test_random_quick_sort_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_random_quick_sort_hypothesis_integer_lists_yes(list_inputs):
-    """Sees if list of hypothesis-generated data sorted using random_quick_sort is equal to same data sorted using Python's sort function."""
+    """Check list of hypothesis-generated data sorted with random_quick_sort equal sort."""
     quick_sort_list = sorting.random_quick_sort(list_inputs)
     python_sort_list = sorted(list_inputs)
     assert quick_sort_list == python_sort_list
@@ -271,7 +271,7 @@ def test_intro_sort_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_intro_sort_hypothesis_integer_lists_yes(list_inputs):
-    """Sees if list of hypothesis-generated data sorted using intro_sort is equal to same data sorted using Python's sort function."""
+    """Check list of hypothesis-generated data sorted using intro_sort equal to sort function."""
     intro_sort_list = sorting.intro_sort(list_inputs)
     python_sort_list = sorted(list_inputs)
     assert intro_sort_list == python_sort_list
