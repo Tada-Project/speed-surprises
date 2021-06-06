@@ -284,8 +284,8 @@ def python_sort(thelist):
 # O(n) linear or O(nlogn) linearithmic
 
 
-def time_merge_v2(thelist, low, mid, high):
-    """merge used by tim_sort_v2 function."""
+def tim_merge_v2(thelist, low, mid, high):
+    """Perform the merge used by tim_sort_v2 function."""
     len1, len2 = mid - low + 1, high - mid
     left, right = [], []
     for i in range(0, len1):
@@ -312,6 +312,7 @@ def time_merge_v2(thelist, low, mid, high):
 
 
 def tim_sort_v2(thelist):
+    """Perform sorting with the version 2 of tim_sort."""
     n = len(thelist)
     for i in range(0, n, 32):
         thelist[i : i + 32] = insertion_sort(thelist[i : i + 32])
@@ -320,7 +321,7 @@ def tim_sort_v2(thelist):
         for left in range(0, n, 2 * size):
             mid = left + size - 1
             right = min((left + 2 * size - 1), (n - 1))
-            time_merge_v2(thelist, left, mid, right)
+            tim_merge_v2(thelist, left, mid, right)
         size = 2 * size
     return thelist
 
@@ -385,7 +386,7 @@ def heap_sort(thelist):
 
 
 def partition(thelist, low, high):
-    """partition used by quick_sort function."""
+    """Perform the partition used by quick_sort function."""
     pivot = thelist[high]
     i = low - 1
     for j in range(low, high):
@@ -433,7 +434,7 @@ def quick_sort(thelist, low=0, high=None):
 
 
 def random_partition(thelist, low, high):
-    """partition used by random_quick_sort function."""
+    """Perform the partition used by random_quick_sort function."""
     index = random.randint(low, high)
     (thelist[low], thelist[index]) = (thelist[index], thelist[low])
     return partition(thelist, low, high)
