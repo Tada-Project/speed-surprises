@@ -1,8 +1,11 @@
-"""python default list functions"""
+"""Investigate the default list functions available in Python."""
 
+# Reference:
 # https://wiki.python.org/moin/TimeComplexity
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.python_basic --function=list_copy --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -17,11 +20,13 @@
 
 
 def list_copy(list):
+    """Copy a list."""
     res = list.copy()
     return res
 
-
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.python_basic --function=list_append --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
+
 # Quit due to indicator:  0.004793372806200558
 # +------+------------------------+------------------------+-------------------+
 # | Size |          Mean          |         Median         |       Ratio       |
@@ -39,7 +44,7 @@ def list_append(list):
     return res
 
 
-# hypothesis will try generate empty list, which will cause error
+# NOTE: hypothesis will try generate empty list, which will cause error
 
 
 def list_poplast(list):
@@ -48,11 +53,9 @@ def list_poplast(list):
     return list
 
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.python_basic --function=list_in --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
-# def list_popintermediate(list):
-#     size = len(range(list))
-#     res = list.pop(size)
-#     return res
+
 
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
