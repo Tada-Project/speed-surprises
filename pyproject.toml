@@ -23,6 +23,7 @@ codecov = "^2.1.11"
 taskipy = "^1.8.1"
 
 [tool.taskipy.tasks]
+black = { cmd = "black speedsurprises tests --check", help = "Run the black checks for source code format" }
 pydocstyle = { cmd = "pydocstyle speedsurprises tests", help = "Run the pydocstyle checks for source code documentation" }
 pylint = { cmd = "pylint speedsurprises tests", help = "Run the pylint checks for source code documentation" }
 test = { cmd = "pytest -x -s", help = "Run the pytest test suite (takes a long time)" }
