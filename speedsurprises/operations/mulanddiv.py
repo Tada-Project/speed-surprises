@@ -1,13 +1,15 @@
-"""Compute the basic multiplication and division function"""
+"""Compute the basic multiplication and division function."""
 
 
 def compute_multiplication(value):
-    """ Assumes the value is a natural number. Returns the value!"""
+    """Perform multiplication."""
     answer = value * value
     return answer
 
 
 def compute_division(value):
-    """ Assumes the value is a natural number. Returns the value!"""
+    """Perform division."""
+    # WARNING: this uses "old division" and may not work in the future
+    # pylint: disable=old-division
     answer = value / value
     return answer
