@@ -1,15 +1,16 @@
-"""Do list sorting using InsertionSort"""
+"""Perform list sorting using various sorting algorithms."""
 
 import math
 import random
 from heapq import heappush, heappop
 
 
-# Inspiration for function:
+# Source and/or references for the function:
 # https://bit.ly/2flYwOq
-#
+
 # Worst-case time complexity: O(n^2)
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=insertion_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
+
 # Quit due to over maximum time: 209.21209025382996
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -27,23 +28,29 @@ from heapq import heappush, heappop
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
 # might due to python under layer optimization
-def insertion_sort(list):
-    for i in range(1, len(list)):
-        currentValue = list[i]
+
+
+def insertion_sort(thelist):
+    """Perform insertion sort."""
+    for i in range(1, len(thelist)):
+        currentValue = thelist[i]
         position = i
-        while position > 0 and list[position - 1] > currentValue:
-            list[position] = list[position - 1]
+        while position > 0 and thelist[position - 1] > currentValue:
+            thelist[position] = thelist[position - 1]
             position -= 1
-        list[position] = currentValue
-    return list
+        thelist[position] = currentValue
+    return thelist
 
 
 # Source and/or inspiration for the function(s):
 # https://bit.ly/2pXGWai
 #
 # Worst-case time complexity: O(n^2)
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=bubble_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
-# # Quit due to end of rounds:  11
+
+# Quit due to end of rounds:  11
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
 # +------+------------------------+------------------------+--------------------+
@@ -59,22 +66,27 @@ def insertion_sort(list):
 # | 512  |  0.014749861666666668  |  0.013180387500000001  | 3.6687545772417662 |
 # +------+------------------------+------------------------+--------------------+
 # O(n^2) quadratic
-def bubble_sort(list):
+
+
+def bubble_sort(thelist):
     """Sorts a list using BubbleSort function."""
-    for num in range(len(list) - 1, 0, -1):
+    for num in range(len(thelist) - 1, 0, -1):
         for i in range(num):
-            if list[i] > list[i + 1]:
-                temp = list[i]
-                list[i] = list[i + 1]
-                list[i + 1] = temp
-    return list
+            if thelist[i] > thelist[i + 1]:
+                temp = thelist[i]
+                thelist[i] = thelist[i + 1]
+                thelist[i + 1] = temp
+    return thelist
 
 
 # Source and/or inspiration for the function(s):
 # https://bit.ly/2TOMWP3
 
 # Worst-case time complexity: O(nlogn)
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=merge_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
+
 # Quit due to end of rounds:  11
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -91,12 +103,14 @@ def bubble_sort(list):
 # | 512  | 0.0016596982812499999  | 0.0015602148437500003  | 2.0689227908023096 |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-def merge_sort(list):
+
+
+def merge_sort(thelist):
     """Sorts a list using MergeSort function."""
-    if len(list) > 1:
-        mid = len(list) // 2
-        lefthalf = list[:mid]
-        righthalf = list[mid:]
+    if len(thelist) > 1:
+        mid = len(thelist) // 2
+        lefthalf = thelist[:mid]
+        righthalf = thelist[mid:]
 
         merge_sort(lefthalf)
         merge_sort(righthalf)
@@ -106,67 +120,69 @@ def merge_sort(list):
         k = 0
         while i < len(lefthalf) and j < len(righthalf):
             if lefthalf[i] < righthalf[j]:
-                list[k] = lefthalf[i]
+                thelist[k] = lefthalf[i]
                 i = i + 1
             else:
-                list[k] = righthalf[j]
+                thelist[k] = righthalf[j]
                 j = j + 1
             k = k + 1
 
         while i < len(lefthalf):
-            list[k] = lefthalf[i]
+            thelist[k] = lefthalf[i]
             i = i + 1
             k = k + 1
 
         while j < len(righthalf):
-            list[k] = righthalf[j]
+            thelist[k] = righthalf[j]
             j = j + 1
             k = k + 1
-    return list
+    return thelist
 
 
+# Reference:
 # https://github.com/TheAlgorithms/Python/blob/master/sorts/tim_sort.py
-def tim_binary_search(list, item, start, end):
+
+
+def tim_binary_search(thelist, item, start, end):
     """Search used by tim_insertion_sort function."""
     if start == end:
-        return start if list[start] > item else start + 1
+        return start if thelist[start] > item else start + 1
     if start > end:
         return start
     mid = (start + end) // 2
-    if list[mid] < item:
-        return tim_binary_search(list, item, mid + 1, end)
-    elif list[mid] > item:
-        return tim_binary_search(list, item, start, mid - 1)
+    if thelist[mid] < item:
+        return tim_binary_search(thelist, item, mid + 1, end)
+    elif thelist[mid] > item:
+        return tim_binary_search(thelist, item, start, mid - 1)
     else:
         return mid
 
 
-def tim_insertion_sort(list):
+def tim_insertion_sort(thelist):
     """Sorts a list using tim_insertion_sort function."""
-    length = len(list)
+    length = len(thelist)
     for index in range(1, length):
-        value = list[index]
-        pos = tim_binary_search(list, value, 0, index - 1)
-        list = list[:pos] + [value] + list[pos:index] + list[index + 1 :]
-    return list
+        value = thelist[index]
+        pos = tim_binary_search(thelist, value, 0, index - 1)
+        thelist = thelist[:pos] + [value] + thelist[pos:index] + thelist[index + 1 :]
+    return thelist
 
 
 def tim_merge(left, right):
     """Merge used by tim_sort_v1 function."""
     if not left:
         return right
-
     if not right:
         return left
-
     if left[0] < right[0]:
         return [left[0]] + tim_merge(left[1:], right)
-
     return [right[0]] + tim_merge(left, right[1:])
 
 
-# Quit due to end of rounds:  11
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=tim_sort_v1 --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
+
+# Quit due to end of rounds:  11
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
 # +------+------------------------+------------------------+--------------------+
@@ -182,19 +198,21 @@ def tim_merge(left, right):
 # | 512  |  0.07012807083333333   |  0.06902977499999999   |  8.10328038009702  |
 # +------+------------------------+------------------------+--------------------+
 # O(n^3) cubic
-def tim_sort_v1(list):
+
+
+def tim_sort_v1(thelist):
     """Sorts a list using tim_sort_v1 function."""
-    length = len(list)
+    length = len(thelist)
     runs, sorted_runs = [], []
-    new_run = [list[0]]
+    new_run = [thelist[0]]
     sorted_array = []
     i = 1
     while i < length:
-        if list[i] < list[i - 1]:
+        if thelist[i] < thelist[i - 1]:
             runs.append(new_run)
-            new_run = [list[i]]
+            new_run = [thelist[i]]
         else:
-            new_run.append(list[i])
+            new_run.append(thelist[i])
         i += 1
     runs.append(new_run)
     for run in runs:
@@ -204,7 +222,9 @@ def tim_sort_v1(list):
     return sorted_array
 
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=python_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
+
 # Quit due to indicator:  0.011003815565909915
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -214,7 +234,9 @@ def tim_sort_v1(list):
 # +------+------------------------+------------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=python_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=25 --max=1000
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -227,15 +249,22 @@ def tim_sort_v1(list):
 # | 800  | 8.159199930826822e-06  | 8.131915283203127e-06  | 1.9215334578984207 |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-def python_sort(list):
+
+
+def python_sort(thelist):
     """Sorts a list using python def1ault sort function."""
-    list.sort()
-    return list
+    thelist.sort()
+    return thelist
 
 
+# Reference:
 # https://www.geeksforgeeks.org/timsort/
-# Quit due to over maximum time: 205.19060397148132
+
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=tim_sort_v2 --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
+
+# Quit due to over maximum time: 205.19060397148132
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
 # +------+------------------------+------------------------+--------------------+
@@ -251,49 +280,55 @@ def python_sort(list):
 # | 512  |  0.00083103263671875   | 0.0007166007812500002  | 2.6196816434888297 |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-def time_merge_v2(list, low, mid, high):
+
+
+def time_merge_v2(thelist, low, mid, high):
     """merge used by tim_sort_v2 function."""
     len1, len2 = mid - low + 1, high - mid
     left, right = [], []
     for i in range(0, len1):
-        left.append(list[low + i])
+        left.append(thelist[low + i])
     for i in range(0, len2):
-        right.append(list[mid + 1 + i])
+        right.append(thelist[mid + 1 + i])
     i, j, k = 0, 0, low
     while i < len1 and j < len2:
         if left[i] <= right[j]:
-            list[k] = left[i]
+            thelist[k] = left[i]
             i += 1
         else:
-            list[k] = right[j]
+            thelist[k] = right[j]
             j += 1
         k += 1
     while i < len1:
-        list[k] = left[i]
+        thelist[k] = left[i]
         k += 1
         i += 1
     while j < len2:
-        list[k] = right[j]
+        thelist[k] = right[j]
         k += 1
         j += 1
 
 
-def tim_sort_v2(list):
-    n = len(list)
+def tim_sort_v2(thelist):
+    n = len(thelist)
     for i in range(0, n, 32):
-        list[i : i + 32] = insertion_sort(list[i : i + 32])
+        thelist[i : i + 32] = insertion_sort(thelist[i : i + 32])
     size = 32
     while size < n:
         for left in range(0, n, 2 * size):
             mid = left + size - 1
             right = min((left + 2 * size - 1), (n - 1))
-            time_merge_v2(list, left, mid, right)
+            time_merge_v2(thelist, left, mid, right)
         size = 2 * size
-    return list
+    return thelist
 
 
+# Reference:
 # https://github.com/TheAlgorithms/Python/blob/master/sorts/wiggle_sort.py
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=wiggle_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=25 --max=1000
+
 # Quit due to researched max size
 # +------+-----------------------+------------------------+--------------------+
 # | Size |          Mean         |         Median         |       Ratio        |
@@ -306,15 +341,19 @@ def tim_sort_v2(list):
 # | 800  |  0.000132110244140625 |  0.000130096142578125  | 1.885952529645446  |
 # +------+-----------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-def wiggle_sort(list):
-    """nums[0] < nums[1] > nums[2] < nums[3]"""
-    for i in range(len(list)):
-        if (i % 2 == 1) == (list[i - 1] > list[i]):
-            list[i - 1], list[i] = list[i], list[i - 1]
-    return list
 
 
+def wiggle_sort(thelist):
+    """Calculate nums[0] < nums[1] > nums[2] < nums[3]."""
+    for i in range(len(thelist)):
+        if (i % 2 == 1) == (thelist[i - 1] > thelist[i]):
+            thelist[i - 1], thelist[i] = thelist[i], thelist[i - 1]
+    return thelist
+
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=heap_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=2 --max=1000
+
 # Quit due to over maximum time: 202.94003653526306
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -331,29 +370,33 @@ def wiggle_sort(list):
 # | 1024 | 0.00041344592773437497 |   0.0003920462890625   | 2.1280093470462886 |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-def heap_sort(list):
+
+
+def heap_sort(thelist):
     """Sorts a list using heap_sort function."""
     h = []
-    for value in list:
+    for value in thelist:
         heappush(h, value)
-    list = []
-    list = list + [heappop(h) for i in range(len(h))]
-    return list
+    thelist = []
+    thelist = thelist + [heappop(h) for i in range(len(h))]
+    return thelist
 
 
-def partition(list, low, high):
+def partition(thelist, low, high):
     """partition used by quick_sort function."""
-    pivot = list[high]
+    pivot = thelist[high]
     i = low - 1
     for j in range(low, high):
-        if list[j] <= pivot:
+        if thelist[j] <= pivot:
             i = i + 1
-            (list[i], list[j]) = (list[j], list[i])
-    (list[i + 1], list[high]) = (list[high], list[i + 1])
+            (thelist[i], thelist[j]) = (thelist[j], thelist[i])
+    (thelist[i + 1], thelist[high]) = (thelist[high], thelist[i + 1])
     return i + 1
 
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=quick_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=2 --max=1000
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -370,28 +413,33 @@ def partition(list, low, high):
 # +------+------------------------+------------------------+--------------------+
 # O(n^2) quadratic
 # crashed at 1024
-def quick_sort(list, low=0, high=None):
+
+
+def quick_sort(thelist, low=0, high=None):
     """Sorts a list using quick_sort function."""
     if high is None:
-        high = len(list) - 1
+        high = len(thelist) - 1
     if low < high:
-        pi = partition(list, low, high)
-        quick_sort(list, low, pi - 1)
-        quick_sort(list, pi + 1, high)
-    return list
+        pi = partition(thelist, low, high)
+        quick_sort(thelist, low, pi - 1)
+        quick_sort(thelist, pi + 1, high)
+    return thelist
 
 
+# Reference:
 # https://github.com/endvroy/introSort/blob/master/quickSort.py
 
 
-def random_partition(list, low, high):
+def random_partition(thelist, low, high):
     """partition used by random_quick_sort function."""
     index = random.randint(low, high)
-    (list[low], list[index]) = (list[index], list[low])
-    return partition(list, low, high)
+    (thelist[low], thelist[index]) = (thelist[index], thelist[low])
+    return partition(thelist, low, high)
 
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=random_quick_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=2 --max=1000
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -407,18 +455,22 @@ def random_partition(list, low, high):
 # | 512  |     0.03046913125      |  0.027009112499999995  | 4.223503568238293  |
 # +------+------------------------+------------------------+--------------------+
 # O(n^2) quadratic
-def random_quick_sort(list, low=0, high=None):
+
+
+def random_quick_sort(thelist, low=0, high=None):
     """Sorts a list using random_quick_sort function."""
     if high is None:
-        high = len(list) - 1
+        high = len(thelist) - 1
     if low < high:
-        pi = random_partition(list, low, high)
-        quick_sort(list, low, pi - 1)
-        quick_sort(list, pi + 1, high)
-    return list
+        pi = random_partition(thelist, low, high)
+        quick_sort(thelist, low, pi - 1)
+        quick_sort(thelist, pi + 1, high)
+    return thelist
 
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=intro_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=1 --max=1000
+
 # Quit due to indicator:  0.02063312599387209
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -430,7 +482,9 @@ def random_quick_sort(list, low=0, high=None):
 # +------+------------------------+------------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sorting --function=intro_sort --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=25 --max=1000
+
 # Quit due to researched max size
 # +------+-----------------------+------------------------+--------------------+
 # | Size |          Mean         |         Median         |       Ratio        |
@@ -443,19 +497,21 @@ def random_quick_sort(list, low=0, high=None):
 # | 800  | 0.0020496763541666668 | 0.0019784421875000003  | 2.2586716540532326 |
 # +------+-----------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
-def intro_sort(list, low=0, high=None, depthlimit=0):
+
+
+def intro_sort(thelist, low=0, high=None, depthlimit=0):
     """Sorts a list using intro_sort function."""
     if high is None:
-        high = len(list) - 1
+        high = len(thelist) - 1
 
-    if len(list) < 16:
-        list = insertion_sort(list)
+    if len(thelist) < 16:
+        thelist = insertion_sort(thelist)
 
-    if depthlimit < math.log2(len(list)):
+    if depthlimit < math.log2(len(thelist)):
         if low < high:
-            mid = partition(list, low, high)
-            intro_sort(list, low, mid - 1, depthlimit + 1)
-            intro_sort(list, mid + 1, high, depthlimit + 1)
+            mid = partition(thelist, low, high)
+            intro_sort(thelist, low, mid - 1, depthlimit + 1)
+            intro_sort(thelist, mid + 1, high, depthlimit + 1)
     else:
-        list[low:high + 1] = heap_sort(list[low:high + 1])
-    return list
+        thelist[low : high + 1] = heap_sort(thelist[low : high + 1])
+    return thelist
