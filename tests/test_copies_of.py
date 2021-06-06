@@ -1,4 +1,4 @@
-"""Tests for the mcopies_of function in the copies module of the text package"""
+"""Tests for the mcopies_of function in the copies module of the text package."""
 
 import pytest
 
@@ -15,7 +15,7 @@ CHOSEN_LETTER = "X"
 
 @pytest.mark.benchmark
 def test_count_benchmark(benchmark):
-    """Benchmark the mcopies_of function"""
+    """Benchmark the mcopies_of function."""
     copied_character_string = benchmark(
         copies.mcopies_of, input_string="100", character=CHOSEN_LETTER
     )
@@ -30,7 +30,7 @@ def test_count_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_letter_count_hypothesis(copies_as_int, chosen_letter):
-    """Returns output with correct number of copies"""
+    """Returns output with correct number of copies."""
     copy_count = copies_as_int
     copies_as_string = str(copies_as_int)
     copied_character_string = copies.mcopies_of(copies_as_string, chosen_letter)
@@ -48,14 +48,14 @@ def test_letter_count_hypothesis(copies_as_int, chosen_letter):
     ],
 )
 def test_letter_count_multiple(letter_count, expected_count, chosen_letter):
-    """Returns output with correct number of copies"""
+    """Returns output with correct number of copies."""
     copied_character_string = copies.mcopies_of(letter_count, chosen_letter)
     assert len(copied_character_string) == expected_count
     assert copied_character_string.count(chosen_letter) == expected_count
 
 
 def test_letter_count_single():
-    """Returns output with correct number of copies"""
+    """Returns output with correct number of copies."""
     copied_character_string = copies.mcopies_of("10", CHOSEN_LETTER)
     assert len(copied_character_string) == 10
     assert copied_character_string.count(CHOSEN_LETTER) == 10
