@@ -27,6 +27,7 @@ from typing import List
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
 
+
 def max_area_linear(height: List[int]) -> int:
     """Compute the maximum area with a O(n) solution."""
     right = 0
@@ -57,6 +58,7 @@ def max_area_linear(height: List[int]) -> int:
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
 
+
 def max_area_log(height: List[int]) -> int:
     """Compute the maximum area with the O(nlogn) solution."""
     # pylint: disable=zip-builtin-not-iterating
@@ -85,6 +87,7 @@ def max_area_log(height: List[int]) -> int:
 # | 800  |  0.16669830331666666  |      0.158989744      | 3.945844334243576  |
 # +------+-----------------------+-----------------------+--------------------+
 # O(n^2) quadratic
+
 
 def max_area_quadratic(height: List[int]):
     """Compute the maximum area with the O(n^2) brute force solution."""
