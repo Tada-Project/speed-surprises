@@ -1,14 +1,18 @@
-"""Represent and/or manipulate sets"""
+"""Represent and/or manipulate sets."""
 
 # Source and/or inspiration for the function(s):
 # https://is.gd/GIibZB
 
 # Worst-case time complexity: O(len(list_one) * len(list_two)) -- Quadratic
+
 from functools import reduce
+# pylint: disable=unused-wildcard-import
 from constraint import *  # noqa: F403
 
 
-# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sets --function=is_su bset --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_listdiff.json --startsize=25 --m ax=1000
+# pylint: disable=line-too-long
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sets --function=is_subset --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_listdiff.json --startsize=25 --m ax=1000
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -24,9 +28,12 @@ from constraint import *  # noqa: F403
 
 
 def is_subset(first_list, second_list):
-    """Assumes first_list and second_list are lists.
+    """Determine if one set is a subset of another set.
+
+    Assumes first_list and second_list are lists.
     Returns True if each element in list_one is also
-    in list_two and False otherwise."""
+    in list_two and False otherwise.
+    """
     for element_one in first_list:
         matched = False
         for element_two in second_list:
@@ -38,7 +45,9 @@ def is_subset(first_list, second_list):
     return True
 
 
-# pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=chinese_remainder --types hypothesis --schema=../speed-surprises/list_and_listdiff.json --expect="O(n)" --startsize=2 --maxsize=100
+# pylint: disable=line-too-long
+# Pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=chinese_remainder --types hypothesis --schema=../speed-surprises/list_and_listdiff.json --expect="O(n)" --startsize=2 --maxsize=100
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -52,7 +61,9 @@ def is_subset(first_list, second_list):
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.sets --function=chinese_remainder --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_listdiff.json --expect="O(n)" --startsize=1 --maxsize=1600
+
 # Quit due to end of rounds:  11
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -70,6 +81,7 @@ def is_subset(first_list, second_list):
 # +------+------------------------+------------------------+--------------------+
 # O(n^2) quadratic
 # Quit due to end of rounds:  11
+
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
 # +------+------------------------+------------------------+--------------------+
@@ -85,28 +97,27 @@ def is_subset(first_list, second_list):
 # | 512  | 0.0058422681770833335  |     0.005766353125     | 3.673975244620421  |
 # +------+------------------------+------------------------+--------------------+
 # O(n^2) quadratic
-# Unstable <512, the std is about 15% of the mean every round untill then
+
+# Unstable <512, the std is about 15% of the mean every round until then
 # https://medium.com/@fangya.123/chinese-remainder-theorem-with-python-a483de81fbb8
+
 def chinese_remainder(n, a):
-    # print(n)
-    # print(a)
-    sum = 0
+    """Prove the Chinese remainder theorem using Python."""
+    thesum = 0
     prod = reduce(lambda a, b: a * b, n)
-    # print("prod", prod)
     for n_i, a_i in zip(n, a):
-        # print("n_i", n_i)
         p = prod // n_i
-        sum += a_i * mul_inv(p, n_i) * p
-    return sum % prod
+        thesum += a_i * mul_inv(p, n_i) * p
+    return thesum % prod
 
 
 def mul_inv(a, b):
+    """Calculate the multiplicative inverse."""
     b0 = b
     x0, x1 = 0, 1
     if b == 1:
         return 1
     while a > 1 and b > 0:
-        # print("a", a, "b", b)
         q = a // b
         a, b = b, a % b
         x0, x1 = x1 - q * x0, x0
@@ -126,7 +137,9 @@ def mul_inv(a, b):
 #     print(chinese_remainder(n,a))
 
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=CSP_basics_1 --types hypothesis --schema=../speed-surprises/list_and_listdiff.json --expect="O(n)" --startsize=2 --maxsize=100
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -142,6 +155,7 @@ def mul_inv(a, b):
 
 
 def CSP_basics_1(a, b):
+    """Perform constraint satisfaction."""
     problem = Problem()  # noqa: F405
     problem.addVariable("a", a)
     problem.addVariable("b", b)
@@ -149,14 +163,16 @@ def CSP_basics_1(a, b):
 
 
 def CSP_basics_2(a, b):
+    """Perform constraint satisfaction."""
     problem = Problem()  # noqa: F405
     problem.addVariable("a", a)
     problem.addVariable("b", b)
-    problem.addConstraint(lambda a, b : a * 2 == b, ("a", "b"))
+    problem.addConstraint(lambda a, b: a * 2 == b, ("a", "b"))
     return problem.getSolutions()
 
-
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=CSP_basics_3 --types hypothesis --schema=../speed-surprises/list_and_listdiff.json --expect="O(n)" --startsize=2 --maxsize=16
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -170,12 +186,14 @@ def CSP_basics_2(a, b):
 
 
 def CSP_basics_3(a, b):
+    """Perform constraint satisfaction."""
     problem = Problem()  # noqa: F405
     problem.addVariables(a, b)
     problem.addConstraint(AllDifferentConstraint())  # noqa: F405
     return problem.getSolutions()
 
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed-surprises/ --module=speedsurprises.lists.sets --function=CSP_rooks --types hypothesis --schema=../speed-surprises/list_and_listdiff.json --expect="O(n)" --startsize=2 --maxsize=16
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
@@ -189,6 +207,7 @@ def CSP_basics_3(a, b):
 
 
 def CSP_rooks(cols, rows):
+    """Perform constraint satisfaction for the rooks problem."""
     problem = Problem()  # noqa: F405
     problem.addVariables(cols, rows)
     for col1 in cols:
