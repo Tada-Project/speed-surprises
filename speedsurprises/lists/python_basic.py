@@ -50,7 +50,7 @@ def list_append(thelist):
 def list_poplast(thelist):
     """Pop the last value in the list."""
     thelist.pop()
-    return list
+    return thelist
 
 
 # pylint: disable=line-too-long
