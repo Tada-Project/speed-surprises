@@ -68,7 +68,7 @@ def onemax(size):
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
     def evalOneMax(individual):
-        """The goal (i.e., 'fitness') function to be maximized."""
+        """Compute the goal (i.e., 'fitness') function to be maximized."""
         return (sum(individual),)
 
     # ----------
