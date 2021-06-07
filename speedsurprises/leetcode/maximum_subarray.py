@@ -1,12 +1,16 @@
 """
+Find the subarray that has the largest sum.
+
 Given an integer array nums, find the contiguous subarray (containing at least
 one number) which has the largest sum and return its sum.
-https://leetcode.com/problems/maximum-subarray/
 """
+
+# Reference:
+# https://leetcode.com/problems/maximum-subarray/
 
 
 def brute_force(nums):
-    """A brute force solution to maximum subarray problem."""
+    """Perform a brute force solution to maximum subarray problem."""
     if len(nums) == 1:
         return nums[0]
     max_sum = []
@@ -19,7 +23,7 @@ def brute_force(nums):
 
 
 def two_pointers(nums):
-    """A two pointers solution to maximum subarray problem."""
+    """Perform a two pointers solution to maximum subarray problem."""
     if len(nums) == 1:
         return nums[0]
     cur_sum = sum(nums)
@@ -40,7 +44,7 @@ def two_pointers(nums):
 
 
 def kadane(nums):
-    """A dynamic programming approach to maximum subarray problem."""
+    """Perform a dynamic programming approach to maximum subarray problem."""
     size = len(nums)
     if not size:
         return 0
@@ -58,7 +62,7 @@ def kadane(nums):
 
 
 def optimized_kadane(nums):
-    """An optimized kadane approach to maximum subarray problem."""
+    """Perform an optimized kadane approach to maximum subarray problem."""
     global_max = nums[0]
     curr = nums[0]
     for num in nums[1:]:
@@ -71,31 +75,30 @@ def optimized_kadane(nums):
 
 
 def divide_and_conquer(nums):
-    """A divide and conquer approach to maximum subarray problem."""
+    """Perform a divide and conquer approach to maximum subarray problem."""
 
     def find_cross_sum(nums, low, mid, high):
         left_sum = nums[mid]
-        sum = 0
+        num_sum = 0
         for i in range(mid, low - 1, -1):
-            sum = sum + nums[i]
-            if sum > left_sum:
-                left_sum = sum
+            num_sum = num_sum + nums[i]
+            if num_sum > left_sum:
+                left_sum = num_sum
         right_sum = nums[mid + 1]
-        sum = 0
+        num_sum = 0
         for i in range(mid + 1, high + 1):
-            sum = sum + nums[i]
-            if sum > right_sum:
-                right_sum = sum
+            num_sum = num_sum + nums[i]
+            if num_sum > right_sum:
+                right_sum = num_sum
         return left_sum + right_sum
 
     def find_sub(nums, low, high):
         if high == low:
             return nums[low]
-        else:
-            mid = (low + high) // 2
-            left_sum = find_sub(nums, low, mid)
-            right_sum = find_sub(nums, mid + 1, high)
-            cross_sum = find_cross_sum(nums, low, mid, high)
+        mid = (low + high) // 2
+        left_sum = find_sub(nums, low, mid)
+        right_sum = find_sub(nums, mid + 1, high)
+        cross_sum = find_cross_sum(nums, low, mid, high)
         return max(left_sum, right_sum, cross_sum)
 
     return find_sub(nums, 0, len(nums) - 1)
