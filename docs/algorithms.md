@@ -23,7 +23,7 @@ version](https://github.com/Tada-Project/tada/tree/20604e14bac7372b44986d548768c
 
 ### Insertion Sort
 
-#### Expect Worst-case time complexity: O(n^2)
+#### Insertion Sort: Expect Worst-case time complexity: O(n^2)
 
 ```bash
 pipenv run python tada_a_bigoh.py
@@ -79,7 +79,7 @@ pipenv run python tada_a_bigoh.py
 
 ### Bubble Sort
 
-**Expect Worst-case time complexity: O(n^2)**
+#### Bubble Sort: Expect Worst-case time complexity: O(n^2)
 
 ```bash
 pipenv run python tada_a_bigoh.py
