@@ -11,6 +11,15 @@ from hypothesis.strategies import lists
 from speedsurprises.lists import python_basic
 
 
+def test_list_delete_index():
+    """Check the removal of a value from the list."""
+    list_input = [2, 4, 6, 8, 10]
+    list_input_copy = list_input.copy()
+    removed_value_list = python_basic.list_delete_item(list_input)
+    assert len(removed_value_list) == len(list_input_copy) - 1
+    assert removed_value_list == list_input_copy[1:]
+
+
 @pytest.mark.benchmark
 def test_list_copy_benchmark(benchmark):
     """Benchmark the list_copy function."""
