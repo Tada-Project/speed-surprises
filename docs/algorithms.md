@@ -1,4 +1,4 @@
-# Tada! - SpeedSurprises Result tables
+# Result Tables from Running TaDa! on speed-surprises Programs
 
 ## Algorithms
 
@@ -16,14 +16,14 @@
   - [Random Partition Quick Sort](#random-partition-quick-sort)
   - [Intro Sort](#intro-sort)
 
-
 ## Result tables
 
-Experiments of this [Tada! version](https://github.com/Tada-Project/tada/tree/20604e14bac7372b44986d548768cdb51bde605d)
+Experiments of this [Tada!
+version](https://github.com/Tada-Project/tada/tree/20604e14bac7372b44986d548768cdb51bde605d)
 
 ### Insertion Sort
 
-**Expect Worst-case time complexity: O(n^2)**
+#### Expect Worst-case time complexity: O(n^2)
 
 ```bash
 pipenv run python tada_a_bigoh.py
