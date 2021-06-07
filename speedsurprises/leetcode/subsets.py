@@ -19,6 +19,7 @@ def subsets_backtrack(nums):
             return
         backtrack(so_far + [rest[0]], rest[1:])
         backtrack(so_far, rest[1:])
+
     backtrack([], nums)
     return output
 
