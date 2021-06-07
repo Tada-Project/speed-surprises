@@ -24,6 +24,7 @@ taskipy = "^1.8.1"
 
 [tool.taskipy.tasks]
 black = { cmd = "black speedsurprises tests --check", help = "Run the black checks for source code format" }
+coverage = { cmd = "pytest -s --cov-config .coveragerc --cov-report term-missing --cov-report xml --cov --cov-branch", help = "Run coverage monitoring for the test suite" }
 flake8 = { cmd = "flake8 speedsurprises tests", help = "Run the flake8 checks for source code documentation" }
 pydocstyle = { cmd = "pydocstyle speedsurprises tests", help = "Run the pydocstyle checks for source code documentation" }
 pylint = { cmd = "pylint speedsurprises tests", help = "Run the pylint checks for source code documentation" }
