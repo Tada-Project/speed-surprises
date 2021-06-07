@@ -15,7 +15,7 @@ def test_list_delete_index():
     """Check the removal of a value from the list."""
     list_input = [2, 4, 6, 8, 10]
     list_input_copy = list_input.copy()
-    removed_value_list = python_basic.list_delete_item(list_input)
+    removed_value_list = python_basic.list_delete_item_random(list_input)
     assert len(removed_value_list) == len(list_input_copy) - 1
 
 
@@ -23,7 +23,7 @@ def test_list_delete_index_empty_list():
     """Check the removal of a value from the empty list."""
     list_input = []
     list_input_copy = list_input.copy()
-    removed_value_list = python_basic.list_delete_item(list_input)
+    removed_value_list = python_basic.list_delete_item_random(list_input)
     assert len(removed_value_list) == len(list_input_copy)
 
 
