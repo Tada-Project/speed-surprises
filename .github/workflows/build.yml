@@ -73,7 +73,7 @@ jobs:
         - name: Run Pylint Linting Tool
           run: |
             poetry run task pylint
-        - name: Upload coverage
+        - name: Upload Coverage
           uses: codecov/codecov-action@v1
           with:
             files: ./coverage.xml
