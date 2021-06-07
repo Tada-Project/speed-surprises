@@ -17,7 +17,14 @@ def test_list_delete_index():
     list_input_copy = list_input.copy()
     removed_value_list = python_basic.list_delete_item(list_input)
     assert len(removed_value_list) == len(list_input_copy) - 1
-    assert removed_value_list == list_input_copy[1:]
+
+
+def test_list_delete_index_empty_list():
+    """Check the removal of a value from the empty list."""
+    list_input = []
+    list_input_copy = list_input.copy()
+    removed_value_list = python_basic.list_delete_item(list_input)
+    assert len(removed_value_list) == len(list_input_copy)
 
 
 @pytest.mark.benchmark
