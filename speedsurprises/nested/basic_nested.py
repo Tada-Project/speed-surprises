@@ -1,8 +1,10 @@
-"""Compute functions using nested data structures"""
-
+"""Compute functions using nested data structures."""
 
 # append is O(1)
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.nested.basic_nested --function=single_nested_append --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_of_list_of_list.json --startsize=50 --max=1000 --level 1 --position 0 0 0
+
 # Quit due to reaching max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -15,7 +17,9 @@
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.nested.basic_nested --function=single_nested_append --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_of_list_of_list.json --startsize=50 --max=800 --log --level 2 --position 0 0 0
+
 # Quit due to reached max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -30,6 +34,7 @@
 # hypothesis.errors.Unsatisfiable: Unable to satisfy assumptions of hypothesis store_global.
 # You can add @seed(136063654759816880798066148671082908938) to this test to reproduce this failure.
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.nested.basic_nested --function=single_nested_append --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_of_list_of_list.json --startsize=50 --max=800 --log --level 3 --position 0 0 0
 # Quit due to reached max size
 # +------+------------------------+------------------------+--------------------+
@@ -41,7 +46,10 @@
 # | 400  | 0.00016872017903645834 | 0.00016799194335937503 | 1.8520143201660897 |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
+
+
 def single_nested_append(nested):
+    """Append a value to a list of lists of lists."""
     res = []
     for item in nested:
         res.append(item)
