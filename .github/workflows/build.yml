@@ -49,6 +49,10 @@ jobs:
           uses: abatilo/actions-poetry@v2.0.0
           with:
             poetry-version: 1.1.0
+        # Install the app and dev dependencies
+        - name: Install all of the dependencies
+          run: |
+            poetry install
         # Run the pytest test suite
         - name: Run Pytest Test Suite
           run: |
