@@ -1,16 +1,58 @@
 """Investigate the default list functions available in Python."""
 
+import random
+
 # Reference:
 # https://wiki.python.org/moin/TimeComplexity
 
+# pylint: disable=line-too-long
+# tada --directory . --module speedsurprises.lists.python_basic --function list_delete_item_random --types hypothesis --schema speedsurprises/jsonschema/single_int_list.json --startsize 100 --max 1000 --log --indicator 0.5
 
-def list_delete_item(current_list):
+# Quit due to indicator: 0.014082373991734908
+# +--------------------------------------------------------------------------------+
+# |         list_delete_item_random: O(1) constant or O(logn) logarithmic          |
+# +-------+-------------------------+-------------------------+--------------------+
+# |  Size |           Mean          |          Median         |       Ratio        |
+# +-------+-------------------------+-------------------------+--------------------+
+# |  100  |  1.6995668314182903e-07 |  1.699818472922221e-07  |         0          |
+# |  200  |  1.748118424599321e-07  |  1.7456517698022367e-07 | 1.028567039720653  |
+# +-------+-------------------------+-------------------------+--------------------+
+
+
+def list_delete_item_random(current_list):
     """Delete an element from the provided current_list."""
     # Reference:
     # https://yourbasic.org/golang/advantages-over-java-python/
-    # pick a valid index from within the size of the list
-    if len(current_list) > 1:
-        index = 0
+    # pick a valid random index from within the size of the list
+    list_length = len(current_list)
+    if list_length > 1:
+        index = random.randint(0, list_length - 1)
+        del current_list[index]
+    return current_list
+
+
+# pylint: disable=line-too-long
+# tada --directory . --module speedsurprises.lists.python_basic --function list_delete_item_last --types hypothesis --schema speedsurprises/jsonschema/single_int_list.json --startsize 100 --max 1000 --log --indicator 0.1
+
+# Quit due to indicator: 0.01556665252987282
+# +-----------------------------------------------------------------------------+
+# |         list_delete_item_last: O(1) constant or O(logn) logarithmic         |
+# +------+------------------------+------------------------+--------------------+
+# | Size |          Mean          |         Median         |       Ratio        |
+# +------+------------------------+------------------------+--------------------+
+# | 100  | 1.6858636572118317e-07 | 1.6738851357778195e-07 |         0          |
+# | 200  |  1.73918012364808e-07  | 1.7309765146245049e-07 | 1.0316256099407386 |
+# +------+------------------------+------------------------+--------------------+
+
+
+def list_delete_item_last(current_list):
+    """Delete an element from the provided current_list."""
+    # Reference:
+    # https://yourbasic.org/golang/advantages-over-java-python/
+    # pick a valid last index from within the size of the list
+    list_length = len(current_list)
+    if list_length > 1:
+        index = list_length - 1
         del current_list[index]
     return current_list
 
