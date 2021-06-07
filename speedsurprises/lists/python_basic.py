@@ -3,6 +3,18 @@
 # Reference:
 # https://wiki.python.org/moin/TimeComplexity
 
+
+def list_delete_item(current_list):
+    """Delete an element from the provided current_list."""
+    # Reference:
+    # https://yourbasic.org/golang/advantages-over-java-python/
+    # pick a valid index from within the size of the list
+    if len(current_list) > 1:
+        index = 0
+        del current_list[index]
+    return current_list
+
+
 # pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.python_basic --function=list_copy --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
 
