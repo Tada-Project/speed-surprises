@@ -73,3 +73,10 @@ jobs:
         - name: Run Pylint Linting Tool
           run: |
             poetry run task pylint
+        - name: Upload coverage
+          uses: codecov/codecov-action@v1
+          with:
+            files: ./coverage.xml
+            flags: unittests
+            env_vars: OS,PYTHON
+            fail_ci_if_error: true
