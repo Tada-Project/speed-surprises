@@ -73,6 +73,7 @@ def single_nested_append(nested):
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
 
+
 def double_nested_append(nested1, nested2):
     """Perform an append for a double list of list list of lists structure."""
     res = []
@@ -136,6 +137,7 @@ def double_nested_append(nested1, nested2):
 # | 100  | 7.063389841715496e-07 | 6.462240219116213e-07 | 0.9907192234841984 |
 # +------+-----------------------+-----------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+
 
 def append_list_of_two_lists(nested):
     """Perform an append for a list of doubly nested lists."""
