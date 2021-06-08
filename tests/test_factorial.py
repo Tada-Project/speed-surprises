@@ -1,4 +1,4 @@
-"""Tests for the compute_factorial function in the factorial module of the numbers package"""
+"""Tests for the compute_factorial function in the factorial module of the numbers package."""
 
 import pytest
 
@@ -12,21 +12,21 @@ from speedsurprises.numbers import factorial
 
 @pytest.mark.benchmark
 def test_iterative_factorial_benchmark(benchmark):
-    """Benchmark the compute_iterative_factorial function"""
+    """Benchmark the compute_iterative_factorial function."""
     computed_value = benchmark(factorial.compute_iterative_factorial, value=10)
     assert computed_value == 3628800
 
 
 @pytest.mark.benchmark
 def test_recursive_factorial_benchmark(benchmark):
-    """Benchmark the compute_recursive_factorial function"""
+    """Benchmark the compute_recursive_factorial function."""
     computed_value = benchmark(factorial.compute_recursive_factorial, value=10)
     assert computed_value == 3628800
 
 
 @pytest.mark.benchmark
 def test_hashmap_recursive_factorial_benchmark(benchmark):
-    """Benchmark the compute_hashmap_recursive_factorial function"""
+    """Benchmark the compute_hashmap_recursive_factorial function."""
     computed_value = benchmark(factorial.compute_hashmap_recursive_factorial, value=10)
     assert computed_value == 3628800
 
@@ -35,7 +35,7 @@ def test_hashmap_recursive_factorial_benchmark(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_factorial_hypothesis(factorial_input):
-    """Returns output with correct factorial number"""
+    """Returns output with correct factorial number."""
     computed_iterative_value = factorial.compute_iterative_factorial(factorial_input)
     computed_recursive_value = factorial.compute_recursive_factorial(factorial_input)
     computed_hashmap_value = factorial.compute_hashmap_recursive_factorial(
@@ -70,7 +70,7 @@ def test_factorial_hypothesis(factorial_input):
     [(1, 1), (2, 2 * 1), (3, 3 * 2 * 1), (4, 4 * 3 * 2 * 1)],
 )
 def test_factorial_multiple(factorial_input, expected_answer):
-    """Check the compute_factorial function with multiple inputs"""
+    """Check the compute_factorial function with multiple inputs."""
     computed_iterative_value = factorial.compute_iterative_factorial(factorial_input)
     computed_recursive_value = factorial.compute_recursive_factorial(factorial_input)
     computed_hashmap_value = factorial.compute_hashmap_recursive_factorial(
@@ -82,7 +82,7 @@ def test_factorial_multiple(factorial_input, expected_answer):
 
 
 def test_factorial_single():
-    """Check the compute_factorial function with a single input"""
+    """Check the compute_factorial function with a single input."""
     computed_iterative_value = factorial.compute_iterative_factorial(10)
     computed_recursive_value = factorial.compute_recursive_factorial(10)
     computed_hashmap_value = factorial.compute_hashmap_recursive_factorial(10)
@@ -92,7 +92,7 @@ def test_factorial_single():
 
 
 def test_error():
-    """Check the compute_factorial function with a wrong input"""
-    with pytest.raises(ValueError, match=r"Inputs of 0 or grater!"):
+    """Check the compute_factorial function with a wrong input."""
+    with pytest.raises(ValueError, match=r"Inputs of 0 or greater!"):
         computed_iterative_value = factorial.compute_iterative_factorial(-10)
         assert computed_iterative_value == 1

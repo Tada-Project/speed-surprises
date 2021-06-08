@@ -1,10 +1,10 @@
-"""Test for the one max problem with GA"""
+"""Test for the one max problem with GA."""
 
 from speedsurprises.genetic_algorithm import knapsack
 
 
 def test_knapsack_with_input():
-    """Test if knapsack function gives right result"""
+    """Test if knapsack function gives right result."""
     # example from DEAP
     items = [
         (8, 12.48509930835593),

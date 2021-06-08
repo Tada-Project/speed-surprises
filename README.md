@@ -1,6 +1,6 @@
 # Speed-Surprises
 
-[![Build Status](https://api.travis-ci.org/Tada-Project/speed-surprises.svg?branch=master)](https://travis-ci.org/Tada-Project/speed-surprises) [![codecov.io](http://codecov.io/github/Tada-Project/speed-surprises/coverage.svg?branch=master)](http://codecov.io/github/Tada-Project/speed-surprises?branch=master) [![made-with-python](https://img.shields.io/badge/Made%20with-Python-orange.svg)](https://www.python.org/)
+![](../../workflows/build/badge.svg) [![Build Status](https://api.travis-ci.org/Tada-Project/speed-surprises.svg?branch=master)](https://travis-ci.org/Tada-Project/speed-surprises) [![codecov.io](http://codecov.io/github/Tada-Project/speed-surprises/coverage.svg?branch=master)](http://codecov.io/github/Tada-Project/speed-surprises?branch=master) [![made-with-python](https://img.shields.io/badge/Made%20with-Python-orange.svg)](https://www.python.org/)
 
 This repository contains a package of Python 3 modules with functions for
 further study in experiments with the "Tada!: auTomAtic orDer-of-growth

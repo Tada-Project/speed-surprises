@@ -1,6 +1,4 @@
-"""Tests for the compute_iterative_fibonacci and
-compute_recursive_fibonacci functions in the
-fibonacci module of the numbers package"""
+"""Tests for the compute_iterative_fibonacci and compute_recursive_fibonacci functions."""
 
 import types
 import pytest
@@ -64,7 +62,8 @@ def test_fibonacci_hypothesis(fibonacci_input):
 
 
 @pytest.mark.parametrize(
-    "fibonacci_input,expected_answer", [(1, 1), (2, 1), (3, 2), (4, 3), (5, 5)],
+    "fibonacci_input,expected_answer",
+    [(1, 1), (2, 1), (3, 2), (4, 3), (5, 5)],
 )
 def test_fibonacci_multiple(fibonacci_input, expected_answer):
     """Checks the iterative and recursive fibonacci functions with multiple inputs."""

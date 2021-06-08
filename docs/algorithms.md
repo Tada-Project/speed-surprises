@@ -1,4 +1,4 @@
-# Tada! - SpeedSurprises Result tables
+# Result Tables from Running TaDa! on speed-surprises Programs
 
 ## Algorithms
 
@@ -16,14 +16,14 @@
   - [Random Partition Quick Sort](#random-partition-quick-sort)
   - [Intro Sort](#intro-sort)
 
-
 ## Result tables
 
-Experiments of this [Tada! version](https://github.com/Tada-Project/tada/tree/20604e14bac7372b44986d548768cdb51bde605d)
+Experiments of this [Tada!
+version](https://github.com/Tada-Project/tada/tree/20604e14bac7372b44986d548768cdb51bde605d)
 
 ### Insertion Sort
 
-**Expect Worst-case time complexity: O(n^2)**
+#### Insertion Sort: Expect Worst-case time complexity: O(n^2)
 
 ```bash
 pipenv run python tada_a_bigoh.py
@@ -79,7 +79,7 @@ pipenv run python tada_a_bigoh.py
 
 ### Bubble Sort
 
-**Expect Worst-case time complexity: O(n^2)**
+#### Bubble Sort: Expect Worst-case time complexity: O(n^2)
 
 ```bash
 pipenv run python tada_a_bigoh.py
@@ -135,7 +135,7 @@ pipenv run python tada_a_bigoh.py
 
 ### Merge Sort
 
-**Expect Worst-case time complexity: O(nlogn)**
+#### Merge Sort: Expect Worst-case time complexity: O(nlogn)
 
 ```bash
 pipenv run python tada_a_bigoh.py
@@ -191,7 +191,7 @@ pipenv run python tada_a_bigoh.py
 
 ### Tim Sort II
 
-**Expect Worst-case time complexity: O(nlogn)**
+#### Tim Sort II: Expect Worst-case time complexity: O(nlogn)
 
 ```bash
 pipenv run python tada_a_bigoh.py
@@ -228,7 +228,7 @@ pipenv run python tada_a_bigoh.py
 
 ### Python Sort
 
-**Expect Worst-case time complexity: O(nlogn)**
+#### Python Sort: Expect Worst-case time complexity: O(nlogn)
 
 ```bash
 pipenv run python tada_a_bigoh.py
@@ -277,7 +277,7 @@ pipenv run python tada_a_bigoh.py
 
 ### Wiggle Sort
 
-**Expect Worst-case time complexity: O(n)**
+#### Wiggle Sort: Expect Worst-case time complexity: O(n)
 
 ```bash
 pipenv run python tada_a_bigoh.py
@@ -326,7 +326,7 @@ pipenv run python tada_a_bigoh.py
 
 ### Heap Sort
 
-**Expect Worst-case time complexity: O(nlogn)**
+#### Heap Sort: Expect Worst-case time complexity: O(nlogn)
 
 ```bash
 pipenv run python tada_a_bigoh.py
@@ -375,7 +375,7 @@ pipenv run python tada_a_bigoh.py
 
 ### Quick Sort
 
-**Expect Worst-case time complexity: O(n^2)**
+#### Expect Worst-case time complexity: O(n^2)
 
 ```bash
 pipenv run python tada_a_bigoh.py
@@ -407,7 +407,7 @@ pipenv run python tada_a_bigoh.py
 
 ### Random Partition Quick Sort
 
-**Expect Worst-case time complexity: O(n^2)**
+#### Random Partition Quick Sort: Expect Worst-case time complexity: O(n^2)
 
 ```bash
 pipenv run python tada_a_bigoh.py
@@ -438,7 +438,7 @@ pipenv run python tada_a_bigoh.py
 
 ### Intro Sort
 
-**Expect Worst-case time complexity: O(nlogn)**
+#### Intro Sort: Expect Worst-case time complexity: O(nlogn)
 
 ```bash
 pipenv run python tada_a_bigoh.py
