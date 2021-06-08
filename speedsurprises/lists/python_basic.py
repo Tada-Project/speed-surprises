@@ -1,8 +1,65 @@
-"""python default list functions"""
+"""Investigate the default list functions available in Python."""
 
+import random
+
+# Reference:
 # https://wiki.python.org/moin/TimeComplexity
 
+# pylint: disable=line-too-long
+# tada --directory . --module speedsurprises.lists.python_basic --function list_delete_item_random --types hypothesis --schema speedsurprises/jsonschema/single_int_list.json --startsize 100 --max 1000 --log --indicator 0.5
+
+# Quit due to indicator: 0.014082373991734908
+# +--------------------------------------------------------------------------------+
+# |         list_delete_item_random: O(1) constant or O(logn) logarithmic          |
+# +-------+-------------------------+-------------------------+--------------------+
+# |  Size |           Mean          |          Median         |       Ratio        |
+# +-------+-------------------------+-------------------------+--------------------+
+# |  100  |  1.6995668314182903e-07 |  1.699818472922221e-07  |         0          |
+# |  200  |  1.748118424599321e-07  |  1.7456517698022367e-07 | 1.028567039720653  |
+# +-------+-------------------------+-------------------------+--------------------+
+
+
+def list_delete_item_random(current_list):
+    """Delete an element from the provided current_list."""
+    # Reference:
+    # https://yourbasic.org/golang/advantages-over-java-python/
+    # pick a valid random index from within the size of the list
+    list_length = len(current_list)
+    if list_length > 1:
+        index = random.randint(0, list_length - 1)
+        del current_list[index]
+    return current_list
+
+
+# pylint: disable=line-too-long
+# tada --directory . --module speedsurprises.lists.python_basic --function list_delete_item_last --types hypothesis --schema speedsurprises/jsonschema/single_int_list.json --startsize 100 --max 1000 --log --indicator 0.1
+
+# Quit due to indicator: 0.01556665252987282
+# +-----------------------------------------------------------------------------+
+# |         list_delete_item_last: O(1) constant or O(logn) logarithmic         |
+# +------+------------------------+------------------------+--------------------+
+# | Size |          Mean          |         Median         |       Ratio        |
+# +------+------------------------+------------------------+--------------------+
+# | 100  | 1.6858636572118317e-07 | 1.6738851357778195e-07 |         0          |
+# | 200  |  1.73918012364808e-07  | 1.7309765146245049e-07 | 1.0316256099407386 |
+# +------+------------------------+------------------------+--------------------+
+
+
+def list_delete_item_last(current_list):
+    """Delete an element from the provided current_list."""
+    # Reference:
+    # https://yourbasic.org/golang/advantages-over-java-python/
+    # pick a valid last index from within the size of the list
+    list_length = len(current_list)
+    if list_length > 1:
+        index = list_length - 1
+        del current_list[index]
+    return current_list
+
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.python_basic --function=list_copy --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -16,12 +73,15 @@
 # O(n) linear or O(nlogn) linearithmic
 
 
-def list_copy(list):
-    res = list.copy()
+def list_copy(thelist):
+    """Copy a list."""
+    res = thelist.copy()
     return res
 
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.lists.python_basic --function=list_append --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
+
 # Quit due to indicator:  0.004793372806200558
 # +------+------------------------+------------------------+-------------------+
 # | Size |          Mean          |         Median         |       Ratio       |
@@ -32,26 +92,20 @@ def list_copy(list):
 # O(1) constant or O(logn) logarithmic
 
 
-def list_append(list):
-    print(list)
+def list_append(thelist):
+    """Append a list to itself."""
     res = []
-    res.append(list)
+    res.append(thelist)
     return res
 
 
-# hypothesis will try generate empty list, which will cause error
+# NOTE: hypothesis will try generate empty list, which will cause error
 
 
-def list_poplast(list):
-    # print(list)
-    list.pop()
-    return list
-
-
-# def list_popintermediate(list):
-#     size = len(range(list))
-#     res = list.pop(size)
-#     return res
+def list_poplast(thelist):
+    """Pop the last value in the list."""
+    thelist.pop()
+    return thelist
 
 
 # tada --directory . --module speedsurprises.lists.python_basic \
@@ -70,9 +124,14 @@ def list_poplast(list):
 # | 400  | 3.6632898279825847e-06 | 4.3830122375488295e-06 | 1.7763185781123652 |
 # | 800  | 7.170516546344757e-06  | 9.591324890136719e-06  | 1.9573980992635904 |
 # +------+------------------------+------------------------+--------------------+
-def list_in(list, x):
+# O(n) linear or O(nlogn) linearithmic
+# crash at 200
+
+
+def list_in(thelist, x):
+    """Determine if a value is in the list."""
     res = 0
-    if x in list:
+    if x in thelist:
         res = 1
     return res
 
@@ -111,9 +170,10 @@ def list_in(list, x):
 # | 1600 | 2.2639746948877972e-07 | 2.2578625774383547e-07 | 0.9968860001074055 |
 # | 3200 | 2.2807491916020713e-07 | 2.259561786651612e-07  | 1.0074093128126176 |
 # +------+------------------------+------------------------+--------------------+
-def dict_in(dict, x):
+def dict_in(thedict, x):
+    """Determine if a value is in the dictionary."""
     res = 0
-    if x in dict:
+    if x in thedict:
         res = 1
     return res
 

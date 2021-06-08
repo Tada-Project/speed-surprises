@@ -1,8 +1,10 @@
-"""Compute functions using nested data structures"""
-
+"""Perform an append with nested data structures."""
 
 # append is O(1)
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.nested.basic_nested --function=single_nested_append --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_of_list_of_list.json --startsize=50 --max=1000 --level 1 --position 0 0 0
+
 # Quit due to reaching max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -15,7 +17,9 @@
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.nested.basic_nested --function=single_nested_append --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_of_list_of_list.json --startsize=50 --max=800 --log --level 2 --position 0 0 0
+
 # Quit due to reached max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -30,6 +34,7 @@
 # hypothesis.errors.Unsatisfiable: Unable to satisfy assumptions of hypothesis store_global.
 # You can add @seed(136063654759816880798066148671082908938) to this test to reproduce this failure.
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.nested.basic_nested --function=single_nested_append --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_of_list_of_list.json --startsize=50 --max=800 --log --level 3 --position 0 0 0
 # Quit due to reached max size
 # +------+------------------------+------------------------+--------------------+
@@ -41,7 +46,10 @@
 # | 400  | 0.00016872017903645834 | 0.00016799194335937503 | 1.8520143201660897 |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
+
+
 def single_nested_append(nested):
+    """Append a value to a list of lists of lists."""
     res = []
     for item in nested:
         res.append(item)
@@ -51,7 +59,9 @@ def single_nested_append(nested):
                 res.append(num)
 
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.nested.basic_nested --function=double_nested_append --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/double_list_of_list_of_list.json --startsize=50 --max=700 --log --level=2 --position 1 1 1
+
 # Quit due to reached max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -62,7 +72,10 @@ def single_nested_append(nested):
 # | 400  | 0.00036657145182291664 | 0.0003518763671874999  | 1.9484612842793605 |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
+
+
 def double_nested_append(nested1, nested2):
+    """Perform an append for a double list of list list of lists structure."""
     res = []
     for item1 in nested1:
         res.append(item1)
@@ -78,7 +91,9 @@ def double_nested_append(nested1, nested2):
                 res.append(num2)
 
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.nested.basic_nested --function=append_list_of_two_lists --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_of_double_list_of_double_list.json --startsize=50 --max=1000 --log --level=3 --position 0 0 0
+
 # Quit due to indicator:  0.020567897394309233
 # +------+-----------------------+-----------------------+--------------------+
 # | Size |          Mean         |         Median        |       Ratio        |
@@ -87,7 +102,10 @@ def double_nested_append(nested1, nested2):
 # | 100  | 6.806475830078125e-07 | 6.400806427001952e-07 | 1.0419996390553061 |
 # +------+-----------------------+-----------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.nested.basic_nested --function=append_list_of_two_lists --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_of_double_list_of_double_list.json --startsize=50 --max=1000 --log --level=3 --position 0 0 1
+
 # Quit due to indicator:  0.061993304220029744
 # +------+-----------------------+-----------------------+--------------------+
 # | Size |          Mean         |         Median        |       Ratio        |
@@ -96,6 +114,8 @@ def double_nested_append(nested1, nested2):
 # | 100  | 7.865397834777832e-07 | 6.543621063232421e-07 | 1.1321809417756474 |
 # +------+-----------------------+-----------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.nested.basic_nested --function=append_list_of_two_lists --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_of_double_list_of_double_list.json --startsize=50 --max=1000 --log --level=3 --position 0 1 0
 # Quit due to indicator:  0.001325059786719021
 # +------+-----------------------+-----------------------+--------------------+
@@ -105,7 +125,10 @@ def double_nested_append(nested1, nested2):
 # | 100  | 6.419151878356934e-07 | 6.404048919677734e-07 | 1.0026536357995246 |
 # +------+-----------------------+-----------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.nested.basic_nested --function=append_list_of_two_lists --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_of_double_list_of_double_list.json --startsize=50 --max=1000 --log --level=3 --position 0 1 1
+
 # Quit due to indicator:  0.004662021849348527
 # +------+-----------------------+-----------------------+--------------------+
 # | Size |          Mean         |         Median        |       Ratio        |
@@ -114,8 +137,11 @@ def double_nested_append(nested1, nested2):
 # | 100  | 7.063389841715496e-07 | 6.462240219116213e-07 | 0.9907192234841984 |
 # +------+-----------------------+-----------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
+
+
 def append_list_of_two_lists(nested):
+    """Perform an append for a list of doubly nested lists."""
     res = []
     for item in nested:
-        for list in item:
+        for thelist in item:
             res.append(list)

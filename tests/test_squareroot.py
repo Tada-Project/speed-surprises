@@ -1,4 +1,4 @@
-"""Tests for the squareroot functions in the numbers module"""
+"""Tests for the squareroot functions in the numbers module."""
 
 import pytest
 
@@ -11,7 +11,7 @@ from speedsurprises.numbers import squareroot
 
 @pytest.mark.benchmark
 def test_squareroot_benchmark_bisection(benchmark):
-    """Benchmark the squareroot functions"""
+    """Benchmark the squareroot functions."""
     computed_value_bisection = benchmark(
         squareroot.square_root_bisection, value=100, epsilon=0.001
     )
@@ -20,7 +20,7 @@ def test_squareroot_benchmark_bisection(benchmark):
 
 @pytest.mark.benchmark
 def test_squareroot_benchmark_exhaustive(benchmark):
-    """Benchmark the squareroot functions"""
+    """Benchmark the squareroot functions."""
     computed_value_exhaustive = benchmark(
         squareroot.square_root_bisection, value=100, epsilon=0.001
     )
@@ -34,7 +34,7 @@ def test_squareroot_benchmark_exhaustive(benchmark):
 @settings(verbosity=Verbosity.verbose, deadline=None)
 @pytest.mark.hypothesisworks
 def test_squareroot_bisection_hypothesis(squareroot_input, epsilon):
-    """Returns output with correct squareroot value"""
+    """Returns output with correct squareroot value."""
     computed_value_bisection = squareroot.square_root_bisection(
         squareroot_input, epsilon
     )
@@ -45,7 +45,7 @@ def test_squareroot_bisection_hypothesis(squareroot_input, epsilon):
 
 
 def test_squareroot_bisection_single():
-    """Check the square_root_bisection function with a single input"""
+    """Check the square_root_bisection function with a single input."""
     squareroot_input = 100.0
     epsilon = 0.001
     computed_value_bisection = squareroot.square_root_bisection(
@@ -59,7 +59,7 @@ def test_squareroot_bisection_single():
 
 
 def test_squareroot_exchaustive_single():
-    """Check the square_root_exhaustive function with a single input"""
+    """Check the square_root_exhaustive function with a single input."""
     squareroot_input = 100.0
     epsilon = 0.001
     computed_value_exhaustive = squareroot.square_root_exhaustive(
@@ -73,7 +73,7 @@ def test_squareroot_exchaustive_single():
 
 
 def test_exhaustive_raises_valuerror():
-    """Check that the square_root_exhaustive fails with a ValueError"""
+    """Check that the square_root_exhaustive fails with a ValueError."""
     with pytest.raises(ValueError):
         squareroot_input = 20.925836323288614
         epsilon = 0.11134161667029244

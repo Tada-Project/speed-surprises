@@ -1,4 +1,8 @@
-"""GA Onemax example from DEAP: https://github.com/DEAP/deap/blob/master/examples/ga/onemax.py"""
+"""GA Onemax example from DEAP."""
+
+# Reference:
+# https://github.com/DEAP/deap/blob/master/examples/ga/onemax.py
+
 #    This file is part of DEAP.
 #
 #    DEAP is free software: you can redistribute it and/or modify
@@ -14,7 +18,6 @@
 #    You should have received a copy of the GNU Lesser General Public
 #    License along with DEAP. If not, see <http://www.gnu.org/licenses/>.
 
-
 #    example which maximizes the sum of a list of integers
 #    each of which can be 0 or 1
 
@@ -24,6 +27,7 @@ from deap import base, creator, tools
 
 
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.genetic_algorithm.onemax --function=onemax --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int.json --startsize=10 --max=1000
+
 # Quit due to over maximum time: 429.2712752819061
 # +------+---------------------+----------------------+--------------------+
 # | Size |         Mean        |        Median        |       Ratio        |
@@ -35,8 +39,11 @@ from deap import base, creator, tools
 # | 160  |  3.1533941145307227 |  3.1513590500107966  | 6.191339376474929  |
 # +------+---------------------+----------------------+--------------------+
 # O(n^3) cubic
+
+
 def onemax(size):
-    """Search for a 1 filled list individual"""
+    """Search for a 1 filled list individual."""
+    # pylint: disable=too-many-locals
 
     creator.create("FitnessMax", base.Fitness, weights=(1.0,))
     creator.create("Individual", list, fitness=creator.FitnessMax)
@@ -61,7 +68,7 @@ def onemax(size):
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
     def evalOneMax(individual):
-        """the goal ('fitness') function to be maximized"""
+        """Compute the goal (i.e., 'fitness') function to be maximized."""
         return (sum(individual),)
 
     # ----------

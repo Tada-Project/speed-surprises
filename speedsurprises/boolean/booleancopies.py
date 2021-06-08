@@ -1,8 +1,10 @@
-"""Functions that create copies of boolean and booleanlists"""
+"""Functions that create copies of boolean and booleanlists."""
 
 Boolean_T = True
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.boolean.booleancopies --function=bcopies_oft --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int.json --startsize=25 --max=1000
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -18,7 +20,7 @@ Boolean_T = True
 
 
 def bcopies_oft(inputlength):
-    """Create empty list for boolean true"""
+    """Create empty list for boolean true."""
     list_of_boolean_true = []
     # iterate length of inputlength times, appending a boolean true at each iteration
     # pylint: disable=unused-variable
@@ -28,8 +30,10 @@ def bcopies_oft(inputlength):
     return list_of_boolean_true
 
 
-# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.boolean.booleancopies --function=bcopies_of --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int_and_boolean.json --starts ize=25 --max=1000
+# pylint: disable=line-too-long
+# pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.boolean.booleancopies --function=bcopies_of --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int_and_boolean.json --startsize=25 --max=1000
 # Quit due to researched max size
+
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
 # +------+------------------------+------------------------+--------------------+
@@ -44,7 +48,7 @@ def bcopies_oft(inputlength):
 
 
 def bcopies_of(inputlength, boolean):
-    """Create empty list for boolean true"""
+    """Create empty list for boolean true."""
     list_of_boolean_true = []
     # iterate length of inputlength times, appending a boolean true at each iteration
     # pylint: disable=unused-variable

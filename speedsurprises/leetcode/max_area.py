@@ -1,15 +1,20 @@
 """
+Compute the maximum area for points represented as coordinates.
+
 Given n non-negative integers a1, a2, ..., an , where each represents a point at
 coordinate (i, ai). n vertical lines are drawn such that the two endpoints of
 line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms
 a container, such that the container contains the most water.
-https://leetcode.com/problems/container-with-most-water/
 """
+
+# Reference:
+# https://leetcode.com/problems/container-with-most-water/
 
 from typing import List
 
 
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.leetcode.max_area --function=max_area_linear --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
+
 # Quit due to end of rounds:  5
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -21,8 +26,10 @@ from typing import List
 # | 800  | 0.0005395804107421874  | 0.0005376722871093752  | 2.122580001976279  |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
+
+
 def max_area_linear(height: List[int]) -> int:
-    """O(n) solution"""
+    """Compute the maximum area with a O(n) solution."""
     right = 0
     left = len(height) - 1
     max_container = 0
@@ -34,11 +41,11 @@ def max_area_linear(height: List[int]) -> int:
             left -= 1
         else:
             right += 1
-
     return max_container
 
 
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.leetcode.max_area --function=max_area_log --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
+
 # Quit due to end of rounds:  5
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -50,9 +57,11 @@ def max_area_linear(height: List[int]) -> int:
 # | 800  | 0.0009118717535156251  |  0.00088876512890625   | 2.103433057582691  |
 # +------+------------------------+------------------------+--------------------+
 # O(n) linear or O(nlogn) linearithmic
+
+
 def max_area_log(height: List[int]) -> int:
-    """O(nlogn) solution"""
-    # pylint: disable=W1637, W1638
+    """Compute the maximum area with the O(nlogn) solution."""
+    # pylint: disable=zip-builtin-not-iterating
     X = zip(height, range(len(height)))
     X = list(sorted(X, reverse=True))
     L = X[0][1]
@@ -66,6 +75,7 @@ def max_area_log(height: List[int]) -> int:
 
 
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.leetcode.max_area --function=max_area_quadratic --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/single_int_list.json --startsize=50 --max=1000
+
 # Quit due to end of rounds:  5
 # +------+-----------------------+-----------------------+--------------------+
 # | Size |          Mean         |         Median        |       Ratio        |
@@ -77,8 +87,10 @@ def max_area_log(height: List[int]) -> int:
 # | 800  |  0.16669830331666666  |      0.158989744      | 3.945844334243576  |
 # +------+-----------------------+-----------------------+--------------------+
 # O(n^2) quadratic
+
+
 def max_area_quadratic(height: List[int]):
-    """O(n^2) brute force solution"""
+    """Compute the maximum area with the O(n^2) brute force solution."""
     maxarea = 0
     for i, ele_i in enumerate(height):
         for j in range(i + 1, len(height)):

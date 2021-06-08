@@ -3,6 +3,8 @@
 # Source and/or inspiration for function(s):
 # https://www.geeksforgeeks.org/reverse-string-python-5-different-ways/
 
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.text.string_reverser --function=reverse --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/string.json --startsize=25 --max= 1000
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
@@ -19,7 +21,8 @@
 
 
 def reverse(s):
-    str = ""
+    """Reverse the provided string."""
+    final_str = ""
     for i in s:
-        str = i + str
-    return str
+        final_str = i + final_str
+    return final_str

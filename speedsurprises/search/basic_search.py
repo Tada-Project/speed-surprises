@@ -1,12 +1,19 @@
-"""Compute basic search functions"""
+"""Compute basic search functions."""
+
+# References:
+
 # https://www.geeksforgeeks.org/python-program-for-linear-search/
 # https://www.geeksforgeeks.org/python-program-for-binary-search/
 # import random
+
 import math
 
 
 # Worst-case time complexity: O(n)
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_linear_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=2 --max=1000
+
 # Quit due to indicator:  0.072498847603935
 # +------+-----------------------+----------------------+--------------------+
 # | Size |          Mean         |        Median        |       Ratio        |
@@ -16,7 +23,9 @@ import math
 # +------+-----------------------+----------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_linear_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=25 --max=1000
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -31,18 +40,19 @@ import math
 # O(n) linear or O(nlogn) linearithmic
 
 
-def compute_linear_search(list, x):
+def compute_linear_search(search_list, x):
     """Search a list using linear search function."""
-    # x = random.choice(list)
-    # x = list[len(list) - 1]
-    for i in range(len(list)):
-        if list[i] == x:
+    for i in range(len(search_list)):
+        if search_list[i] == x:
             return i
     return -1
 
 
 # Worst-case time complexity: O(logn)
+
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.basic_search --function=compute_iterative_binary_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=25 --max=1000
+
 # Quit due to indicator:  0.01750971078860441
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -54,20 +64,20 @@ def compute_linear_search(list, x):
 # O(1) constant or O(logn) logarithmic
 
 
-def compute_iterative_binary_search(list, target):
+def compute_iterative_binary_search(search_list, target):
     """Search a list using linear search function."""
     first = 0
-    last = len(list) - 1
+    last = len(search_list) - 1
     # Search target set as the last number in the list for the worst case
     # target = list[last]
     found = False
     while first <= last and not found:
         mid = int((first + last) / 2)
-        if list[mid] == target:
+        if search_list[mid] == target:
             found = True
             return mid
         else:
-            if target < list[mid]:
+            if target < search_list[mid]:
                 last = mid - 1
             else:
                 first = mid + 1
@@ -90,21 +100,21 @@ def compute_iterative_binary_search(list, target):
 # O(n) linear or O(nlogn) linearithmic
 
 
-def compute_jump_search(list, x):
-    """Search a list using jump search function"""
-    n = len(list)
+def compute_jump_search(search_list, x):
+    """Search a list using jump search function."""
+    n = len(search_list)
     step = int(math.floor(math.sqrt(n)))
     prev = 0
-    while list[min(step, n) - 1] < x:
+    while search_list[min(step, n) - 1] < x:
         prev = step
         step += int(math.floor(math.sqrt(n)))
         if prev >= n:
             return -1
-    while list[prev] < x:
+    while search_list[prev] < x:
         prev = prev + 1
         if prev == min(step, n):
             return -1
-    if list[prev] == x:
+    if search_list[prev] == x:
         return prev
     return -1
 
@@ -132,23 +142,28 @@ def compute_jump_search(list, x):
 # O(1) constant or O(logn) logarithmic
 
 
-def compute_interpolation_search(list, x):
-    # Find indexs of two corners
+def compute_interpolation_search(search_list, x):
+    """Find indices of two corners."""
     lo = 0
-    n = len(list)
+    n = len(search_list)
     hi = n - 1
     # Since array is sorted, an element present
     # in array must be in range defined by corner
-    while lo <= hi and x >= list[lo] and x <= list[hi]:
+    while lo <= hi and x >= search_list[lo] and x <= search_list[hi]:
         if lo == hi:
-            if list[lo] == x:
+            if search_list[lo] == x:
                 return lo
             return -1
         # Probing the position with keeping
         # uniform distribution in mind.
-        pos = lo + int(((float(hi - lo) / (list[hi] - list[lo])) * (x - list[lo])))
+        pos = lo + int(
+            (
+                (float(hi - lo) / (search_list[hi] - search_list[lo]))
+                * (x - search_list[lo])
+            )
+        )
         # Condition of target found
-        if list[pos] == x:
+        if search_list[pos] == x:
             return pos
         # If x is larger, x is in upper part
         if list[pos] < x:

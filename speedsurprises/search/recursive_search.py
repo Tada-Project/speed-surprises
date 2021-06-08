@@ -1,8 +1,12 @@
-"""Compute recursive search functions"""
+"""Compute recursive search functions."""
+
+# Reference:
 # https://www.geeksforgeeks.org/exponential-search/
 
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.recursive_search --function=compute_recursive_binary_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=25 --max=1000
+
 # Quit due to indicator:  0.09266699082185953
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -12,7 +16,9 @@
 # +------+------------------------+------------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.recursive_search --function=compute_recursive_binary_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=200 --max=1000
+
 # Quit due to indicator:  0.0014415027123466984
 # +------+-----------------------+-----------------------+--------------------+
 # | Size |          Mean         |         Median        |       Ratio        |
@@ -25,30 +31,33 @@
 # warning: didn't recognize array or object
 
 
-def compute_recursive_binary_search(list, x, left=0, right=None):
+def compute_recursive_binary_search(search_list, x, left=0, right=None):
+    """Perform a recursive binary search."""
     if right is None:
-        right = len(list) - 1
+        right = len(search_list) - 1
     if right >= left:
+        # WARNING: this is "old division" and may not work in future
+        # pylint: disable=old-division
         mid = int(left + (right - left) / 2)
         # If the element is present at
         # the middle itself
-        if list[mid] == x:
+        if search_list[mid] == x:
             return mid
         # If the element is smaller than mid,
         # then it can only be present in the
         # left subarray
-        if list[mid] > x:
-            return compute_recursive_binary_search(list, x, left, mid - 1)
+        if search_list[mid] > x:
+            return compute_recursive_binary_search(search_list, x, left, mid - 1)
         # Else he element can only be
         # present in the right
-        return compute_recursive_binary_search(list, x, mid + 1, right)
+        return compute_recursive_binary_search(search_list, x, mid + 1, right)
     # We reach here if the element is not present
     return -1
 
 
-# Returns the position of first
-# occurrence of x in array
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.recursive_search --function=compute_exponential_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=25 --max=1000
+
 # Quit due to indicator:  0.09106801036873877
 # +------+------------------------+-----------------------+--------------------+
 # | Size |          Mean          |         Median        |       Ratio        |
@@ -58,7 +67,9 @@ def compute_recursive_binary_search(list, x, left=0, right=None):
 # +------+------------------------+-----------------------+--------------------+
 # O(1) constant or O(logn) logarithmic
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.search.recursive_search --function=compute_exponential_search --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/list_and_intdiff.json --startsize=200 --max=1000
+
 # Quit due to indicator:  0.07090269021012043
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -69,16 +80,19 @@ def compute_recursive_binary_search(list, x, left=0, right=None):
 # O(1) constant or O(logn) logarithmic
 
 
-def compute_exponential_search(list, x):
+def compute_exponential_search(search_list, x):
+    """Return the position of first occurrence of x in array."""
     # IF x is present at first
     # location itself
-    n = len(list) - 1
-    if list[0] == x:
+    n = len(search_list) - 1
+    if search_list[0] == x:
         return 0
     # Find range for binary search
     # j by repeated doubling
     i = 1
-    while i < n and list[i] <= x:
+    while i < n and search_list[i] <= x:
         i = i * 2
     # Call binary search for the found range
-    return compute_recursive_binary_search(list, x, i / 2, min(i, n))
+    # WARNING: this uses "old division" and may not work in the future
+    # pylint: disable=old-division
+    return compute_recursive_binary_search(search_list, x, i / 2, min(i, n))

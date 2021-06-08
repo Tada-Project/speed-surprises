@@ -1,11 +1,13 @@
-"""Functions that create copies of characters and strings"""
+"""Functions that create copies of characters and strings."""
 
 # Source and/or inspiration for function(s):
 # http://whatcanbecomputed.com/
 
 LETTER_C = "C"
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.text.copies --function=mcopies_ofc --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int.json --startsize=25 --max=1000
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -21,7 +23,7 @@ LETTER_C = "C"
 
 
 def mcopies_ofc(input_string):
-    """Create copy_count (number in input_string) copies of the letter 'C'"""
+    """Create copy_count (number in input_string) copies of the letter 'C'."""
     copy_count = int(input_string)
     list_of_letter_c = []
     # iterate copy_count times, appending a 'C' character at each iteration
@@ -32,7 +34,9 @@ def mcopies_ofc(input_string):
     return "".join(list_of_letter_c)
 
 
+# pylint: disable=line-too-long
 # pipenv run python tada_a_bigoh.py --directory ../speed_surprises/ --module=speedsurprises.text.copies --function=mcop ies_of --types hypothesis --schema=../speed_surprises/speedsurprises/jsonschema/int_and_char.json --startsize=25 --max=1 000
+
 # Quit due to researched max size
 # +------+------------------------+------------------------+--------------------+
 # | Size |          Mean          |         Median         |       Ratio        |
@@ -48,7 +52,7 @@ def mcopies_ofc(input_string):
 
 
 def mcopies_of(input_string, character):
-    """Create copy_count (number in input_string) copies of the character"""
+    """Create copy_count (number in input_string) copies of the character."""
     copy_count = int(input_string)
     list_of_letter = []
     # iterate copy_count times, appending a character at each iteration
