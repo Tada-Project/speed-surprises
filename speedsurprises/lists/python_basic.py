@@ -119,6 +119,44 @@ def dict_in(dict, x):
 
 
 # tada --directory . --module speedsurprises.lists.python_basic \
+#      --function dict_iterate_in --types hypothesis \
+#      --schema speedsurprises/jsonschema/dict_and_int.json \
+#      --log --startsize 50 --maxsize 200
+# +----------------------------------------------------------------------------+
+# |           dict_iterate_in: O(n) linear or O(nlogn) linearithmic            |
+# +------+-----------------------+------------------------+--------------------+
+# | Size |          Mean         |         Median         |       Ratio        |
+# +------+-----------------------+------------------------+--------------------+
+# |  50  | 2.146034294382731e-06 | 2.1284195175170893e-06 |         0          |
+# | 100  | 3.909726494852702e-06 | 3.858912918090823e-06  | 1.8218378453161048 |
+# +------+-----------------------+------------------------+--------------------+
+# tada --directory . --module speedsurprises.lists.python_basic \
+#      --function dict_iterate_in --types custom \
+#      --data_directory . \
+#      --data_module speedsurprises.data_generation.custom_data_generation  \
+#      --data_function generate_dict_and_int --startsize 50 --log --maxsize 6400
+# Quit due to exceeding the max time limit: 216.12506294250488
+# +-----------------------------------------------------------------------------+
+# |            dict_iterate_in: O(n) linear or O(nlogn) linearithmic            |
+# +------+------------------------+------------------------+--------------------+
+# | Size |          Mean          |         Median         |       Ratio        |
+# +------+------------------------+------------------------+--------------------+
+# |  50  | 2.609085034942627e-06  | 2.5874949569702137e-06 |         0          |
+# | 100  | 4.7543861551920575e-06 | 4.736902969360352e-06  | 1.822242698692496  |
+# | 200  | 9.061589477539062e-06  | 9.006818298339847e-06  | 1.9059430979629823 |
+# | 400  |  1.79077449991862e-05  | 1.7699565612792972e-05 | 1.9762255886314513 |
+# | 800  | 3.535039537760417e-05  | 3.521524963378906e-05  | 1.974028297767845  |
+# | 1600 | 7.028248163248697e-05  | 6.956451074218749e-05  | 1.9881667766865663 |
+# | 3200 | 0.0001466154940266927  | 0.00014004887255859378 | 2.086088746742858  |
+# +------+------------------------+------------------------+--------------------+
+def dict_iterate_in(dict, x):
+    for k, _ in dict.items():
+        if k == x:
+            return True
+    return False
+
+
+# tada --directory . --module speedsurprises.lists.python_basic \
 #      --function set_in make_set --types hypothesis \
 #      --schema speedsurprises/jsonschema/list_and_int.json \
 #      --log --startsize 50 --contrast
