@@ -13,8 +13,17 @@ https://leetcode.com/problems/combination-sum/
 
 from typing import List
 
-
-# python tada/tada_a_bigoh.py --directory ../speed-surprises/ --module speedsurprises.leetcode.combination_sum --function combination_sum --types hypothesis --schema ../speed-surprises/speedsurprises/jsonschema/list_and_int0.json --startsize 50  --log
+# Expected O(n) --> target number 0, minimum value 1, the max depth of the tree is 0/1 = 0, size n, O(n^(0/1 + 1)) == O(n)
+# Quit due to indicator: 0.05422886313000301
+# +-----------------------------------------------------------------------------+
+# |            combination_sum: O(1) constant or O(logn) logarithmic            |
+# +------+------------------------+------------------------+--------------------+
+# | Size |          Mean          |         Median         |       Ratio        |
+# +------+------------------------+------------------------+--------------------+
+# |  50  | 1.0193872210184734e-06 | 1.0079918403625495e-06 |         0          |
+# | 100  | 1.136286982345581e-06  | 1.1032247886657717e-06 | 1.1146765026250893 |
+# +------+------------------------+------------------------+--------------------+
+# python tada/tada_a_bigoh.py --directory ../speed-surprises/ --module speedsurprises.leetcode.combination_sum --function combination_sum --types hypothesis --schema ../speed-surprises/speedsurprises/jsonschema/list_and_int0.json --startsize 50  --log
 def combination_sum(candidates: List[int], target: int) -> List[List[int]]:
 
     results = []
@@ -35,7 +44,80 @@ def combination_sum(candidates: List[int], target: int) -> List[List[int]]:
             backtrack(remain - candidates[i], comb, i)
             # backtrack, remove the number from the combination
             comb.pop()
+w
 
     backtrack(target, [], 0)
 
     return results
+
+
+# iterative approach by TheOliveKing ()
+# Quit due to exceeding the max time limit: 241.933278799057
+# +-----------------------------------------------------------------------------+
+# |           combination_sum_2: O(n) linear or O(nlogn) linearithmic           |
+# +------+------------------------+------------------------+--------------------+
+# | Size |          Mean          |         Median         |       Ratio        |
+# +------+------------------------+------------------------+--------------------+
+# |  50  | 2.403005523681641e-06  | 2.3799171447753903e-06 |         0          |
+# | 100  | 3.5623719278971344e-06 | 3.3786392211914007e-06 | 1.4824651432507863 |
+# | 200  |  5.34920639038086e-06  |  5.1771224975586e-06   | 1.5015856004509032 |
+# | 400  | 9.215837097167971e-06  | 8.906381225585929e-06  | 1.722841936654422  |
+# +------+------------------------+------------------------+--------------------+
+def combination_sum_2(nums, target):
+    res = []
+    nums.sort()
+    def dfs(left, path, idx):
+        if not left: res.append(path[:])
+        else:
+            for i, val in enumerate(nums[idx:]):
+                if val > left: break
+                dfs(left - val, path + [val], idx + i)
+    dfs(target, [], 0)
+    return res
+
+
+# Expect O(target^n), when target = 0, expect O(0) -> O(1)
+# Quit due to indicator: 0.08334973111885821
+# +-----------------------------------------------------------------------------+
+# |           combination_sum_3: O(1) constant or O(logn) logarithmic           |
+# +------+------------------------+------------------------+--------------------+
+# | Size |          Mean          |         Median         |       Ratio        |
+# +------+------------------------+------------------------+--------------------+
+# |  50  | 1.0524142328898111e-06 | 1.0113208770751972e-06 |         0          |
+# | 100  | 8.904749425252276e-07  | 8.188911437988271e-07  | 0.8461259024216002 |
+# +------+------------------------+------------------------+--------------------+
+# Expect O(target^n), when target = 2, expect O(2^n)
+# Quit due to exceeding the max time limit: 218.99578046798706
+# +-----------------------------------------------------------------------------+
+# |           combination_sum_3: O(n) linear or O(nlogn) linearithmic           |
+# +------+------------------------+------------------------+--------------------+
+# | Size |          Mean          |         Median         |       Ratio        |
+# +------+------------------------+------------------------+--------------------+
+# |  50  | 2.165257954915364e-05  | 2.2129180908203122e-05 |         0          |
+# | 100  | 4.0806046956380206e-05 | 3.9891479492187507e-05 | 1.8845813203801502 |
+# | 200  | 8.048438639322919e-05  | 7.975593261718751e-05  | 1.9723642057086126 |
+# | 400  | 0.00015408850260416665 |  0.000146213232421875  | 1.914514224551875  |
+# +------+------------------------+------------------------+--------------------+
+
+def combination_sum_3(candidates: List[int], target: int) -> List[List[int]]:
+    if len(candidates) == 0:
+        return []
+    dp = {}
+    dp[0] = [[]]
+    
+    for i in range(1,target+1):
+        output = []
+        for j in range(len(candidates)):
+            if (i - candidates[j]) >= 0 and (i - candidates[j]) in dp:
+                prev_path = dp.get(i-candidates[j])
+        
+                for each in prev_path:
+                    temp = sorted(each+[candidates[j]])
+                    if temp not in output:
+                        output.append(temp)
+        if output:
+            dp[i] = output
+            
+    if target not in dp:
+        return []
+    return dp[target]
