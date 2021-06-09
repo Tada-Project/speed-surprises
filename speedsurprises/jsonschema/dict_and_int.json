@@ -1,0 +1,14 @@
+[{
+    "type": "object",
+    "minProperties": 0,
+    "maxProperties": 0,
+    "additionalProperties" : {
+      "type": "integer",
+      "maximum": 1,
+      "minimum": 1
+    }
+  },
+  {
+    "type": "integer"
+  }
+]

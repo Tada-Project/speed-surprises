@@ -91,6 +91,13 @@ def test_list_append_single():
     assert appended_list == [5]
 
 
+def test_list_delete_item_single():
+    """Check the list_delete_item_last function with a single list."""
+    test_lst = [4, 3, 1, 5, 6]
+    deleted_list = python_basic.list_delete_item_last(test_lst)
+    assert deleted_list == [4, 3, 1, 5]
+
+
 def test_list_poplast_single():
     """Check the list_poplast function with a single list."""
     poplasted_list = python_basic.list_poplast([4, 3, 1, 5, 6])
@@ -106,8 +113,34 @@ def test_list_in_single():
 
 
 def test_dict_in_single():
-    """Check the dict_in function with a single list."""
-    dict_is_in = python_basic.dict_in({"first": 1, "second": 2, "third": 3}, "first")
-    dict_isnot_in = python_basic.dict_in({"first": 1, "second": 2, "third": 3}, 1)
+    """Check the dict_in function with a single dict."""
+    test_dict = {"first": 1, "second": 2, "third": 3}
+    dict_is_in = python_basic.dict_in(test_dict, "first")
+    dict_isnot_in = python_basic.dict_in(test_dict, 1)
     assert dict_is_in == 1
     assert dict_isnot_in == 0
+
+
+def test_dict_iterate_in_single():
+    """Check the dict_iterate_in function with a single dict."""
+    test_dict = {"first": 1, "second": 2, "third": 3}
+    dict_is_in = python_basic.dict_iterate_in(test_dict, "first")
+    dict_isnot_in = python_basic.dict_iterate_in(test_dict, 1)
+    assert dict_is_in == 1
+    assert dict_isnot_in == 0
+
+
+def test_set_in_single():
+    """Check the set_in function with a single list."""
+    test_lst = [4, 3, 1, 5, 6]
+    set_is_in = python_basic.set_in(test_lst, 4)
+    set_isnot_in = python_basic.set_in(test_lst, 10)
+    assert set_is_in == 1
+    assert set_isnot_in == 0
+
+
+def test_make_set():
+    """Check the make_set works correctly with a single list."""
+    test_lst = [4, 3, 1, 5, 6]
+    output = python_basic.make_set(test_lst, 4)
+    assert isinstance(output, set) is True
