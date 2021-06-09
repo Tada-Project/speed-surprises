@@ -210,6 +210,7 @@ def dict_in(thedict, x):
 # | 3200 | 0.0001466154940266927  | 0.00014004887255859378 | 2.086088746742858  |
 # +------+------------------------+------------------------+--------------------+
 def dict_iterate_in(dict, x):
+    """Determine if a value is in the dictionary iteratively."""
     for k, _ in dict.items():
         if k == x:
             return True
@@ -253,6 +254,7 @@ def dict_iterate_in(dict, x):
 # | 800  | 1.2620241599527994e-05 | 1.236202178955079e-05  | 1.3661601524173181 |
 # +------+------------------------+------------------------+--------------------+
 def set_in(input_lst, x):
+    """Determine if a value is in the set."""
     res = 0
     set_lst = set(input_lst)
     if x in set_lst:
@@ -278,5 +280,6 @@ def set_in(input_lst, x):
 # | 800  | 1.2422611956787111e-05 | 1.232102755737305e-05  | 1.5801425288346078 |
 # +------+------------------------+------------------------+--------------------+
 def make_set(input_lst, x):
+    """Make a set from the input list."""
     lst_set = set(input_lst)
     return lst_set
